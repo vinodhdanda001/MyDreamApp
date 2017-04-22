@@ -1,27 +1,35 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{469F8336-09B3-45FA-9F0F-524B22A05109}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Common.Tests", "TrackMyKid.Common.Tests\TrackMyKid.Common.Tests.csproj", "{3C54B9EC-0986-4CF3-9016-279FE145D4EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackMyKid.Common.Tests", "TrackMyKid.Common.Tests\TrackMyKid.Common.Tests.csproj", "{3C54B9EC-0986-4CF3-9016-279FE145D4EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Data.SqlServer.IntegrationTests", "TrackMyKid.Data.SqlServer.IntegrationTests\TrackMyKid.Data.SqlServer.IntegrationTests.csproj", "{435ACA4A-3197-406F-8A6E-6437DFE7E3D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackMyKid.Data.SqlServer.IntegrationTests", "TrackMyKid.Data.SqlServer.IntegrationTests\TrackMyKid.Data.SqlServer.IntegrationTests.csproj", "{435ACA4A-3197-406F-8A6E-6437DFE7E3D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Data.Tests", "TrackMyKid.Data.Tests\TrackMyKid.Data.Tests.csproj", "{8DFDDF6B-C122-4E4F-AE62-2E4FADE25CED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackMyKid.Data.Tests", "TrackMyKid.Data.Tests\TrackMyKid.Data.Tests.csproj", "{8DFDDF6B-C122-4E4F-AE62-2E4FADE25CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Web.Api.IntegrationTests", "TrackMyKid.Web.Api.IntegrationTests\TrackMyKid.Web.Api.IntegrationTests.csproj", "{DC42AA2C-5D8C-41EE-8017-3C46DC1B28EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackMyKid.Web.Api.IntegrationTests", "TrackMyKid.Web.Api.IntegrationTests\TrackMyKid.Web.Api.IntegrationTests.csproj", "{DC42AA2C-5D8C-41EE-8017-3C46DC1B28EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Web.Api.Tests", "TrackMyKid.Web.Api.Tests\TrackMyKid.Web.Api.Tests.csproj", "{98C4E90C-3FBA-409E-8334-73448FAB1D23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackMyKid.Web.Api.Tests", "TrackMyKid.Web.Api.Tests\TrackMyKid.Web.Api.Tests.csproj", "{98C4E90C-3FBA-409E-8334-73448FAB1D23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Web.Common.Tests", "TrackMyKid.Web.Common.Tests\TrackMyKid.Web.Common.Tests.csproj", "{407F9B68-A492-4126-A7B0-F5C53DB7B2A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackMyKid.Web.Common.Tests", "TrackMyKid.Web.Common.Tests\TrackMyKid.Web.Common.Tests.csproj", "{407F9B68-A492-4126-A7B0-F5C53DB7B2A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Web.Api", "TrackMyKid.Web.Api\TrackMyKid.Web.Api.csproj", "{F881E32F-6354-4372-AE04-168CDC52E2EE}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TrackMyKidDb", "TrackMyKidDb\TrackMyKidDb.sqlproj", "{87D494A7-1300-40B6-9574-A217258BA975}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Common", "TrackMyKid.Common\TrackMyKid.Common.csproj", "{D1721362-DB30-4AC3-A9EB-230A36A14690}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{2D9171BA-AC57-4E2F-A3D5-48F941A1D03B}"
+	ProjectSection(SolutionItems) = preProject
+		Script\Script_TransportCatalog.sql = Script\Script_TransportCatalog.sql
+		Script\TableDropScript.sql = Script\TableDropScript.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.DataLayer", "TrackMyKid.DataLayer\TrackMyKid.DataLayer.csproj", "{B4DD0F17-EE35-4284-BCCD-F3E4F25DD0A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +75,10 @@ Global
 		{D1721362-DB30-4AC3-A9EB-230A36A14690}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1721362-DB30-4AC3-A9EB-230A36A14690}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1721362-DB30-4AC3-A9EB-230A36A14690}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4DD0F17-EE35-4284-BCCD-F3E4F25DD0A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DD0F17-EE35-4284-BCCD-F3E4F25DD0A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DD0F17-EE35-4284-BCCD-F3E4F25DD0A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DD0F17-EE35-4284-BCCD-F3E4F25DD0A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

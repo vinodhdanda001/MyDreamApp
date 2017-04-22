@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="TrackMyKidDb.dll" />
-			<Metadata Name="FileName" Value="E:\ACADEMICYR2018\TRACKMYKID\SRC\TRACKMYKIDDB\OBJ\DEBUG\TRACKMYKIDDB.DLL" />
+			<Metadata Name="FileName" Value="E:\MYDREAM\TRANSPORT APP\TRACKMYKID\SRC\TRACKMYKIDDB\OBJ\DEBUG\TRACKMYKIDDB.DLL" />
 			<Metadata Name="AssemblyName" Value="TrackMyKidDb" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="E:\AcademicYr2018\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>
@@ -34,7 +34,6 @@
 			<Property Name="IsConcatNullYieldsNullOn" Value="True" />
 			<Property Name="IsTornPageProtectionOn" Value="False" />
 			<Property Name="IsFullTextEnabled" Value="True" />
-			<Property Name="CompatibilityMode" Value="130" />
 			<Property Name="PageVerifyMode" Value="3" />
 			<Property Name="DefaultLanguage" Value="" />
 			<Property Name="DefaultFullTextLanguage" Value="" />

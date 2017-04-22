@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{97E1B773-56F3-4475-B28C-139ACC66435A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{B4DD0F17-EE35-4284-BCCD-F3E4F25DD0A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TrackMyKid.DataLayer</RootNamespace>
     <AssemblyName>TrackMyKid.DataLayer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,11 +49,89 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="DriverDetail.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberRole.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Organization.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationMember.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationRoute.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleDetail.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteHalt.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteMember.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteTrip.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrackMyKidEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrackMyKidEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrackMyKidEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrackMyKidEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrackMyKidEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TripHaltTiming.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TripVehicleDriverDetail.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleDetail.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <EntityDeploy Include="TrackMyKidEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TrackMyKidEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="TrackMyKidEntities.edmx.diagram">
+      <DependentUpon>TrackMyKidEntities.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TrackMyKidEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TrackMyKidEntities.Context.cs</LastGenOutput>
+      <DependentUpon>TrackMyKidEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="TrackMyKidEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TrackMyKidEntities.edmx</DependentUpon>
+      <LastGenOutput>TrackMyKidEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

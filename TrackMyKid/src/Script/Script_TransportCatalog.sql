@@ -1,3 +1,7 @@
+--------Create TranportCatalog database if not exists
+
+
+
 USE [TranportCatalog]
 GO
 

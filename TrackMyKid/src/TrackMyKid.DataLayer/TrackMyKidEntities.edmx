@@ -1,0 +1,733 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TranportCatalogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DriverDetails">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Driver_ID" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Driver_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DriverName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="DriverAddress" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DriverContactNum" Type="int" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="Organization_ID" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="varchar" MaxLength="516" Nullable="false" />
+          <Property Name="PasswordHash" Type="varchar" MaxLength="516" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberRole">
+          <Key>
+            <PropertyRef Name="MemberID" />
+            <PropertyRef Name="Organization_ID" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Organization_Name" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Organization_Type" Type="varchar" MaxLength="10" />
+          <Property Name="AddressStreet1" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="AddressStreet2" Type="varchar" MaxLength="4000" />
+          <Property Name="City" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="PinCode" Type="int" Nullable="false" />
+          <Property Name="PrimaryContactNumner" Type="int" Nullable="false" />
+          <Property Name="SecondaryContactNo" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrganizationMembers">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="150" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="150" />
+          <Property Name="designation" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="AddressLandMark" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Coutry" Type="varchar" MaxLength="100" />
+          <Property Name="PinCode" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="PrimaryContactNo" Type="int" Nullable="false" />
+          <Property Name="AlternativeContactNo" Type="int" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrganizationRoutes">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Route_Display_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="End_Halt" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleDetails">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="RoleDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RouteHalts">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="HaltName" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="HaltName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Seq_No" Type="int" Nullable="false" />
+          <Property Name="Halt_Address" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="X_Coordinate" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="Y_Coordinate" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RouteMembers">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MemberID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MemberHalt" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RouteTrips">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TripHaltTimings">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+            <PropertyRef Name="HaltName" />
+            <PropertyRef Name="ToWordsOrgInd" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HaltName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="HaltArrivalTime" Type="datetime" />
+          <Property Name="ToWordsOrgInd" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TripVehicleDriverDetails">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Driver_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Vehicle_ID" Type="int" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VehicleDetails">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Vehicle_ID" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Vehicle_ID" Type="int" Nullable="false" />
+          <Property Name="RegisterNumber" Type="varchar" MaxLength="20" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TranportCatalogModelStoreContainer">
+          <EntitySet Name="DriverDetails" EntityType="Self.DriverDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberRole" EntityType="Self.MemberRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrganizationMembers" EntityType="Self.OrganizationMembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrganizationRoutes" EntityType="Self.OrganizationRoutes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleDetails" EntityType="Self.RoleDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RouteHalts" EntityType="Self.RouteHalts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RouteMembers" EntityType="Self.RouteMembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RouteTrips" EntityType="Self.RouteTrips" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TripHaltTimings" EntityType="Self.TripHaltTimings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetails" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TranportCatalogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DriverDetail">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Driver_ID" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Driver_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DriverName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DriverAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DriverContactNum" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="Organization_ID" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="516" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="516" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="MemberRole">
+          <Key>
+            <PropertyRef Name="MemberID" />
+            <PropertyRef Name="Organization_ID" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Organization_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Organization_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AddressStreet1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddressStreet2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PinCode" Type="Int32" Nullable="false" />
+          <Property Name="PrimaryContactNumner" Type="Int32" Nullable="false" />
+          <Property Name="SecondaryContactNo" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrganizationMember">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="designation" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddressLandMark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Coutry" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PinCode" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PrimaryContactNo" Type="Int32" Nullable="false" />
+          <Property Name="AlternativeContactNo" Type="Int32" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="OrganizationRoute">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Route_Display_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="End_Halt" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="RoleDetail">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="RoleDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="RouteHalt">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="HaltName" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HaltName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seq_No" Type="Int32" Nullable="false" />
+          <Property Name="Halt_Address" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="X_Coordinate" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="Y_Coordinate" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="RouteMember">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TripId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MemberID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MemberHalt" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="RouteTrip">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TripId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TripHaltTiming">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+            <PropertyRef Name="HaltName" />
+            <PropertyRef Name="ToWordsOrgInd" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TripId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HaltName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HaltArrivalTime" Type="DateTime" Precision="3" />
+          <Property Name="ToWordsOrgInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TripVehicleDriverDetail">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TripId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Driver_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vehicle_ID" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="VehicleDetail">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Vehicle_ID" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Vehicle_ID" Type="Int32" Nullable="false" />
+          <Property Name="RegisterNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="TranportCatalogEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DriverDetails" EntityType="Self.DriverDetail" />
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="MemberRoles" EntityType="Self.MemberRole" />
+          <EntitySet Name="Organizations" EntityType="Self.Organization" />
+          <EntitySet Name="OrganizationMembers" EntityType="Self.OrganizationMember" />
+          <EntitySet Name="OrganizationRoutes" EntityType="Self.OrganizationRoute" />
+          <EntitySet Name="RoleDetails" EntityType="Self.RoleDetail" />
+          <EntitySet Name="RouteHalts" EntityType="Self.RouteHalt" />
+          <EntitySet Name="RouteMembers" EntityType="Self.RouteMember" />
+          <EntitySet Name="RouteTrips" EntityType="Self.RouteTrip" />
+          <EntitySet Name="TripHaltTimings" EntityType="Self.TripHaltTiming" />
+          <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetail" />
+          <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetail" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TranportCatalogModelStoreContainer" CdmEntityContainer="TranportCatalogEntities">
+          <EntitySetMapping Name="DriverDetails">
+            <EntityTypeMapping TypeName="TranportCatalogModel.DriverDetail">
+              <MappingFragment StoreEntitySet="DriverDetails">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="DriverAddress" ColumnName="DriverAddress" />
+                <ScalarProperty Name="DriverContactNum" ColumnName="DriverContactNum" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="TranportCatalogModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberRoles">
+            <EntityTypeMapping TypeName="TranportCatalogModel.MemberRole">
+              <MappingFragment StoreEntitySet="MemberRole">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizations">
+            <EntityTypeMapping TypeName="TranportCatalogModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="Organization_Name" ColumnName="Organization_Name" />
+                <ScalarProperty Name="Organization_Type" ColumnName="Organization_Type" />
+                <ScalarProperty Name="AddressStreet1" ColumnName="AddressStreet1" />
+                <ScalarProperty Name="AddressStreet2" ColumnName="AddressStreet2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="PrimaryContactNumner" ColumnName="PrimaryContactNumner" />
+                <ScalarProperty Name="SecondaryContactNo" ColumnName="SecondaryContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Cr_datetime" ColumnName="Cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganizationMembers">
+            <EntityTypeMapping TypeName="TranportCatalogModel.OrganizationMember">
+              <MappingFragment StoreEntitySet="OrganizationMembers">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="AddressLandMark" ColumnName="AddressLandMark" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Coutry" ColumnName="Coutry" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PrimaryContactNo" ColumnName="PrimaryContactNo" />
+                <ScalarProperty Name="AlternativeContactNo" ColumnName="AlternativeContactNo" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganizationRoutes">
+            <EntityTypeMapping TypeName="TranportCatalogModel.OrganizationRoute">
+              <MappingFragment StoreEntitySet="OrganizationRoutes">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+                <ScalarProperty Name="Route_Display_Name" ColumnName="Route_Display_Name" />
+                <ScalarProperty Name="End_Halt" ColumnName="End_Halt" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleDetails">
+            <EntityTypeMapping TypeName="TranportCatalogModel.RoleDetail">
+              <MappingFragment StoreEntitySet="RoleDetails">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteHalts">
+            <EntityTypeMapping TypeName="TranportCatalogModel.RouteHalt">
+              <MappingFragment StoreEntitySet="RouteHalts">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+                <ScalarProperty Name="HaltName" ColumnName="HaltName" />
+                <ScalarProperty Name="Seq_No" ColumnName="Seq_No" />
+                <ScalarProperty Name="Halt_Address" ColumnName="Halt_Address" />
+                <ScalarProperty Name="X_Coordinate" ColumnName="X_Coordinate" />
+                <ScalarProperty Name="Y_Coordinate" ColumnName="Y_Coordinate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteMembers">
+            <EntityTypeMapping TypeName="TranportCatalogModel.RouteMember">
+              <MappingFragment StoreEntitySet="RouteMembers">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+                <ScalarProperty Name="TripId" ColumnName="TripId" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="MemberHalt" ColumnName="MemberHalt" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteTrips">
+            <EntityTypeMapping TypeName="TranportCatalogModel.RouteTrip">
+              <MappingFragment StoreEntitySet="RouteTrips">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+                <ScalarProperty Name="TripId" ColumnName="TripId" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TripHaltTimings">
+            <EntityTypeMapping TypeName="TranportCatalogModel.TripHaltTiming">
+              <MappingFragment StoreEntitySet="TripHaltTimings">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+                <ScalarProperty Name="TripId" ColumnName="TripId" />
+                <ScalarProperty Name="HaltName" ColumnName="HaltName" />
+                <ScalarProperty Name="HaltArrivalTime" ColumnName="HaltArrivalTime" />
+                <ScalarProperty Name="ToWordsOrgInd" ColumnName="ToWordsOrgInd" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TripVehicleDriverDetails">
+            <EntityTypeMapping TypeName="TranportCatalogModel.TripVehicleDriverDetail">
+              <MappingFragment StoreEntitySet="TripVehicleDriverDetails">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+                <ScalarProperty Name="TripId" ColumnName="TripId" />
+                <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+                <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehicleDetails">
+            <EntityTypeMapping TypeName="TranportCatalogModel.VehicleDetail">
+              <MappingFragment StoreEntitySet="VehicleDetails">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+                <ScalarProperty Name="RegisterNumber" ColumnName="RegisterNumber" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
