@@ -3708,10 +3708,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MyDream\\Practice\\TrackMyKid\\src\\TrackMyKid.Web.Common.Tests\\TrackMyKid.Web.Common.Tests.csproj",
+      "projectUniqueName": "E:\\MyDream\\Transport App\\TrackMyKid\\src\\TrackMyKid.Web.Common.Tests\\TrackMyKid.Web.Common.Tests.csproj",
       "projectName": "TrackMyKid.Web.Common.Tests",
-      "projectPath": "E:\\MyDream\\Practice\\TrackMyKid\\src\\TrackMyKid.Web.Common.Tests\\TrackMyKid.Web.Common.Tests.csproj",
-      "outputPath": "E:\\MyDream\\Practice\\TrackMyKid\\src\\TrackMyKid.Web.Common.Tests\\obj\\",
+      "projectPath": "E:\\MyDream\\Transport App\\TrackMyKid\\src\\TrackMyKid.Web.Common.Tests\\TrackMyKid.Web.Common.Tests.csproj",
+      "outputPath": "E:\\MyDream\\Transport App\\TrackMyKid\\src\\TrackMyKid.Web.Common.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netstandard1.4"

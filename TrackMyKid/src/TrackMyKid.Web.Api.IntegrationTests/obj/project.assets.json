@@ -3708,10 +3708,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MyDream\\Practice\\TrackMyKid\\src\\TrackMyKid.Web.Api.IntegrationTests\\TrackMyKid.Web.Api.IntegrationTests.csproj",
+      "projectUniqueName": "E:\\MyDream\\Transport App\\TrackMyKid\\src\\TrackMyKid.Web.Api.IntegrationTests\\TrackMyKid.Web.Api.IntegrationTests.csproj",
       "projectName": "TrackMyKid.Web.Api.IntegrationTests",
-      "projectPath": "E:\\MyDream\\Practice\\TrackMyKid\\src\\TrackMyKid.Web.Api.IntegrationTests\\TrackMyKid.Web.Api.IntegrationTests.csproj",
-      "outputPath": "E:\\MyDream\\Practice\\TrackMyKid\\src\\TrackMyKid.Web.Api.IntegrationTests\\obj\\",
+      "projectPath": "E:\\MyDream\\Transport App\\TrackMyKid\\src\\TrackMyKid.Web.Api.IntegrationTests\\TrackMyKid.Web.Api.IntegrationTests.csproj",
+      "outputPath": "E:\\MyDream\\Transport App\\TrackMyKid\\src\\TrackMyKid.Web.Api.IntegrationTests\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netstandard1.4"

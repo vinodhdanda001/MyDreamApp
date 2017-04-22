@@ -3708,10 +3708,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MyDream\\Practice\\TrackMyKid\\src\\TrackMyKid.Data.SqlServer.IntegrationTests\\TrackMyKid.Data.SqlServer.IntegrationTests.csproj",
+      "projectUniqueName": "E:\\MyDream\\Transport App\\TrackMyKid\\src\\TrackMyKid.Data.SqlServer.IntegrationTests\\TrackMyKid.Data.SqlServer.IntegrationTests.csproj",
       "projectName": "TrackMyKid.Data.SqlServer.IntegrationTests",
-      "projectPath": "E:\\MyDream\\Practice\\TrackMyKid\\src\\TrackMyKid.Data.SqlServer.IntegrationTests\\TrackMyKid.Data.SqlServer.IntegrationTests.csproj",
-      "outputPath": "E:\\MyDream\\Practice\\TrackMyKid\\src\\TrackMyKid.Data.SqlServer.IntegrationTests\\obj\\",
+      "projectPath": "E:\\MyDream\\Transport App\\TrackMyKid\\src\\TrackMyKid.Data.SqlServer.IntegrationTests\\TrackMyKid.Data.SqlServer.IntegrationTests.csproj",
+      "outputPath": "E:\\MyDream\\Transport App\\TrackMyKid\\src\\TrackMyKid.Data.SqlServer.IntegrationTests\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netstandard1.4"
