@@ -1,6 +1,0 @@
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Data.SqlServer\bin\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.deps.json
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Data.SqlServer\bin\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.dll
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Data.SqlServer\bin\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.pdb
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Data.SqlServer\obj\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.AssemblyInfo.cs
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Data.SqlServer\obj\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.dll
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Data.SqlServer\obj\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.pdb

@@ -1,6 +1,0 @@
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Api.Models\bin\Debug\netstandard1.4\TrackMyKid.Web.Api.Models.deps.json
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Api.Models\bin\Debug\netstandard1.4\TrackMyKid.Web.Api.Models.dll
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Api.Models\bin\Debug\netstandard1.4\TrackMyKid.Web.Api.Models.pdb
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Api.Models\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.Models.AssemblyInfo.cs
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Api.Models\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.Models.dll
-E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Api.Models\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.Models.pdb
