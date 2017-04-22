@@ -1,0 +1,6 @@
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.IntegrationTests\bin\Debug\netstandard1.4\TrackMyKid.Web.Api.IntegrationTests.deps.json
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.IntegrationTests\bin\Debug\netstandard1.4\TrackMyKid.Web.Api.IntegrationTests.dll
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.IntegrationTests\bin\Debug\netstandard1.4\TrackMyKid.Web.Api.IntegrationTests.pdb
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.IntegrationTests\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.IntegrationTests.AssemblyInfo.cs
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.IntegrationTests\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.IntegrationTests.dll
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.IntegrationTests\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.IntegrationTests.pdb

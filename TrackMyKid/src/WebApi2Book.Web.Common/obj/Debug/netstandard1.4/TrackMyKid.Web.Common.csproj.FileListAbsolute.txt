@@ -1,0 +1,7 @@
+E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Common\bin\Debug\netstandard1.4\TrackMyKid.Web.Common.deps.json
+E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Common\bin\Debug\netstandard1.4\TrackMyKid.Web.Common.dll
+E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Common\obj\Debug\netstandard1.4\TrackMyKid.Web.Common.AssemblyInfo.cs
+E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Common\bin\Debug\netstandard1.4\TrackMyKid.Web.Common.pdb
+E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Common\obj\Debug\netstandard1.4\TrackMyKid.Web.Common.csprojResolveAssemblyReference.cache
+E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Common\obj\Debug\netstandard1.4\TrackMyKid.Web.Common.dll
+E:\MyDream\Practice\TrackMyKid\src\WebApi2Book.Web.Common\obj\Debug\netstandard1.4\TrackMyKid.Web.Common.pdb

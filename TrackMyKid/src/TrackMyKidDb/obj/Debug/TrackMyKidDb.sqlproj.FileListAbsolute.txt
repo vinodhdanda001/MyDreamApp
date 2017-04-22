@@ -1,0 +1,9 @@
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKidDb\bin\Debug\TrackMyKidDb.dacpac
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKidDb\bin\Debug\TrackMyKidDb.dll
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKidDb\bin\Debug\TrackMyKidDb.pdb
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKidDb\obj\Debug\Model.xml
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKidDb\obj\Debug\refactor.xml
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKidDb\obj\Debug\postdeploy.sql
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKidDb\obj\Debug\predeploy.sql
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.dll
+E:\MyDream\Practice\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.pdb
