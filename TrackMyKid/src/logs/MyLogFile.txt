@@ -1,0 +1,5 @@
+22:50:42,441 [TestProject.Program] ERROR - This is an ERROR message
+23:01:50,397 [TestProject.Program] ERROR - This is an ERROR message
+23:02:44,506 [TestProject.Program] ERROR - This is an ERROR message
+23:06:05,850 [TestProject.Program] ERROR - This is an ERROR message
+00:44:13,902 [TestProject.Program] ERROR - This is an ERROR message

@@ -1,0 +1,10 @@
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe.config
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\TestProject.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\log4net.dll
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\log4net.xml
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\obj\Debug\TestProject.exe
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\obj\Debug\TestProject.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.Common.dll
+E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.Common.pdb
