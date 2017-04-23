@@ -25,8 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Common", "TrackM
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{2D9171BA-AC57-4E2F-A3D5-48F941A1D03B}"
 	ProjectSection(SolutionItems) = preProject
-		Script\Script_TransportCatalog.sql = Script\Script_TransportCatalog.sql
-		Script\TableDropScript.sql = Script\TableDropScript.sql
+		Script\000_TableDropScript.sql = Script\000_TableDropScript.sql
+		Script\001_SchemaAndTables.sql = Script\001_SchemaAndTables.sql
+		Script\002_TableData.sql = Script\002_TableData.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.DataLayer", "TrackMyKid.DataLayer\TrackMyKid.DataLayer.csproj", "{B4DD0F17-EE35-4284-BCCD-F3E4F25DD0A2}"
