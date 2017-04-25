@@ -55,6 +55,7 @@
     <Compile Include="Login.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="LoginDataService.cs" />
     <Compile Include="MemberRole.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
@@ -132,6 +133,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TrackMyKid.Common\TrackMyKid.Common.csproj">
+      <Project>{D1721362-DB30-4AC3-A9EB-230A36A14690}</Project>
+      <Name>TrackMyKid.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
