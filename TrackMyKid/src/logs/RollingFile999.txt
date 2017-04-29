@@ -1,0 +1,15 @@
+23:01:50,397 [TestProject.Program] ERROR - This is an ERROR message
+23:02:44,506 [TestProject.Program] ERROR - This is an ERROR message
+23:06:05,850 [TestProject.Program] ERROR - This is an ERROR message
+00:44:13,902 [TestProject.Program] ERROR - This is an ERROR message
+01:46:12,534 [TestProject.Program] ERROR - Developer : Devide by Zero
+System.DivideByZeroException: Attempted to divide by zero.
+   at TestProject.Program.Main(String[] args) in E:\MyDream\Transport App\TrackMyKid\src\TestProject\Program.cs:line 25
+01:46:12,590 [TestProject.Program] FATAL - Maintenance : Site is break down.
+01:47:09,420 [TestProject.Program] DEBUG - Developer : Debugging each event
+01:47:09,447 [TestProject.Program] INFO - Maintenance : The site is going under maintannnce
+01:47:09,448 [TestProject.Program] WARN - Maintenance : So Many issues to taccle. will take some time
+01:47:09,454 [TestProject.Program] ERROR - Developer : Devide by Zero
+System.DivideByZeroException: Attempted to divide by zero.
+   at TestProject.Program.Main(String[] args) in E:\MyDream\Transport App\TrackMyKid\src\TestProject\Program.cs:line 25
+01:47:09,581 [TestProject.Program] FATAL - Maintenance : Site is break down.

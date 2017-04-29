@@ -16,12 +16,3 @@ E:\AcademicYr2018\TrackMyKid\src\TrackMyKidDb\obj\Debug\postdeploy.sql
 E:\AcademicYr2018\TrackMyKid\src\TrackMyKidDb\obj\Debug\predeploy.sql
 E:\AcademicYr2018\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.dll
 E:\AcademicYr2018\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\bin\Debug\TrackMyKidDb.dacpac
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\bin\Debug\TrackMyKidDb.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\bin\Debug\TrackMyKidDb.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\Model.xml
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\refactor.xml
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\postdeploy.sql
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\predeploy.sql
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.pdb

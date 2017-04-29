@@ -236,5 +236,18 @@
     <EntitySet Name="TripHaltTimings" EntityType="Self.TripHaltTiming" />
     <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetail" />
     <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetail" />
+    <EntitySet Name="APP_ERR_LOG" EntityType="TranportCatalogModel.APP_ERR_LOG" />
   </EntityContainer>
+  <EntityType Name="APP_ERR_LOG">
+    <Key>
+      <PropertyRef Name="row_id" />
+    </Key>
+    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="log_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="log_thread" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="log_level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="log_source" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="log_message" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="exception" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

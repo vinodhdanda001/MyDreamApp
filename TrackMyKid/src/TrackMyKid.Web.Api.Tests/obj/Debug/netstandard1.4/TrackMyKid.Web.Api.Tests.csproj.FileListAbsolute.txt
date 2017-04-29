@@ -4,9 +4,3 @@ E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.Tests\bin\Debug\netstandar
 E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.Tests.AssemblyInfo.cs
 E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.Tests.dll
 E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Web.Api.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.Tests.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api.Tests\bin\Debug\netstandard1.4\TrackMyKid.Web.Api.Tests.deps.json
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api.Tests\bin\Debug\netstandard1.4\TrackMyKid.Web.Api.Tests.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api.Tests\bin\Debug\netstandard1.4\TrackMyKid.Web.Api.Tests.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.Tests.AssemblyInfo.cs
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.Tests.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Api.Tests.pdb

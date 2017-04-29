@@ -4,7 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TranportCatalogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TranportCatalogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="APP_ERR_LOG">
+          <Key>
+            <PropertyRef Name="row_id" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="log_date" Type="datetime" Nullable="false" />
+          <Property Name="log_thread" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="log_level" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="log_source" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="log_message" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="exception" Type="varchar" MaxLength="4000" />
+        </EntityType>
         <EntityType Name="DriverDetails">
           <Key>
             <PropertyRef Name="Organization_ID" />
@@ -228,6 +240,7 @@
           <Property Name="updt_datetime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityContainer Name="TranportCatalogModelStoreContainer">
+          <EntitySet Name="APP_ERR_LOG" EntityType="Self.APP_ERR_LOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DriverDetails" EntityType="Self.DriverDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberRole" EntityType="Self.MemberRole" Schema="dbo" store:Type="Tables" />
@@ -242,8 +255,7 @@
           <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetails" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TranportCatalogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -483,7 +495,20 @@
           <EntitySet Name="TripHaltTimings" EntityType="Self.TripHaltTiming" />
           <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetail" />
           <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetail" />
+          <EntitySet Name="APP_ERR_LOG" EntityType="TranportCatalogModel.APP_ERR_LOG" />
         </EntityContainer>
+        <EntityType Name="APP_ERR_LOG">
+          <Key>
+            <PropertyRef Name="row_id" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="log_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="log_thread" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="log_level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="log_source" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="log_message" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="exception" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -704,6 +729,19 @@
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
                 <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_ERR_LOG">
+            <EntityTypeMapping TypeName="TranportCatalogModel.APP_ERR_LOG">
+              <MappingFragment StoreEntitySet="APP_ERR_LOG">
+                <ScalarProperty Name="exception" ColumnName="exception" />
+                <ScalarProperty Name="log_message" ColumnName="log_message" />
+                <ScalarProperty Name="log_source" ColumnName="log_source" />
+                <ScalarProperty Name="log_level" ColumnName="log_level" />
+                <ScalarProperty Name="log_thread" ColumnName="log_thread" />
+                <ScalarProperty Name="log_date" ColumnName="log_date" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

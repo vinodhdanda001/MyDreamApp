@@ -4,10 +4,3 @@ E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Common.Tests\bin\Debug\netstandard
 E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Common.Tests.AssemblyInfo.cs
 E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Common.Tests.dll
 E:\MyDream\Practice\TrackMyKid\src\TrackMyKid.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Common.Tests.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common.Tests\bin\Debug\netstandard1.4\TrackMyKid.Common.Tests.deps.json
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common.Tests\bin\Debug\netstandard1.4\TrackMyKid.Common.Tests.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common.Tests\bin\Debug\netstandard1.4\TrackMyKid.Common.Tests.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Common.Tests.csprojResolveAssemblyReference.cache
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Common.Tests.AssemblyInfo.cs
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Common.Tests.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Common.Tests.pdb

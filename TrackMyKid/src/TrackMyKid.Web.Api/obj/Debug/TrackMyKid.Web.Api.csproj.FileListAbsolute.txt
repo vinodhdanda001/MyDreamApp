@@ -141,7 +141,13 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\Ninject.Web.Commo
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Net.Http.Formatting.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Web.Http.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Web.Http.WebHost.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\TrackMyKid.Common.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\TrackMyKid.DataLayer.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\WebActivatorEx.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\EntityFramework.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\TrackMyKid.Common.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\TrackMyKid.DataLayer.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\TrackMyKid.DataLayer.dll.config
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\AutoMapper.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\log4net.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -151,6 +157,7 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\Newtonsoft.Json.x
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Net.Http.Formatting.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Web.Http.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Web.Http.WebHost.xml
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\EntityFramework.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\obj\Debug\TrackMyKid.Web.Api.csprojResolveAssemblyReference.cache
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\obj\Debug\TrackMyKid.Web.Api.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\obj\Debug\TrackMyKid.Web.Api.pdb

@@ -218,5 +218,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="APP_ERR_LOG">
+      <EntityTypeMapping TypeName="TranportCatalogModel.APP_ERR_LOG">
+        <MappingFragment StoreEntitySet="APP_ERR_LOG">
+          <ScalarProperty Name="exception" ColumnName="exception" />
+          <ScalarProperty Name="log_message" ColumnName="log_message" />
+          <ScalarProperty Name="log_source" ColumnName="log_source" />
+          <ScalarProperty Name="log_level" ColumnName="log_level" />
+          <ScalarProperty Name="log_thread" ColumnName="log_thread" />
+          <ScalarProperty Name="log_date" ColumnName="log_date" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

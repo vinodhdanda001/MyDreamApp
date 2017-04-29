@@ -38,5 +38,6 @@ namespace TrackMyKid.DataLayer
         public virtual DbSet<TripHaltTiming> TripHaltTimings { get; set; }
         public virtual DbSet<TripVehicleDriverDetail> TripVehicleDriverDetails { get; set; }
         public virtual DbSet<VehicleDetail> VehicleDetails { get; set; }
+        public virtual DbSet<APP_ERR_LOG> APP_ERR_LOG { get; set; }
     }
 }

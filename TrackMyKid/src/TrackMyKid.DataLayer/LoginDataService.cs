@@ -31,6 +31,7 @@ namespace TrackMyKid.DataLayer
                                           RouteID = routeMember.Route_ID,
                                           Address = orgMemeber.Address
                                       };
+                    return userProfile.FirstOrDefault();
                 }
                 return null;
 

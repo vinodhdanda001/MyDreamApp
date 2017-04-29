@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TranportCatalogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="APP_ERR_LOG">
+    <Key>
+      <PropertyRef Name="row_id" />
+    </Key>
+    <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="log_date" Type="datetime" Nullable="false" />
+    <Property Name="log_thread" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="log_level" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="log_source" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="log_message" Type="varchar" MaxLength="4000" Nullable="false" />
+    <Property Name="exception" Type="varchar" MaxLength="4000" />
+  </EntityType>
   <EntityType Name="DriverDetails">
     <Key>
       <PropertyRef Name="Organization_ID" />
@@ -223,6 +235,7 @@
     <Property Name="updt_datetime" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityContainer Name="TranportCatalogModelStoreContainer">
+    <EntitySet Name="APP_ERR_LOG" EntityType="Self.APP_ERR_LOG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DriverDetails" EntityType="Self.DriverDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MemberRole" EntityType="Self.MemberRole" Schema="dbo" store:Type="Tables" />

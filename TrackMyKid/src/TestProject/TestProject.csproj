@@ -60,6 +60,10 @@
       <Project>{d1721362-db30-4ac3-a9eb-230a36a14690}</Project>
       <Name>TrackMyKid.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TrackMyKid.DataLayer\TrackMyKid.DataLayer.csproj">
+      <Project>{b4dd0f17-ee35-4284-bccd-f3e4f25dd0a2}</Project>
+      <Name>TrackMyKid.DataLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
