@@ -82,12 +82,14 @@
     <Compile Include="RoleDetail.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Route.cs" />
     <Compile Include="RouteHalt.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="RouteMember.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="RouteService.cs" />
     <Compile Include="RouteTrip.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>

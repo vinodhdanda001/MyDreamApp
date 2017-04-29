@@ -18,10 +18,7 @@ namespace TrackMyKid.Web.Api.Controllers
         [HttpGet]
         public Member GET(int orgId, string id)
         {
-            //Need to transfer the logging to request Pipeline
-            log = //LogHelper.GetLogger();
-            LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+            
             log.Debug("Get: api/org/" + orgId.ToString() + "/member/" + id.ToString());
 
             MemberService memberService = new MemberService();
