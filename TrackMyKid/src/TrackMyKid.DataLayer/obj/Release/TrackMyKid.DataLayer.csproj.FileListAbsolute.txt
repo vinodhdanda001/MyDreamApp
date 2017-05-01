@@ -1,0 +1,16 @@
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\TrackMyKid.DataLayer.dll.config
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\TrackMyKid.DataLayer.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\TrackMyKid.DataLayer.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\EntityFramework.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\EntityFramework.SqlServer.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\System.Data.Common.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\System.Data.SqlClient.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\TrackMyKid.Common.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\log4net.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\TrackMyKid.Common.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\EntityFramework.xml
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\EntityFramework.SqlServer.xml
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\log4net.xml
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Release\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Release\TrackMyKid.DataLayer.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Release\TrackMyKid.DataLayer.pdb

@@ -1,0 +1,6 @@
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Release\TrackMyKid.Common.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Release\TrackMyKid.Common.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Release\log4net.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Release\log4net.xml
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Release\TrackMyKid.Common.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Release\TrackMyKid.Common.pdb

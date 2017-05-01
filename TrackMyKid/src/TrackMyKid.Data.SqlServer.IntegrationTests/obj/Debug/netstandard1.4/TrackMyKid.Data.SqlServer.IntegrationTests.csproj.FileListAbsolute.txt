@@ -10,3 +10,4 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Data.SqlServer.IntegrationTes
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Data.SqlServer.IntegrationTests\obj\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.IntegrationTests.AssemblyInfo.cs
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Data.SqlServer.IntegrationTests\obj\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.IntegrationTests.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Data.SqlServer.IntegrationTests\obj\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.IntegrationTests.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Data.SqlServer.IntegrationTests\obj\Debug\netstandard1.4\TrackMyKid.Data.SqlServer.IntegrationTests.csprojResolveAssemblyReference.cache
