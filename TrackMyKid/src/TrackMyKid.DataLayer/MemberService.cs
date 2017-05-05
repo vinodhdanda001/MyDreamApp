@@ -38,5 +38,39 @@ namespace TrackMyKid.DataLayer
                 return userProfile.FirstOrDefault();
             }
         }
+
+        public bool IsMemberExists(int orgId, int mobileNum)
+        {
+            bool isMemberExists;
+
+            using (var dbContext = new TranportCatalogEntities())
+            {
+                isMemberExists = (from orgMemeber in dbContext.OrganizationMembers
+                                                              .Where(t => t.Organization_ID == orgId
+                                                              && t.PrimaryContactNo == mobileNum
+                                                              && t.IsActive.ToUpper() == "Y")
+                                  join org in dbContext.Organizations
+                                                                .Where(t => t.Organization_ID == orgId && t.IsActive.ToUpper() == "Y")
+                                  on orgMemeber.Organization_ID equals org.Organization_ID
+                                  select new Member
+                                  {
+                                      MemberID = orgMemeber.MemberID,
+                                      Organization_ID = orgMemeber.Organization_ID,
+                                      Organization_Name = org.Organization_Name,
+                                      UserName = orgMemeber.userName,
+                                      FirstName = orgMemeber.FirstName,
+                                      LastName = orgMemeber.LastName,
+                                      MiddleName = orgMemeber.MiddleName,
+                                      Address = orgMemeber.Address,
+                                      AddressLandMark = orgMemeber.AddressLandMark,
+                                      PinCode = orgMemeber.PinCode,
+                                      Email = orgMemeber.Email,
+                                      PrimaryContactNo = orgMemeber.PrimaryContactNo,
+                                      AlternativeContactNo = orgMemeber.AlternativeContactNo
+                                  }).Any();
+            }
+            return isMemberExists;
+
+        }
     }
 }

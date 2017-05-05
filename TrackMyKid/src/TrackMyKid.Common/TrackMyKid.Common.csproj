@@ -47,7 +47,9 @@
     <Compile Include="LogHelper.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\UserProfile.cs" />
+    <Compile Include="NotificationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
