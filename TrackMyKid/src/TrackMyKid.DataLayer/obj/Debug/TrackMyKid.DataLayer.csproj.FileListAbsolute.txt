@@ -1,3 +1,4 @@
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll.config
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.pdb
@@ -11,6 +12,5 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKi
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log4net.xml
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.pdb
