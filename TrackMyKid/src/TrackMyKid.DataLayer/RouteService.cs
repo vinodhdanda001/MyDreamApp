@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrackMyKid.Common.Models;
 
 namespace TrackMyKid.DataLayer
 {
@@ -44,5 +45,34 @@ namespace TrackMyKid.DataLayer
             }
 
         }
+
+        public IEnumerable<Trip> GetTripsForRoute(int orgId, string routeID)
+        {
+
+            using (var dbContext = new TranportCatalogEntities())
+            {
+                var trips = from route in dbContext.OrganizationRoutes.Where(t=> t.IsActive.ToUpper() == "Y" 
+                                                                                && t.Organization_ID == orgId
+                                                                                && t.Route_ID.ToUpper() == routeID.ToUpper())
+                             join trip in dbContext.RouteTrips.Where(t => t.IsActive.ToUpper() == "Y" 
+                                                                            && t.Organization_ID == orgId
+                                                                            && t.Route_ID.ToUpper() == routeID)
+                                on route.Route_ID equals trip.Route_ID 
+                             //join tripHalts in dbContext.RouteTrips.Where(t=> t.IsActive.ToUpper() == "Y"
+                             //                                               && t.Organization_ID == orgId
+                             //                                               && t.Route_ID.ToUpper() == routeID
+                             //                                           )
+                             //on route.Route_ID equals tripHalts.Route_ID
+                             select new Trip
+                             {
+                                 TripId = trip.TripId,
+                                 Route_ID = trip.Route_ID,
+                                 TripTime = DateTime.MinValue   // To Do the timings has to be adjusted well
+                             };
+                return trips.ToList();
+            }
+        }
+
+
     }
 }

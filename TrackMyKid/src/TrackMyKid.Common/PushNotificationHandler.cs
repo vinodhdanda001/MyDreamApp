@@ -13,5 +13,10 @@ namespace TrackMyKid.Common
         {
 
         }
+
+        public void AddRecipients()
+        {
+
+        }
     }
 }
