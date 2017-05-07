@@ -9,3 +9,9 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Debug\log4net.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Debug\log4net.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.pdb
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Common\bin\Debug\TrackMyKid.Common.dll
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Common\bin\Debug\TrackMyKid.Common.pdb
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Common\bin\Debug\log4net.dll
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Common\bin\Debug\log4net.xml
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.dll
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.pdb

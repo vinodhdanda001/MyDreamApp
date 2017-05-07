@@ -18,6 +18,7 @@ namespace TrackMyKid.Web.Api.Controllers
         public HttpResponseMessage Post(RegisterModel registerModel)
         {
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            LoginModel loginModel = new LoginModel(); // To-Do: need to be initialized with the data member value for registering.
             LoginDataService loginService = new LoginDataService();
             UserProfile userProfile = loginService.Login(loginModel);
             if (userProfile != null)
