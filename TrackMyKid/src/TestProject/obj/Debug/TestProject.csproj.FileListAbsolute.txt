@@ -1,3 +1,17 @@
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe.config
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TestProject.pdb
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\log4net.dll
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.Common.dll
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.DataLayer.dll
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\EntityFramework.dll
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.Common.pdb
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.DataLayer.pdb
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\log4net.xml
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\EntityFramework.xml
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\obj\Debug\TestProject.exe
+E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TestProject\obj\Debug\TestProject.pdb
 E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe.config
 E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe
 E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\TestProject.pdb

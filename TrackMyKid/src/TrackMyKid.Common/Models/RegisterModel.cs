@@ -12,11 +12,7 @@ namespace TrackMyKid.Common.Models
         public string passWord { get; set; }
         public int organizationId { get; set; }
         public int primaryContactNum { get; set; }
-<<<<<<< HEAD
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
-=======
-        public int mobileNumber { get; set; } // Previously not added --- added by bbb
->>>>>>> 52514947db310764db5af06d52d72b2e13842f19
     }
 }
