@@ -17,10 +17,15 @@ namespace TrackMyKid.Web.Api.Controllers
         [Route("api/register")]
         public HttpResponseMessage Post(RegisterModel registerModel)
         {
+<<<<<<< HEAD
             HttpResponseMessage response;
             RegisterDataService registerService = new RegisterDataService();
             // Prepae the Hash Key  -- TODO
             registerService.Register(registerModel);
+=======
+            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            LoginModel loginModel = new LoginModel(); // To-Do: need to be initialized with the data member value for registering.
+>>>>>>> 52514947db310764db5af06d52d72b2e13842f19
             LoginDataService loginService = new LoginDataService();
             UserProfile userProfile = loginService.Login(new LoginModel
             {
