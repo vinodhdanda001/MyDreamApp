@@ -17,13 +17,23 @@ namespace TrackMyKid.Web.Api.Controllers
         [Route("api/register")]
         public HttpResponseMessage Post(RegisterModel registerModel)
         {
-            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            HttpResponseMessage response;
+            RegisterDataService registerService = new RegisterDataService();
+            // Prepae the Hash Key  -- TODO
+            registerService.Register(registerModel);
             LoginDataService loginService = new LoginDataService();
-            UserProfile userProfile = loginService.Login(loginModel);
+            UserProfile userProfile = loginService.Login(new LoginModel
+            {
+                 userName = registerModel.userName,
+                 passWord = registerModel.passWord,
+                 organizationId = registerModel.organizationId
+            });
             if (userProfile != null)
-                response.Content = new ObjectContent(typeof(UserProfile), userProfile, new JsonMediaTypeFormatter());
+            {
+                response = Request.CreateResponse<UserProfile>(HttpStatusCode.OK, userProfile, new JsonMediaTypeFormatter());
+            }   
             else
-                response.StatusCode = HttpStatusCode.Forbidden;
+                response = Request.CreateResponse(HttpStatusCode.BadRequest);
 
             return response;
         }

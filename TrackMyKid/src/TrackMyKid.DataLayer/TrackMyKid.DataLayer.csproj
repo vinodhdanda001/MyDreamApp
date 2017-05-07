@@ -79,6 +79,7 @@
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterDataService.cs" />
     <Compile Include="RoleDetail.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>

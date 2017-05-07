@@ -10,4 +10,3 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Common.Tests\bin\Debug\ne
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Common.Tests.AssemblyInfo.cs
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Common.Tests.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Common.Tests.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Common.Tests\obj\Debug\netstandard1.4\TrackMyKid.Web.Common.Tests.csprojResolveAssemblyReference.cache

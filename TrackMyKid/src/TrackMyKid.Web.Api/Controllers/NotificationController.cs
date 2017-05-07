@@ -19,7 +19,7 @@ namespace TrackMyKid.Web.Api.Controllers
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
             memberService = new MemberService();
 
-            if(memberService.IsMemberExists(registerModel.organizationId, registerModel.mobileNumber ))
+            if(memberService.IsMemberExists(registerModel.organizationId, registerModel.primaryContactNum ))
             {
 
             }
