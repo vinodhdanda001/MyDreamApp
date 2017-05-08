@@ -183,6 +183,18 @@
     <Property Name="cr_datetime" Type="datetime" Nullable="false" />
     <Property Name="updt_datetime" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="TripGeoLocation">
+    <Key>
+      <PropertyRef Name="TripSessionId" />
+      <PropertyRef Name="cr_datetime" />
+    </Key>
+    <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TripSessionId" Type="int" Nullable="false" />
+    <Property Name="Lattitude" Type="decimal" Precision="12" Scale="9" Nullable="false" />
+    <Property Name="Longitude" Type="decimal" Precision="12" Scale="9" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="TripHaltTimings">
     <Key>
       <PropertyRef Name="Organization_ID" />
@@ -200,6 +212,26 @@
     <Property Name="ToWordsOrgInd" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+    <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TripStatus">
+    <Key>
+      <PropertyRef Name="TripSessionId" />
+      <PropertyRef Name="Organization_ID" />
+      <PropertyRef Name="Route_ID" />
+      <PropertyRef Name="TripId" />
+    </Key>
+    <Property Name="TripSessionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Organization_ID" Type="int" Nullable="false" />
+    <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TripStatusCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TripStartTime" Type="datetime" />
+    <Property Name="TripEndTime" Type="datetime" />
+    <Property Name="Driver_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Vehicle_ID" Type="int" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="cr_datetime" Type="datetime" Nullable="false" />
     <Property Name="updt_datetime" Type="datetime" Nullable="false" />
   </EntityType>
@@ -246,7 +278,9 @@
     <EntitySet Name="RouteHalts" EntityType="Self.RouteHalts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RouteMembers" EntityType="Self.RouteMembers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RouteTrips" EntityType="Self.RouteTrips" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TripGeoLocation" EntityType="Self.TripGeoLocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TripHaltTimings" EntityType="Self.TripHaltTimings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TripStatus" EntityType="Self.TripStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetails" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

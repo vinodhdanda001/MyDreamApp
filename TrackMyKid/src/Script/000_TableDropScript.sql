@@ -37,4 +37,8 @@ go
 drop table [dbo].[Organization]
 go
 
+drop table dbo.TripGeoLocation 
+go
 
+drop table dbo.TripStatus 
+go

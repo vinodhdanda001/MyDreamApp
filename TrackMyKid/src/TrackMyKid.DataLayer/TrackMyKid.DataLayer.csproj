@@ -61,6 +61,7 @@
     <Compile Include="DriverDetail.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="GeoLocationService.cs" />
     <Compile Include="Login.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
@@ -109,7 +110,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TrackMyKidEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="TripGeoLocation.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TripHaltTiming.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TripStatu.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TripVehicleDriverDetail.cs">

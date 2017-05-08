@@ -188,6 +188,18 @@
           <Property Name="cr_datetime" Type="datetime" Nullable="false" />
           <Property Name="updt_datetime" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="TripGeoLocation">
+          <Key>
+            <PropertyRef Name="TripSessionId" />
+            <PropertyRef Name="cr_datetime" />
+          </Key>
+          <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TripSessionId" Type="int" Nullable="false" />
+          <Property Name="Lattitude" Type="decimal" Precision="12" Scale="9" Nullable="false" />
+          <Property Name="Longitude" Type="decimal" Precision="12" Scale="9" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="TripHaltTimings">
           <Key>
             <PropertyRef Name="Organization_ID" />
@@ -205,6 +217,26 @@
           <Property Name="ToWordsOrgInd" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TripStatus">
+          <Key>
+            <PropertyRef Name="TripSessionId" />
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="TripSessionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization_ID" Type="int" Nullable="false" />
+          <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TripStatusCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TripStartTime" Type="datetime" />
+          <Property Name="TripEndTime" Type="datetime" />
+          <Property Name="Driver_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Vehicle_ID" Type="int" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="cr_datetime" Type="datetime" Nullable="false" />
           <Property Name="updt_datetime" Type="datetime" Nullable="false" />
         </EntityType>
@@ -251,7 +283,9 @@
           <EntitySet Name="RouteHalts" EntityType="Self.RouteHalts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RouteMembers" EntityType="Self.RouteMembers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RouteTrips" EntityType="Self.RouteTrips" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TripGeoLocation" EntityType="Self.TripGeoLocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TripHaltTimings" EntityType="Self.TripHaltTimings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TripStatus" EntityType="Self.TripStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetails" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -496,6 +530,8 @@
           <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetail" />
           <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetail" />
           <EntitySet Name="APP_ERR_LOG" EntityType="TranportCatalogModel.APP_ERR_LOG" />
+          <EntitySet Name="TripGeoLocations" EntityType="TranportCatalogModel.TripGeoLocation" />
+          <EntitySet Name="TripStatus" EntityType="TranportCatalogModel.TripStatu" />
         </EntityContainer>
         <EntityType Name="APP_ERR_LOG">
           <Key>
@@ -508,6 +544,38 @@
           <Property Name="log_source" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="log_message" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
           <Property Name="exception" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TripGeoLocation">
+          <Key>
+            <PropertyRef Name="TripSessionId" />
+            <PropertyRef Name="cr_datetime" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TripSessionId" Type="Int32" Nullable="false" />
+          <Property Name="Lattitude" Type="Decimal" Nullable="false" Precision="12" Scale="9" />
+          <Property Name="Longitude" Type="Decimal" Nullable="false" Precision="12" Scale="9" />
+          <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TripStatu">
+          <Key>
+            <PropertyRef Name="TripSessionId" />
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="TripSessionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Route_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TripId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TripStatusCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TripStartTime" Type="DateTime" Precision="3" />
+          <Property Name="TripEndTime" Type="DateTime" Precision="3" />
+          <Property Name="Driver_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Vehicle_ID" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -742,6 +810,36 @@
                 <ScalarProperty Name="log_thread" ColumnName="log_thread" />
                 <ScalarProperty Name="log_date" ColumnName="log_date" />
                 <ScalarProperty Name="row_id" ColumnName="row_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TripGeoLocations">
+            <EntityTypeMapping TypeName="TranportCatalogModel.TripGeoLocation">
+              <MappingFragment StoreEntitySet="TripGeoLocation">
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Lattitude" ColumnName="Lattitude" />
+                <ScalarProperty Name="TripSessionId" ColumnName="TripSessionId" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TripStatus">
+            <EntityTypeMapping TypeName="TranportCatalogModel.TripStatu">
+              <MappingFragment StoreEntitySet="TripStatus">
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+                <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+                <ScalarProperty Name="TripEndTime" ColumnName="TripEndTime" />
+                <ScalarProperty Name="TripStartTime" ColumnName="TripStartTime" />
+                <ScalarProperty Name="TripStatusCode" ColumnName="TripStatusCode" />
+                <ScalarProperty Name="TripId" ColumnName="TripId" />
+                <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="TripSessionId" ColumnName="TripSessionId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

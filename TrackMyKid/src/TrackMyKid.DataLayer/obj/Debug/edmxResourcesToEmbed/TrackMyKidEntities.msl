@@ -231,5 +231,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TripGeoLocations">
+      <EntityTypeMapping TypeName="TranportCatalogModel.TripGeoLocation">
+        <MappingFragment StoreEntitySet="TripGeoLocation">
+          <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Lattitude" ColumnName="Lattitude" />
+          <ScalarProperty Name="TripSessionId" ColumnName="TripSessionId" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TripStatus">
+      <EntityTypeMapping TypeName="TranportCatalogModel.TripStatu">
+        <MappingFragment StoreEntitySet="TripStatus">
+          <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+          <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+          <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+          <ScalarProperty Name="TripEndTime" ColumnName="TripEndTime" />
+          <ScalarProperty Name="TripStartTime" ColumnName="TripStartTime" />
+          <ScalarProperty Name="TripStatusCode" ColumnName="TripStatusCode" />
+          <ScalarProperty Name="TripId" ColumnName="TripId" />
+          <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+          <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+          <ScalarProperty Name="TripSessionId" ColumnName="TripSessionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

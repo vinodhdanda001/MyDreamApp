@@ -160,6 +160,7 @@ E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Web.Ht
 E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Web.Api\bin\EntityFramework.xml
 E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Web.Api\obj\Debug\TrackMyKid.Web.Api.dll
 E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.Web.Api\obj\Debug\TrackMyKid.Web.Api.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\obj\Debug\TrackMyKid.Web.Api.csprojResolveAssemblyReference.cache
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\roslyn\csc.exe
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\roslyn\csc.exe.config
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\roslyn\csc.rsp
@@ -216,6 +217,5 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Net.Http.F
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Web.Http.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\System.Web.Http.WebHost.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\bin\EntityFramework.xml
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\obj\Debug\TrackMyKid.Web.Api.csprojResolveAssemblyReference.cache
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\obj\Debug\TrackMyKid.Web.Api.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Web.Api\obj\Debug\TrackMyKid.Web.Api.pdb
