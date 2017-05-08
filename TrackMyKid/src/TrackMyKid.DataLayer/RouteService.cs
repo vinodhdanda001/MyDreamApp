@@ -46,7 +46,7 @@ namespace TrackMyKid.DataLayer
 
         }
 
-        public IEnumerable<Trip> GetTripsForRoute(int orgId, string routeID)
+        public IEnumerable<TripModel> GetTripsForRoute(int orgId, string routeID)
         {
 
             using (var dbContext = new TranportCatalogEntities())
@@ -63,7 +63,7 @@ namespace TrackMyKid.DataLayer
                              //                                               && t.Route_ID.ToUpper() == routeID
                              //                                           )
                              //on route.Route_ID equals tripHalts.Route_ID
-                             select new Trip
+                             select new TripModel
                              {
                                  TripId = trip.TripId,
                                  Route_ID = trip.Route_ID,

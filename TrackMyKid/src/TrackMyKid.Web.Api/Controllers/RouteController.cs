@@ -65,10 +65,10 @@ namespace TrackMyKid.Web.Api.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
             log.Debug("api/org/"+orgId.ToString()+"/route/"+routeID.ToString()+"trips");
             RouteService routeService = new RouteService();
-            IEnumerable<Trip> trips = routeService.GetTripsForRoute(orgId, routeID);
+            IEnumerable<TripModel> trips = routeService.GetTripsForRoute(orgId, routeID);
             if (trips != null && trips.Count() > 0)
             {
-                response = Request.CreateResponse<IEnumerable<Trip>>(HttpStatusCode.OK, trips);
+                response = Request.CreateResponse<IEnumerable<TripModel>>(HttpStatusCode.OK, trips);
                 //response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
                 //response.StatusCode = HttpStatusCode.OK;
             }

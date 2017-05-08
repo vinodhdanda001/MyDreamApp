@@ -110,6 +110,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TrackMyKidEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="TripDataService.cs" />
     <Compile Include="TripGeoLocation.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>

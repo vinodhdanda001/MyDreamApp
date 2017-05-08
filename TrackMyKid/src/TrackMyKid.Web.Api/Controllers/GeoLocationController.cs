@@ -12,6 +12,7 @@ namespace TrackMyKid.Web.Api.Controllers
     public class GeoLocationController : ApiController
     {
         [Route("api/geolocation/{tripSessionId}")]
+        [HttpGet]
         public HttpResponseMessage GeoLocation(int tripSessionId)
         {
             //Need to modify based on starus
@@ -28,8 +29,16 @@ namespace TrackMyKid.Web.Api.Controllers
             {
                 response = Request.CreateResponse(HttpStatusCode.NoContent);
             }
+            return response;
+        }
 
-
+        [Route("api/geolocation")]
+        public HttpResponseMessage POST(GeoLocation location)
+        {
+            HttpResponseMessage response;
+            GeoLocationService locationService = new GeoLocationService();
+            locationService.PutLocation(location);
+            response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
             return response;
         }
     }
