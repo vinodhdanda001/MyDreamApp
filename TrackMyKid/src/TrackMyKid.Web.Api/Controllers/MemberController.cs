@@ -7,6 +7,7 @@ using System.Web.Http;
 using TrackMyKid.Common.Models;
 using log4net;
 using TrackMyKid.DataLayer;
+using System.Net.Http.Formatting;
 
 namespace TrackMyKid.Web.Api.Controllers
 {
@@ -16,14 +17,25 @@ namespace TrackMyKid.Web.Api.Controllers
                  log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         [Route("api/org/{orgId}/member/{id}")]
         [HttpGet]
-        public Member GET(int orgId, string id)
+        public HttpResponseMessage GET(int orgId, string id)
         {
-            
             log.Debug("Get: api/org/" + orgId.ToString() + "/member/" + id.ToString());
 
+            HttpResponseMessage response;
+            Member member;
             MemberService memberService = new MemberService();
-            return memberService.GetMemberDetails(orgId, id);
-            
+            member = memberService.GetMemberDetails(orgId, id);
+
+            if(member == null)
+            {
+                response = Request.CreateResponse(HttpStatusCode.NoContent);
+            }
+            else
+            {
+                response = Request.CreateResponse(HttpStatusCode.OK , member, new JsonMediaTypeFormatter());
+            }
+
+            return response;
         }
 
 

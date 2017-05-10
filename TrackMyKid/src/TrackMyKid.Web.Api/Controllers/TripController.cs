@@ -17,17 +17,20 @@ namespace TrackMyKid.Web.Api.Controllers
         [HttpPost]
         public HttpResponseMessage StartTrip(TripModel trip) // int orgId, int primaryContactNo)
         {
+            if (trip == null)
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
             int tripStatusId = -1;
             HttpResponseMessage response;
             TripDataService tripDataService = new TripDataService();
             tripStatusId = tripDataService.StartTrip(trip);
             if(tripStatusId == -1)
             {
-                response = Request.CreateResponse(HttpStatusCode.OK, tripStatusId);
+                response = Request.CreateResponse(HttpStatusCode.BadRequest);
             }
             else
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest);
+                response = Request.CreateResponse(HttpStatusCode.OK, tripStatusId, new JsonMediaTypeFormatter());
             }
 
             return response;

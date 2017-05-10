@@ -232,8 +232,8 @@
     <Property Name="Driver_ID" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Vehicle_ID" Type="int" Nullable="false" />
     <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="cr_datetime" Type="datetime" Nullable="false" />
-    <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+    <Property Name="cr_datetime" Type="datetime2" Precision="7" />
+    <Property Name="updt_datetime" Type="datetime2" Precision="7" />
   </EntityType>
   <EntityType Name="TripVehicleDriverDetails">
     <Key>

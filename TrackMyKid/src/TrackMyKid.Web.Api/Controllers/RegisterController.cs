@@ -17,25 +17,34 @@ namespace TrackMyKid.Web.Api.Controllers
         [Route("api/register")]
         public HttpResponseMessage Post(RegisterModel registerModel)
         {
+            if (registerModel == null)
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
             HttpResponseMessage response;
             RegisterDataService registerService = new RegisterDataService();
             // Prepae the Hash Key  -- TODO
-            registerService.Register(registerModel);
 
-            LoginDataService loginService = new LoginDataService();
-            UserProfile userProfile = loginService.Login(new LoginModel
+            if (!registerService.IsRegistered(registerModel))
             {
-                 userName = registerModel.userName,
-                 passWord = registerModel.passWord,
-                 organizationId = registerModel.organizationId
-            });
-            if (userProfile != null)
-            {
-                response = Request.CreateResponse<UserProfile>(HttpStatusCode.OK, userProfile, new JsonMediaTypeFormatter());
-            }   
+                registerService.Register(registerModel);
+                LoginDataService loginService = new LoginDataService();
+                UserProfile userProfile = loginService.Login(new LoginModel
+                {
+                    userName = registerModel.userName,
+                    passWord = registerModel.passWord,
+                    organizationId = registerModel.organizationId
+                });
+                if (userProfile != null)
+                {
+                    response = Request.CreateResponse<UserProfile>(HttpStatusCode.OK, userProfile, new JsonMediaTypeFormatter());
+                }
+                else
+                    response = Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
             else
-                response = Request.CreateResponse(HttpStatusCode.BadRequest);
-
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "User already registered");
+            }
             return response;
         }
 

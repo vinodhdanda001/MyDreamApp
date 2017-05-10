@@ -12,26 +12,34 @@ namespace TrackMyKid.DataLayer
 
         public int StartTrip(TripModel trip)
         {
+            int tripSessionId = -1;
+            trip.TripStartTime = DateTime.Now;
+
+            TripStatu tripStatus = new TripStatu
+            {
+                TripStartTime = DateTime.Now,
+                TripEndTime = null,
+                Driver_ID = trip.DriverId,
+                Organization_ID = trip.organizationId,
+                LastUpdatedBy = trip.DriverId,
+                Route_ID = trip.RouteID,
+                TripId = trip.TripId,
+                TripStatusCode = "I",
+                cr_datetime = trip.TripStartTime,
+                updt_datetime = trip.TripStartTime,
+                Vehicle_ID = trip.VehicleID
+            };
+
             using (var dbContext = new TranportCatalogEntities())
             {
-                dbContext.TripStatus.Add(new TripStatu
-                {
-                    TripStartTime = trip.TripStartTime,
-                    TripEndTime = trip.TripEndTime,
-                    Driver_ID = trip.DriverId,
-                    Organization_ID = trip.organizationId,
-                    LastUpdatedBy = trip.DriverId,
-                    Route_ID = trip.Route_ID,
-                    TripId = trip.TripId,
-                    TripStatusCode = "I",
-                    cr_datetime = DateTime.Now,
-                    Vehicle_ID = trip.VehicleID
-                });
+                dbContext.TripStatus.Add(tripStatus);
+
                 dbContext.SaveChanges();
-                return  trip.TripSessionID == 0 ?
-                        -1 : trip.TripSessionID;
+                tripSessionId = tripStatus.TripSessionId == 0 ?
+                        -1 : tripStatus.TripSessionId;
 
             }
+            return tripSessionId;
         }
 
         public bool EndTrip(int tripSessionID)

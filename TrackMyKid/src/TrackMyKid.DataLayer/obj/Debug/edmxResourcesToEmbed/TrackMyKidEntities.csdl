@@ -281,7 +281,7 @@
     <Property Name="Driver_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Vehicle_ID" Type="Int32" Nullable="false" />
     <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cr_datetime" Type="DateTime" Precision="7" />
+    <Property Name="updt_datetime" Type="DateTime" Precision="7" />
   </EntityType>
 </Schema>

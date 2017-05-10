@@ -237,8 +237,8 @@
           <Property Name="Driver_ID" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Vehicle_ID" Type="int" Nullable="false" />
           <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
-          <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime2" Precision="7" />
+          <Property Name="updt_datetime" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityType Name="TripVehicleDriverDetails">
           <Key>
@@ -574,8 +574,8 @@
           <Property Name="Driver_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Vehicle_ID" Type="Int32" Nullable="false" />
           <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cr_datetime" Type="DateTime" Precision="7" />
+          <Property Name="updt_datetime" Type="DateTime" Precision="7" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

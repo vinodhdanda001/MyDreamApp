@@ -24,7 +24,7 @@ namespace TrackMyKid.DataLayer
         public string Driver_ID { get; set; }
         public int Vehicle_ID { get; set; }
         public string LastUpdatedBy { get; set; }
-        public System.DateTime cr_datetime { get; set; }
-        public System.DateTime updt_datetime { get; set; }
+        public Nullable<System.DateTime> cr_datetime { get; set; }
+        public Nullable<System.DateTime> updt_datetime { get; set; }
     }
 }

@@ -21,7 +21,8 @@ namespace TrackMyKid.DataLayer
                                                                             && t.userName == loginModel.userName)
                                       join routeMember in dbContext.RouteMembers
                                                                     .Where(t => t.Organization_ID == loginModel.organizationId)
-                                      on orgMemeber.MemberID equals routeMember.MemberID
+                                      on orgMemeber.MemberID equals routeMember.MemberID into profileDetails
+                                      from profile in profileDetails.DefaultIfEmpty()
                                       select new UserProfile
                                       {
                                           UserName = orgMemeber.userName,
@@ -29,7 +30,7 @@ namespace TrackMyKid.DataLayer
                                           LastName = orgMemeber.LastName,
                                           MiddleName = orgMemeber.MiddleName,
                                           OrganizationId = orgMemeber.Organization_ID,
-                                          RouteID = routeMember.Route_ID,
+                                          RouteID = profile.Route_ID,
                                           Address = orgMemeber.Address
                                       };
                     return userProfile.FirstOrDefault();

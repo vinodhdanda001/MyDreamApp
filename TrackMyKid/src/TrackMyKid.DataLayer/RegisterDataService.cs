@@ -18,8 +18,8 @@ namespace TrackMyKid.DataLayer
                 {
                     userName = registerModel.userName,
                     Organization_ID = registerModel.organizationId,
-                    PasswordSalt = "", //TODO
-                    PasswordHash = "", //TODO
+                    PasswordSalt = registerModel.passWord, //TODO
+                    PasswordHash = registerModel.passWord, //TODO
                     LastUpdatedBy = registerModel.userName,
                     IsActive = "Y",
                     cr_datetime = DateTime.Now,
@@ -27,6 +27,20 @@ namespace TrackMyKid.DataLayer
                 });
                 dbContext.SaveChanges();
             }
+
+        }
+
+        public bool IsRegistered(RegisterModel registerModel)
+        {
+            bool isRegistered = false;
+            using (var dbContext = new TranportCatalogEntities())
+            {
+                isRegistered = dbContext.Logins.Where(t => t.Organization_ID == registerModel.organizationId
+                                     && t.userName == registerModel.userName
+                                     //&& t.IsActive == "Y"
+                                     ).Any();
+            }
+            return isRegistered;
 
         }
     }
