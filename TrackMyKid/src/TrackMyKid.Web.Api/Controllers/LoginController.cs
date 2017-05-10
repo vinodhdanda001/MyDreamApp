@@ -17,11 +17,17 @@ namespace TrackMyKid.Web.Api.Controllers
         [Route("")]
         public HttpResponseMessage Post(LoginModel loginModel)
         {
+            if (loginModel == null)
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
             LoginDataService loginService = new LoginDataService();
             UserProfile userProfile = loginService.Login(loginModel);
             if (userProfile != null)
+            {
                 response.Content = new ObjectContent(typeof(UserProfile), userProfile, new JsonMediaTypeFormatter());
+                response.StatusCode = HttpStatusCode.OK;
+            }
             else
                 response.StatusCode = HttpStatusCode.Forbidden;
 

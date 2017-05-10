@@ -41,14 +41,14 @@ namespace TrackMyKid.Web.Api.Controllers
 
         [Route("api/register/validateandsendotp")]
         [HttpPost]
-        public HttpResponseMessage ValidateAndAendOTP(RegisterModel registerModel) // int orgId, int primaryContactNo)
+        public HttpResponseMessage ValidateAndSendOTP(RegisterModel registerModel) // int orgId, int primaryContactNo)
         {
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
             MemberService memberService = new MemberService();
             if(memberService.IsMemberExists(registerModel.organizationId, registerModel.primaryContactNum))
             {
                 int otp = SendOTPbySMS(registerModel.organizationId, registerModel.primaryContactNum);
-                response.Content = new ObjectContent(typeof(UserProfile), otp, new JsonMediaTypeFormatter());
+                response.Content = new ObjectContent(typeof(int), otp, new JsonMediaTypeFormatter());
                 response.StatusCode = HttpStatusCode.OK;
             }
             else

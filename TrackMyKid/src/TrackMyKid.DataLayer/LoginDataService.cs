@@ -17,7 +17,8 @@ namespace TrackMyKid.DataLayer
                 if(dbContext.Logins.Where(t=>t.userName.Equals(loginModel.userName)).Any())
                 {
                     var userProfile = from orgMemeber in dbContext.OrganizationMembers
-                                                                   .Where(t => t.Organization_ID == loginModel.organizationId && t.userName == loginModel.userName)
+                                                                   .Where(t => t.Organization_ID == loginModel.organizationId 
+                                                                            && t.userName == loginModel.userName)
                                       join routeMember in dbContext.RouteMembers
                                                                     .Where(t => t.Organization_ID == loginModel.organizationId)
                                       on orgMemeber.MemberID equals routeMember.MemberID
