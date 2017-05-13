@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Reflection;
+using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using Owin;
@@ -11,7 +12,9 @@ namespace TrackMyKid.Web.Api
         public static void RegisterContainer(IAppBuilder app, HttpConfiguration configuration, out IContainer container)
         {
             var builder = new ContainerBuilder();
-           
+
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
             //builder.RegisterModule<LoggingModule>();
             builder.RegisterModule<WebApiModule>();
 

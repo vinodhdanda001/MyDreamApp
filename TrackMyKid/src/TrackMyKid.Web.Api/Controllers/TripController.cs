@@ -5,7 +5,6 @@ using System.Net.Http.Formatting;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
 using TrackMyKid.DataLayer.Interfaces;
-using TrackMyKid.DataLayer.Services;
 
 namespace TrackMyKid.Web.Api.Controllers
 {

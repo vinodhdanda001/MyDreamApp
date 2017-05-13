@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using TrackMyKid.Common.Models;
+using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.DataLayer.Services
 {
-    public class RouteService
+    public class RouteService : IRouteService
     {
         public IEnumerable<Route> GetRoutesByOrg(int orgId)
         {

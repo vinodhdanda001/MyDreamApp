@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using TrackMyKid.Common.Models;
+using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.DataLayer.Services
 {
-    public class TripDataService
+    public class TripDataService : ITripDataService
     {
 
         public int StartTrip(TripModel trip)

@@ -8,7 +8,7 @@ using TrackMyKid.Web.Api;
 
 namespace TrackMyKid.Web.Api
 {
-    public class Startup 
+    public class Startup
     {
         protected static IContainer Container { get; private set; }
 
@@ -22,6 +22,7 @@ namespace TrackMyKid.Web.Api
             Container = containerObject;
 
             WebApiConfig.Register(configuration);
+            app.UseWebApi(configuration);
         }
     }
 }
