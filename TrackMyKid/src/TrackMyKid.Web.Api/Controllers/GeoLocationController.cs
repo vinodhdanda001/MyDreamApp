@@ -17,17 +17,33 @@ namespace TrackMyKid.Web.Api.Controllers
         {
             //Need to modify based on starus
             GeoLocation location;
-            HttpResponseMessage response;
+            HttpResponseMessage response = new HttpResponseMessage { StatusCode = HttpStatusCode.BadRequest };
+            TripStatusCode tripStatusCode = TripStatusCode.Invalid;
 
             GeoLocationService locationService = new GeoLocationService();
-            location = locationService.GetLocation(tripSessionId);
-            if (location != null)
+            TripDataService tripDataService = new TripDataService();
+            
+            tripStatusCode = tripDataService.GetTripStatus(tripSessionId);
+
+            if (tripStatusCode == TripStatusCode.Invalid)
             {
-                response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid Trip. Can not provide location details");
             }
-            else
+            else if (tripStatusCode == TripStatusCode.InProgress)
             {
-                response = Request.CreateResponse(HttpStatusCode.NoContent);
+                location = locationService.GetLocation(tripSessionId);
+                if (location != null)
+                {
+                    response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
+                }
+                else
+                {
+                    response = Request.CreateResponse(HttpStatusCode.NoContent);
+                }
+            }
+            else if (tripStatusCode == TripStatusCode.Completed)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid has been completed. Can not post location details");
             }
             return response;
         }
@@ -35,10 +51,26 @@ namespace TrackMyKid.Web.Api.Controllers
         [Route("api/geolocation")]
         public HttpResponseMessage POST(GeoLocation location)
         {
-            HttpResponseMessage response;
+            HttpResponseMessage response = new HttpResponseMessage { StatusCode = HttpStatusCode.BadRequest };
+            TripStatusCode tripStatusCode = TripStatusCode.Invalid;
             GeoLocationService locationService = new GeoLocationService();
-            locationService.PutLocation(location);
-            response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
+            TripDataService tripDataService = new TripDataService();
+
+            tripStatusCode = tripDataService.GetTripStatus(location.TripSessionId);
+
+            if(tripStatusCode == TripStatusCode.Invalid)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid Trip. Can not post location details");
+            }
+            else if(tripStatusCode == TripStatusCode.InProgress)
+            {
+                locationService.PutLocation(location);
+                response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
+            }
+            else if(tripStatusCode == TripStatusCode.Completed)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid has been completed. Can not post location details");
+            }
             return response;
         }
     }

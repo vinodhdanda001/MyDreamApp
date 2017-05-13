@@ -37,11 +37,13 @@ namespace TrackMyKid.DataLayer
                     Lattitude = location.Lattitude,
                     Longitude = location.Longitude,
                     cr_datetime = DateTime.Now,
-                    LastUpdatedBy = location.LastUpdatedBy
+                    LastUpdatedBy = location.DriverID
                     
                 });
                 dbContext.SaveChanges();
             }
         }
+
+       
     }
 }

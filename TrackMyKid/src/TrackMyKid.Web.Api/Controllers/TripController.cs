@@ -36,15 +36,15 @@ namespace TrackMyKid.Web.Api.Controllers
             return response;
         }
 
-        [Route("api/trip/endtrip/{tripStatusId}")]
+        [Route("api/trip/endtrip")]
         [HttpPost]
-        public HttpResponseMessage EndTrip(int tripStatusId) // int orgId, int primaryContactNo)
+        public HttpResponseMessage EndTrip(TripModel trip) // int orgId, int primaryContactNo)
         {
             HttpResponseMessage response;
             bool isEnded = false;
             TripDataService tripDataService = new TripDataService();
-            isEnded = tripDataService.EndTrip(tripStatusId);
-            if (isEnded = tripDataService.EndTrip(tripStatusId))
+            isEnded = tripDataService.EndTrip(trip);
+            if (isEnded)
             {
                 response = Request.CreateResponse(HttpStatusCode.OK, isEnded);
             }

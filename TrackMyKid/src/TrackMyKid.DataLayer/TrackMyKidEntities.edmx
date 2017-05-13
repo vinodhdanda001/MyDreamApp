@@ -198,7 +198,7 @@
           <Property Name="Lattitude" Type="decimal" Precision="12" Scale="9" Nullable="false" />
           <Property Name="Longitude" Type="decimal" Precision="12" Scale="9" Nullable="false" />
           <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="cr_datetime" Type="datetime" Nullable="false" />
+          <Property Name="cr_datetime" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="TripHaltTimings">
           <Key>
@@ -555,7 +555,7 @@
           <Property Name="Lattitude" Type="Decimal" Nullable="false" Precision="12" Scale="9" />
           <Property Name="Longitude" Type="Decimal" Nullable="false" Precision="12" Scale="9" />
           <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="7" />
         </EntityType>
         <EntityType Name="TripStatu">
           <Key>

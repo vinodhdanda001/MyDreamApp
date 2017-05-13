@@ -42,13 +42,14 @@ namespace TrackMyKid.DataLayer
             return tripSessionId;
         }
 
-        public bool EndTrip(int tripSessionID)
+        public bool EndTrip(TripModel trip)  //int tripSessionID)
         {
             bool isSuccess = false;
             using (var dbContext = new TranportCatalogEntities())
             {
                 TripStatu tripStatus = dbContext.TripStatus.Where(t =>
-                 t.TripSessionId == tripSessionID).FirstOrDefault();
+                 t.TripSessionId == trip.TripSessionID 
+                 && t.TripStatusCode == "I").FirstOrDefault();
                 if (tripStatus != null)
                 {
                     tripStatus.TripStatusCode = "C";
@@ -58,6 +59,24 @@ namespace TrackMyKid.DataLayer
                 }
             }
             return isSuccess;
+        }
+
+        public TripStatusCode GetTripStatus(int tripSessionId)
+        {
+            TripStatu tripStatus;
+            TripStatusCode tripStatusCode = TripStatusCode.Invalid;
+            using (var dbContext = new TranportCatalogEntities())
+            {
+                tripStatus = dbContext.TripStatus.Where(t => t.TripSessionId == tripSessionId).FirstOrDefault();
+                if(tripStatus != null)
+                {
+                    if (tripStatus.TripStatusCode == "I")
+                        tripStatusCode = TripStatusCode.InProgress;
+                    else if (tripStatus.TripStatusCode == "C")
+                        tripStatusCode = TripStatusCode.Completed;
+                }
+            }
+            return tripStatusCode;
         }
 
     }
