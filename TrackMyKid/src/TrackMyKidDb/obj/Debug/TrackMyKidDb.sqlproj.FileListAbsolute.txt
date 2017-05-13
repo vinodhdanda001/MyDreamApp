@@ -34,3 +34,12 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\postdeploy.sql
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\predeploy.sql
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.pdb
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TrackMyKidDb\bin\Debug\TrackMyKidDb.dacpac
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TrackMyKidDb\bin\Debug\TrackMyKidDb.dll
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TrackMyKidDb\bin\Debug\TrackMyKidDb.pdb
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TrackMyKidDb\obj\Debug\Model.xml
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TrackMyKidDb\obj\Debug\refactor.xml
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TrackMyKidDb\obj\Debug\postdeploy.sql
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TrackMyKidDb\obj\Debug\predeploy.sql
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.dll
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TrackMyKidDb\obj\Debug\TrackMyKidDb.pdb

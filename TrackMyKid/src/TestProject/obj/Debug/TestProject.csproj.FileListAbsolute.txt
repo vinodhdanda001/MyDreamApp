@@ -27,3 +27,17 @@ E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\EntityFramework.xm
 E:\MyDream\Transport App\TrackMyKid\src\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
 E:\MyDream\Transport App\TrackMyKid\src\TestProject\obj\Debug\TestProject.exe
 E:\MyDream\Transport App\TrackMyKid\src\TestProject\obj\Debug\TestProject.pdb
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe.config
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TestProject.pdb
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\log4net.dll
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.Common.dll
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.DataLayer.dll
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\EntityFramework.dll
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.Common.pdb
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.DataLayer.pdb
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\log4net.xml
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\bin\Debug\EntityFramework.xml
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\obj\Debug\TestProject.exe
+C:\Users\a134900\Other Projects\TrackMyKid\TrackMyKid\src\TestProject\obj\Debug\TestProject.pdb

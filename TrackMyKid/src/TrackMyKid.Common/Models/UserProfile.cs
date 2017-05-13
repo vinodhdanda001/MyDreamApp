@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TrackMyKid.Common.Models
+﻿namespace TrackMyKid.Common.Models
 {
     public class UserProfile
     {
@@ -18,15 +12,6 @@ namespace TrackMyKid.Common.Models
         public string TripId { get; set; }
         public string Address { get; set; }
 
-        public string FullName {
-                 get{
-                          return FirstName + " " + LastName;    // MiddleName + " " +
-            }
-        }
-
-        
-  
-                
-                               
+        public string FullName => FirstName + " " + LastName;
     }
 }

@@ -1,19 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
-using TrackMyKid.DataLayer;
+using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.Web.Api.Controllers
 {
     [RoutePrefix("api/login")]
     public class LoginController : ApiController
     {
-        // POST api/books
+        private readonly ILoginDataService _loginDataService;
+
+        public LoginController(ILoginDataService loginDataService)
+        {
+            if (loginDataService == null)
+                throw new ArgumentNullException(nameof(loginDataService));
+
+            _loginDataService = loginDataService;
+        }
+
         [Route("")]
         public HttpResponseMessage Post(LoginModel loginModel)
         {
@@ -21,8 +28,8 @@ namespace TrackMyKid.Web.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
 
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
-            LoginDataService loginService = new LoginDataService();
-            UserProfile userProfile = loginService.Login(loginModel);
+
+            UserProfile userProfile = _loginDataService.Login(loginModel);
             if (userProfile != null)
             {
                 response.Content = new ObjectContent(typeof(UserProfile), userProfile, new JsonMediaTypeFormatter());
@@ -33,6 +40,5 @@ namespace TrackMyKid.Web.Api.Controllers
 
             return response;
         }
-
     }
 }

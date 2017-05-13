@@ -1,27 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
-using TrackMyKid.DataLayer;
+using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.Web.Api.Controllers
 {
     public class GeoLocationController : ApiController
     {
+        private readonly IGeoLocationService _geoLocationService;
+
+        public GeoLocationController(IGeoLocationService geoLocationService)
+        {
+            if (geoLocationService == null)
+                throw new ArgumentNullException(nameof(geoLocationService));
+
+            _geoLocationService = geoLocationService;
+        }
+
         [Route("api/geolocation/{tripSessionId}")]
         [HttpGet]
         public HttpResponseMessage GeoLocation(int tripSessionId)
         {
             //Need to modify based on starus
-            GeoLocation location;
             HttpResponseMessage response;
+            var location = _geoLocationService.GetLocation(tripSessionId);
 
-            GeoLocationService locationService = new GeoLocationService();
-            location = locationService.GetLocation(tripSessionId);
-            if (location != null)
+            if(location != null)
             {
                 response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
             }
@@ -29,6 +35,7 @@ namespace TrackMyKid.Web.Api.Controllers
             {
                 response = Request.CreateResponse(HttpStatusCode.NoContent);
             }
+
             return response;
         }
 
@@ -36,9 +43,8 @@ namespace TrackMyKid.Web.Api.Controllers
         public HttpResponseMessage POST(GeoLocation location)
         {
             HttpResponseMessage response;
-            GeoLocationService locationService = new GeoLocationService();
-            locationService.PutLocation(location);
-            response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
+            _geoLocationService.PutLocation(location);
+            response = Request.CreateResponse(HttpStatusCode.OK, location);
             return response;
         }
     }

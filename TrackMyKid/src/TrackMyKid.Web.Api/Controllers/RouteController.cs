@@ -7,6 +7,7 @@ using System.Net.Http.Formatting;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
 using TrackMyKid.DataLayer;
+using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.Web.Api.Controllers
 {
@@ -14,16 +15,24 @@ namespace TrackMyKid.Web.Api.Controllers
     {
         private static log4net.ILog log = //LogHelper.GetLogger();
                  log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private readonly IRouteService _routeService;
 
-        
+        public RouteController(IRouteService routeService)
+        {
+            if (routeService == null)
+                throw new ArgumentNullException(nameof(routeService));
+           
+            _routeService = routeService;
+        }
+
         [Route("api/org/{orgId}/route/{memberID}")]
         [HttpGet]
-        public HttpResponseMessage GET(int orgId, string memberID)
+        public HttpResponseMessage Get(int orgId, string memberId)
         {
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
-            log.Debug("Get: api/org/" + memberID);
-            RouteService routeService = new RouteService();
-            Route route = routeService.GetRouteForMember(orgId, memberID);
+            log.Debug("Get: api/org/" + memberId);
+            var route = _routeService.GetRouteForMember(orgId, memberId);
+
             if(route != null)
             {
                 response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
@@ -33,18 +42,19 @@ namespace TrackMyKid.Web.Api.Controllers
             {
                 response.StatusCode = HttpStatusCode.NoContent;
             }
+
             return response;
         }
 
         [Route("api/org/{orgId}/route")]
         [HttpGet]
-        public HttpResponseMessage GET(int orgId)
+        public HttpResponseMessage Get(int orgId)
         {
             HttpResponseMessage response;
             log.Debug("Get: api/org/" +orgId.ToString() + "/route");
-            RouteService routeService = new RouteService();
-            IEnumerable<Route> routes = routeService.GetRoutesByOrg(orgId);
-            if (routes != null && routes.Count() > 0)
+            var routes = _routeService.GetRoutesByOrg(orgId).ToList();
+
+            if(routes.Any())
             {
                 response = Request.CreateResponse<IEnumerable<Route>>(HttpStatusCode.OK, routes);
                 //response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
@@ -54,6 +64,7 @@ namespace TrackMyKid.Web.Api.Controllers
             {
                 response = Request.CreateResponse(HttpStatusCode.NoContent);
             }
+
             return response;
         }
 
@@ -64,9 +75,10 @@ namespace TrackMyKid.Web.Api.Controllers
         {
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
             log.Debug("api/org/"+orgId.ToString()+"/route/"+routeID.ToString()+"trips");
-            RouteService routeService = new RouteService();
-            IEnumerable<TripModel> trips = routeService.GetTripsForRoute(orgId, routeID);
-            if (trips != null && trips.Count() > 0)
+
+            var trips = _routeService.GetTripsForRoute(orgId, routeID).ToList();
+
+            if (trips.Any())
             {
                 response = Request.CreateResponse<IEnumerable<TripModel>>(HttpStatusCode.OK, trips);
                 //response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
@@ -76,11 +88,8 @@ namespace TrackMyKid.Web.Api.Controllers
             {
                 response = Request.CreateResponse(HttpStatusCode.NoContent);
             }
+
             return response;
         }
-
-
-      
-
     }
 }

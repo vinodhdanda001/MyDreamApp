@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TrackMyKid.Common;
 using TrackMyKid.Common.Models;
 using TrackMyKid.DataLayer;
+using TrackMyKid.DataLayer.Services;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
