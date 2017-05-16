@@ -1,1 +1,11 @@
 TrackMyKid/src/TrackMyKidDb/TrackMyKidDb.dbmdl
+*.pdb
+*.cache
+*.dll
+*.exe
+TrackMyKid/src/TrackMyKid.DataLayer/obj/Debug/edmxResourcesToEmbed/TrackMyKidEntities.csdl
+TrackMyKid/src/TrackMyKid.DataLayer/obj/Debug/edmxResourcesToEmbed/TrackMyKidEntities.ssdl
+TrackMyKid/src/TrackMyKidDb/bin/Debug/TrackMyKidDb.dacpac
+TrackMyKid/src/TrackMyKid.Web.Api/obj/Debug/TrackMyKid.Web.Api.csproj.FileListAbsolute.txt
+TrackMyKid/src/TrackMyKidDb/obj/Debug/Model.xml
+TrackMyKid/src/TrackMyKidDb/obj/Debug/TrackMyKidDb.sqlproj.FileListAbsolute.txt
