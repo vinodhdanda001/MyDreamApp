@@ -6,6 +6,8 @@ namespace TrackMyKid.DataLayer.Interfaces
     {
         int StartTrip(TripModel trip);
 
-        bool EndTrip(int tripSessionId);
+        bool EndTrip(TripModel tripModel);
+
+        TripStatusCode GetTripStatus(int tripSessionId);
     }
 }

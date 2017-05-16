@@ -5,6 +5,6 @@
         public int TripSessionId { get; set; }
         public decimal Lattitude { get; set; }
         public decimal Longitude { get; set; }
-        public string LastUpdatedBy { get; set; }
+        public string DriverID { get; set; }
     }
 }

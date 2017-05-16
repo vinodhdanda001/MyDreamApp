@@ -20,4 +20,11 @@ namespace TrackMyKid.Common.Models
         [Column(TypeName = "datetime2")]
         public DateTime TripEndTime { get; set; }
     }
+
+    public enum TripStatusCode
+    {
+        Invalid,
+        InProgress,
+        Completed
+    }
 }
