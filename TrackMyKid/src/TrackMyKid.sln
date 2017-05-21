@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{469F8336-09B3-45FA-9F0F-524B22A05109}"
 EndProject
@@ -28,6 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{2D91
 		Script\000_TableDropScript.sql = Script\000_TableDropScript.sql
 		Script\001_SchemaAndTables.sql = Script\001_SchemaAndTables.sql
 		Script\002_TableData.sql = Script\002_TableData.sql
+		Script\Auto_SQLQuery_TranportCatalog_Schema_Creation.sql = Script\Auto_SQLQuery_TranportCatalog_Schema_Creation.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.DataLayer", "TrackMyKid.DataLayer\TrackMyKid.DataLayer.csproj", "{B4DD0F17-EE35-4284-BCCD-F3E4F25DD0A2}"
