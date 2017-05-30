@@ -29,8 +29,8 @@ namespace TestProject
             LoginDataService loginDataService = new LoginDataService();
             LoginModel loginModel = new LoginModel
             {
-                userName = "9100000101",
-                organizationId = 100
+                UserName = "9100000101",
+                OrganizationId = 100
             };
             var x= loginDataService.Login(loginModel);
             Console.ReadLine();
