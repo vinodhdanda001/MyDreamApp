@@ -157,8 +157,6 @@
     <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Filters\ModelStateValidationFilter.cs" />
-    <Compile Include="IoC\AutofacValidatorFactory.cs" />
-    <Compile Include="IoC\ValidationModule.cs" />
     <Compile Include="IoC\WebApiModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

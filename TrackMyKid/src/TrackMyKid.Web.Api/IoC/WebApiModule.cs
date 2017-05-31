@@ -1,4 +1,6 @@
-﻿using Autofac;
+﻿using System.Web.Http.Validation;
+using Autofac;
+using FluentValidation.WebApi;
 using TrackMyKid.DataLayer.Interfaces;
 using TrackMyKid.DataLayer.Services;
 
@@ -9,6 +11,9 @@ namespace TrackMyKid.Web.Api.IoC
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
+
+            builder.RegisterType<FluentValidationModelValidatorProvider>()
+                .As<ModelValidatorProvider>();
 
             builder.RegisterType<GeoLocationService>()
                 .As<IGeoLocationService>()
