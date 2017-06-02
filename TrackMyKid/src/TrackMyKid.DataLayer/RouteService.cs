@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrackMyKid.Common.Models;
+using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.DataLayer
 {
-    public class RouteService
+    public class RouteService : IRouteService
     {
         public IEnumerable<Route> GetRoutesByOrg(int orgID)
         {
@@ -46,17 +47,17 @@ namespace TrackMyKid.DataLayer
 
         }
 
-        public IEnumerable<TripModel> GetTripsForRoute(int orgId, string routeID)
+        public IEnumerable<TripModel> GetTripsForRoute(int orgId, int routeID)
         {
 
             using (var dbContext = new TranportCatalogEntities())
             {
                 var trips = from route in dbContext.OrganizationRoutes.Where(t=> t.IsActive.ToUpper() == "Y" 
                                                                                 && t.Organization_ID == orgId
-                                                                                && t.Route_ID.ToUpper() == routeID.ToUpper())
+                                                                                && t.Route_ID == routeID)
                              join trip in dbContext.RouteTrips.Where(t => t.IsActive.ToUpper() == "Y" 
                                                                             && t.Organization_ID == orgId
-                                                                            && t.Route_ID.ToUpper() == routeID)
+                                                                            && t.Route_ID == routeID)
                                 on route.Route_ID equals trip.Route_ID 
                              //join tripHalts in dbContext.RouteTrips.Where(t=> t.IsActive.ToUpper() == "Y"
                              //                                               && t.Organization_ID == orgId
@@ -73,6 +74,13 @@ namespace TrackMyKid.DataLayer
             }
         }
 
-
+        public RouteModel AddRoute(RouteModel route)
+        {
+            //using (var dbContext = new TranportCatalogEntities())
+            //{
+            //    dbContext.
+            //}
+                return route;
+        }
     }
 }

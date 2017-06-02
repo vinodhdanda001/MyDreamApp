@@ -92,21 +92,6 @@
     <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
-  <EntityType Name="OrganizationRoute">
-    <Key>
-      <PropertyRef Name="Organization_ID" />
-      <PropertyRef Name="Route_ID" />
-    </Key>
-    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
-    <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Route_Display_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="End_Halt" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
   <EntityType Name="RoleDetail">
     <Key>
       <PropertyRef Name="RoleID" />
@@ -114,95 +99,6 @@
     <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoleID" Type="Int32" Nullable="false" />
     <Property Name="RoleDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
-  <EntityType Name="RouteHalt">
-    <Key>
-      <PropertyRef Name="Organization_ID" />
-      <PropertyRef Name="Route_ID" />
-      <PropertyRef Name="HaltName" />
-    </Key>
-    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
-    <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="HaltName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Seq_No" Type="Int32" Nullable="false" />
-    <Property Name="Halt_Address" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="X_Coordinate" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
-    <Property Name="Y_Coordinate" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
-    <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
-  <EntityType Name="RouteMember">
-    <Key>
-      <PropertyRef Name="Organization_ID" />
-      <PropertyRef Name="Route_ID" />
-      <PropertyRef Name="TripId" />
-      <PropertyRef Name="MemberID" />
-    </Key>
-    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
-    <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TripId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MemberID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MemberHalt" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
-  <EntityType Name="RouteTrip">
-    <Key>
-      <PropertyRef Name="Organization_ID" />
-      <PropertyRef Name="Route_ID" />
-      <PropertyRef Name="TripId" />
-    </Key>
-    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
-    <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TripId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
-  <EntityType Name="TripHaltTiming">
-    <Key>
-      <PropertyRef Name="Organization_ID" />
-      <PropertyRef Name="Route_ID" />
-      <PropertyRef Name="TripId" />
-      <PropertyRef Name="HaltName" />
-      <PropertyRef Name="ToWordsOrgInd" />
-    </Key>
-    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
-    <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TripId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="HaltName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="HaltArrivalTime" Type="DateTime" Precision="3" />
-    <Property Name="ToWordsOrgInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
-  <EntityType Name="TripVehicleDriverDetail">
-    <Key>
-      <PropertyRef Name="Organization_ID" />
-      <PropertyRef Name="Route_ID" />
-      <PropertyRef Name="TripId" />
-    </Key>
-    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
-    <Property Name="Route_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TripId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Driver_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Vehicle_ID" Type="Int32" Nullable="false" />
     <Property Name="LastUpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
@@ -228,30 +124,18 @@
     <EntitySet Name="MemberRoles" EntityType="Self.MemberRole" />
     <EntitySet Name="Organizations" EntityType="Self.Organization" />
     <EntitySet Name="OrganizationMembers" EntityType="Self.OrganizationMember" />
-    <EntitySet Name="OrganizationRoutes" EntityType="Self.OrganizationRoute" />
     <EntitySet Name="RoleDetails" EntityType="Self.RoleDetail" />
-    <EntitySet Name="RouteHalts" EntityType="Self.RouteHalt" />
-    <EntitySet Name="RouteMembers" EntityType="Self.RouteMember" />
-    <EntitySet Name="RouteTrips" EntityType="Self.RouteTrip" />
-    <EntitySet Name="TripHaltTimings" EntityType="Self.TripHaltTiming" />
-    <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetail" />
     <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetail" />
-    <EntitySet Name="APP_ERR_LOG" EntityType="TranportCatalogModel.APP_ERR_LOG" />
     <EntitySet Name="TripGeoLocations" EntityType="TranportCatalogModel.TripGeoLocation" />
+    <EntitySet Name="OrganizationRoutes" EntityType="TranportCatalogModel.OrganizationRoute" />
+    <EntitySet Name="RouteHalts" EntityType="TranportCatalogModel.RouteHalt" />
+    <EntitySet Name="RouteMembers" EntityType="TranportCatalogModel.RouteMember" />
+    <EntitySet Name="RouteTrips" EntityType="TranportCatalogModel.RouteTrip" />
+    <EntitySet Name="TripHaltTimings" EntityType="TranportCatalogModel.TripHaltTiming" />
+    <EntitySet Name="TripVehicleDriverDetails" EntityType="TranportCatalogModel.TripVehicleDriverDetail" />
     <EntitySet Name="TripStatus" EntityType="TranportCatalogModel.TripStatu" />
+    <EntitySet Name="APP_ERR_LOG" EntityType="TranportCatalogModel.APP_ERR_LOG" />
   </EntityContainer>
-  <EntityType Name="APP_ERR_LOG">
-    <Key>
-      <PropertyRef Name="row_id" />
-    </Key>
-    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="log_date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="log_thread" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="log_level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="log_source" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="log_message" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
-    <Property Name="exception" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="TripGeoLocation">
     <Key>
       <PropertyRef Name="TripSessionId" />
@@ -264,6 +148,110 @@
     <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="7" />
   </EntityType>
+  <EntityType Name="OrganizationRoute">
+    <Key>
+      <PropertyRef Name="Organization_ID" />
+      <PropertyRef Name="Route_ID" />
+    </Key>
+    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+    <Property Name="Route_ID" Type="Int32" Nullable="false" />
+    <Property Name="Route_Display_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="End_Halt" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="RouteHalt">
+    <Key>
+      <PropertyRef Name="Organization_ID" />
+      <PropertyRef Name="Route_ID" />
+      <PropertyRef Name="HaltName" />
+    </Key>
+    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+    <Property Name="Route_ID" Type="Int32" Nullable="false" />
+    <Property Name="HaltName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Seq_No" Type="Int32" Nullable="false" />
+    <Property Name="Halt_Address" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="X_Coordinate" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="Y_Coordinate" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="RouteMember">
+    <Key>
+      <PropertyRef Name="Organization_ID" />
+      <PropertyRef Name="Route_ID" />
+      <PropertyRef Name="TripId" />
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+    <Property Name="Route_ID" Type="Int32" Nullable="false" />
+    <Property Name="TripId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MemberHalt" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="RouteTrip">
+    <Key>
+      <PropertyRef Name="Organization_ID" />
+      <PropertyRef Name="Route_ID" />
+      <PropertyRef Name="TripId" />
+    </Key>
+    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+    <Property Name="Route_ID" Type="Int32" Nullable="false" />
+    <Property Name="TripId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="TripHaltTiming">
+    <Key>
+      <PropertyRef Name="Organization_ID" />
+      <PropertyRef Name="Route_ID" />
+      <PropertyRef Name="TripId" />
+      <PropertyRef Name="HaltName" />
+      <PropertyRef Name="ToWordsOrgInd" />
+    </Key>
+    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+    <Property Name="Route_ID" Type="Int32" Nullable="false" />
+    <Property Name="TripId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HaltName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="HaltArrivalTime" Type="DateTime" Precision="3" />
+    <Property Name="ToWordsOrgInd" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="TripVehicleDriverDetail">
+    <Key>
+      <PropertyRef Name="Organization_ID" />
+      <PropertyRef Name="Route_ID" />
+      <PropertyRef Name="TripId" />
+    </Key>
+    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+    <Property Name="Route_ID" Type="Int32" Nullable="false" />
+    <Property Name="TripId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Driver_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Vehicle_ID" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
   <EntityType Name="TripStatu">
     <Key>
       <PropertyRef Name="TripSessionId" />
@@ -273,15 +261,33 @@
     </Key>
     <Property Name="TripSessionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Organization_ID" Type="Int32" Nullable="false" />
-    <Property Name="Route_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Route_ID" Type="Int32" Nullable="false" />
     <Property Name="TripId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="TripStatusCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="TripStartTime" Type="DateTime" Precision="3" />
     <Property Name="TripEndTime" Type="DateTime" Precision="3" />
     <Property Name="Driver_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Vehicle_ID" Type="Int32" Nullable="false" />
+    <Property Name="Vehicle_ID" Type="Int32" />
     <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="cr_datetime" Type="DateTime" Precision="7" />
     <Property Name="updt_datetime" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="APP_ERR_LOG">
+    <Key>
+      <PropertyRef Name="row_id" />
+      <PropertyRef Name="log_date" />
+      <PropertyRef Name="log_thread" />
+      <PropertyRef Name="log_level" />
+      <PropertyRef Name="log_source" />
+      <PropertyRef Name="log_message" />
+      <PropertyRef Name="exception" />
+    </Key>
+    <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="log_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="log_thread" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="log_level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="log_source" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="log_message" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="exception" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

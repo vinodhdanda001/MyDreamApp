@@ -14,7 +14,7 @@ namespace TrackMyKid.Common.Models
         public DateTime TripTime { get; set; }
         public int organizationId { get; set; }
         public int TripSessionID { get; set; }
-        public string RouteID { get; set; }
+        public int RouteID { get; set; }
         public string DriverId { get; set; }
         public int VehicleID { get; set; }
 

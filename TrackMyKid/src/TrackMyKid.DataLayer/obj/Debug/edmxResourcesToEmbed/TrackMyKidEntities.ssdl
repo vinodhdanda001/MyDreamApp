@@ -1,16 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TranportCatalogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TranportCatalog.dbo.APP_ERR_LOG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="APP_ERR_LOG">
     <Key>
       <PropertyRef Name="row_id" />
+      <PropertyRef Name="log_date" />
+      <PropertyRef Name="log_thread" />
+      <PropertyRef Name="log_level" />
+      <PropertyRef Name="log_source" />
+      <PropertyRef Name="log_message" />
+      <PropertyRef Name="exception" />
     </Key>
     <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="log_date" Type="datetime" Nullable="false" />
     <Property Name="log_thread" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="log_level" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="log_source" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="log_source" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="log_message" Type="varchar" MaxLength="4000" Nullable="false" />
-    <Property Name="exception" Type="varchar" MaxLength="4000" />
+    <Property Name="exception" Type="varchar" MaxLength="4000" Nullable="false" />
   </EntityType>
   <EntityType Name="DriverDetails">
     <Key>
@@ -111,7 +119,7 @@
     </Key>
     <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Organization_ID" Type="int" Nullable="false" />
-    <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Route_ID" Type="int" Nullable="false" />
     <Property Name="Route_Display_Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="End_Halt" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
@@ -139,7 +147,7 @@
     </Key>
     <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Organization_ID" Type="int" Nullable="false" />
-    <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Route_ID" Type="int" Nullable="false" />
     <Property Name="HaltName" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="Seq_No" Type="int" Nullable="false" />
     <Property Name="Halt_Address" Type="varchar" MaxLength="2000" Nullable="false" />
@@ -159,7 +167,7 @@
     </Key>
     <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Organization_ID" Type="int" Nullable="false" />
-    <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Route_ID" Type="int" Nullable="false" />
     <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="MemberID" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="MemberHalt" Type="varchar" MaxLength="250" Nullable="false" />
@@ -176,7 +184,7 @@
     </Key>
     <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Organization_ID" Type="int" Nullable="false" />
-    <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Route_ID" Type="int" Nullable="false" />
     <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
@@ -205,7 +213,7 @@
     </Key>
     <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Organization_ID" Type="int" Nullable="false" />
-    <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Route_ID" Type="int" Nullable="false" />
     <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="HaltName" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="HaltArrivalTime" Type="datetime" />
@@ -224,13 +232,13 @@
     </Key>
     <Property Name="TripSessionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Organization_ID" Type="int" Nullable="false" />
-    <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Route_ID" Type="int" Nullable="false" />
     <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="TripStatusCode" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="TripStartTime" Type="datetime" />
     <Property Name="TripEndTime" Type="datetime" />
     <Property Name="Driver_ID" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="Vehicle_ID" Type="int" Nullable="false" />
+    <Property Name="Vehicle_ID" Type="int" />
     <Property Name="LastUpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="cr_datetime" Type="datetime2" Precision="7" />
     <Property Name="updt_datetime" Type="datetime2" Precision="7" />
@@ -243,7 +251,7 @@
     </Key>
     <Property Name="row_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Organization_ID" Type="int" Nullable="false" />
-    <Property Name="Route_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Route_ID" Type="int" Nullable="false" />
     <Property Name="TripId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Driver_ID" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Vehicle_ID" Type="int" Nullable="false" />
@@ -267,7 +275,6 @@
     <Property Name="updt_datetime" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityContainer Name="TranportCatalogModelStoreContainer">
-    <EntitySet Name="APP_ERR_LOG" EntityType="Self.APP_ERR_LOG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DriverDetails" EntityType="Self.DriverDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MemberRole" EntityType="Self.MemberRole" Schema="dbo" store:Type="Tables" />
@@ -283,5 +290,16 @@
     <EntitySet Name="TripStatus" EntityType="Self.TripStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TripVehicleDriverDetails" EntityType="Self.TripVehicleDriverDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VehicleDetails" EntityType="Self.VehicleDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_ERR_LOG" EntityType="Self.APP_ERR_LOG" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [APP_ERR_LOG].[row_id] AS [row_id], 
+    [APP_ERR_LOG].[log_date] AS [log_date], 
+    [APP_ERR_LOG].[log_thread] AS [log_thread], 
+    [APP_ERR_LOG].[log_level] AS [log_level], 
+    [APP_ERR_LOG].[log_source] AS [log_source], 
+    [APP_ERR_LOG].[log_message] AS [log_message], 
+    [APP_ERR_LOG].[exception] AS [exception]
+    FROM [dbo].[APP_ERR_LOG] AS [APP_ERR_LOG]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>
