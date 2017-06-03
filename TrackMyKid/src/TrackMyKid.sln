@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{469F8336-09B3-45FA-9F0F-524B22A05109}"
 EndProject
@@ -34,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.DataLayer", "TrackMyKid.DataLayer\TrackMyKid.DataLayer.csproj", "{B4DD0F17-EE35-4284-BCCD-F3E4F25DD0A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{695AE629-76BB-4740-AF0E-624437B07952}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Web.Management", "TrackMyKid.Web.Management\TrackMyKid.Web.Management.csproj", "{ED8FC286-45D6-44BB-8564-48A15EEB19ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{695AE629-76BB-4740-AF0E-624437B07952}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{695AE629-76BB-4740-AF0E-624437B07952}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{695AE629-76BB-4740-AF0E-624437B07952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED8FC286-45D6-44BB-8564-48A15EEB19ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED8FC286-45D6-44BB-8564-48A15EEB19ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED8FC286-45D6-44BB-8564-48A15EEB19ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED8FC286-45D6-44BB-8564-48A15EEB19ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

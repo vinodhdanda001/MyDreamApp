@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMyKid.DataLayer
+namespace TrackMyKid.Common.Models
 {
     public class Route
     {
