@@ -1,5 +1,6 @@
 using System.Web.Http;
 using Autofac;
+using FluentValidation.WebApi;
 using Microsoft.Owin;
 using Owin;
 using TrackMyKid.Web.Api;

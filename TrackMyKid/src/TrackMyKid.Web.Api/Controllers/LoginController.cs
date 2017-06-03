@@ -24,9 +24,6 @@ namespace TrackMyKid.Web.Api.Controllers
         [Route("")]
         public HttpResponseMessage Post(LoginModel loginModel)
         {
-            if (loginModel == null)
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
-
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
 
             UserProfile userProfile = _loginDataService.Login(loginModel);

@@ -45,9 +45,9 @@ namespace TrackMyKid.Web.Api.Controllers
                 _registerDataService.Register(registerModel);
                 UserProfile userProfile = _loginDataService.Login(new LoginModel
                 {
-                    userName = registerModel.userName,
-                    passWord = registerModel.passWord,
-                    organizationId = registerModel.organizationId
+                    UserName = registerModel.UserName,
+                    Password = registerModel.Password,
+                    OrganizationId = registerModel.OrganizationId
                 });
                 if (userProfile != null)
                 {
@@ -69,9 +69,9 @@ namespace TrackMyKid.Web.Api.Controllers
         {
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
 
-            if(_memberService.IsMemberExists(registerModel.organizationId, registerModel.primaryContactNum))
+            if(_memberService.IsMemberExists(registerModel.OrganizationId, registerModel.PrimaryContactNum))
             {
-                int otp = SendOTPbySMS(registerModel.organizationId, registerModel.primaryContactNum);
+                int otp = SendOTPbySMS(registerModel.OrganizationId, registerModel.PrimaryContactNum);
                 response.Content = new ObjectContent(typeof(int), otp, new JsonMediaTypeFormatter());
                 response.StatusCode = HttpStatusCode.OK;
             }

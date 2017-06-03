@@ -65,7 +65,7 @@ namespace TrackMyKid.DataLayer.Services
                              select new TripModel
                              {
                                  TripId = trip.TripId,
-                                 RouteID = trip.Route_ID,
+                                 RouteId = trip.Route_ID,
                                  TripTime = DateTime.MinValue   // To Do the timings has to be adjusted well
                              };
                 return trips.ToList();
