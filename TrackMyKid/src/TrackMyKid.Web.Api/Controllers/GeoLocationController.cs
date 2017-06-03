@@ -5,12 +5,27 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
-using TrackMyKid.DataLayer;
+using TrackMyKid.DataLayer.Interfaces;
+using TrackMyKid.DataLayer.Services;
 
 namespace TrackMyKid.Web.Api.Controllers
 {
     public class GeoLocationController : ApiController
     {
+        private readonly IGeoLocationService _geoLocationService;
+        private readonly ITripDataService _tripDataService;
+
+        public GeoLocationController(IGeoLocationService geoLocationService, ITripDataService tripDataService)
+        {
+            if (geoLocationService == null)
+                throw new ArgumentNullException(nameof(geoLocationService));
+            if (tripDataService == null)
+                throw new ArgumentNullException(nameof(tripDataService));
+
+            _geoLocationService = geoLocationService;
+            _tripDataService = tripDataService;
+        }
+
         [Route("api/geolocation/{tripSessionId}")]
         [HttpGet]
         public HttpResponseMessage GeoLocation(int tripSessionId)
@@ -20,10 +35,7 @@ namespace TrackMyKid.Web.Api.Controllers
             HttpResponseMessage response = new HttpResponseMessage { StatusCode = HttpStatusCode.BadRequest };
             TripStatusCode tripStatusCode = TripStatusCode.Invalid;
 
-            GeoLocationService locationService = new GeoLocationService();
-            TripDataService tripDataService = new TripDataService();
-            
-            tripStatusCode = tripDataService.GetTripStatus(tripSessionId);
+            tripStatusCode = _tripDataService.GetTripStatus(tripSessionId);
 
             if (tripStatusCode == TripStatusCode.Invalid)
             {
@@ -31,7 +43,7 @@ namespace TrackMyKid.Web.Api.Controllers
             }
             else if (tripStatusCode == TripStatusCode.InProgress)
             {
-                location = locationService.GetLocation(tripSessionId);
+                location = _geoLocationService.GetLocation(tripSessionId);
                 if (location != null)
                 {
                     response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
@@ -53,10 +65,8 @@ namespace TrackMyKid.Web.Api.Controllers
         {
             HttpResponseMessage response = new HttpResponseMessage { StatusCode = HttpStatusCode.BadRequest };
             TripStatusCode tripStatusCode = TripStatusCode.Invalid;
-            GeoLocationService locationService = new GeoLocationService();
-            TripDataService tripDataService = new TripDataService();
 
-            tripStatusCode = tripDataService.GetTripStatus(location.TripSessionId);
+            tripStatusCode = _tripDataService.GetTripStatus(location.TripSessionId);
 
             if(tripStatusCode == TripStatusCode.Invalid)
             {
@@ -64,7 +74,7 @@ namespace TrackMyKid.Web.Api.Controllers
             }
             else if(tripStatusCode == TripStatusCode.InProgress)
             {
-                locationService.PutLocation(location);
+                _geoLocationService.PutLocation(location);
                 response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
             }
             else if(tripStatusCode == TripStatusCode.Completed)

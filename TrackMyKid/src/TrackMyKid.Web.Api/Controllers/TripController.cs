@@ -42,8 +42,8 @@ namespace TrackMyKid.Web.Api.Controllers
         {
             HttpResponseMessage response;
             bool isEnded = false;
-            TripDataService tripDataService = new TripDataService();
-            isEnded = tripDataService.EndTrip(trip);
+
+            isEnded = _tripDataService.EndTrip(trip);
             if (isEnded)
             {
                 response = Request.CreateResponse(HttpStatusCode.OK, isEnded);
