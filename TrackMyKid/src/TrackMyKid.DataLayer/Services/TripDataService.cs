@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TrackMyKid.Common.Models;
+using TrackMyKid.DataLayer.Interfaces;
 
-namespace TrackMyKid.DataLayer
+namespace TrackMyKid.DataLayer.Services
 {
-    public class TripDataService
+    public class TripDataService : ITripDataService
     {
 
         public int StartTrip(TripModel trip)
@@ -42,14 +40,13 @@ namespace TrackMyKid.DataLayer
             return tripSessionId;
         }
 
-        public bool EndTrip(TripModel trip)  //int tripSessionID)
+        public bool EndTrip(TripModel trip)
         {
             bool isSuccess = false;
             using (var dbContext = new TranportCatalogEntities())
             {
-                TripStatu tripStatus = dbContext.TripStatus.Where(t =>
-                 t.TripSessionId == trip.TripSessionID 
-                 && t.TripStatusCode == "I").FirstOrDefault();
+                var tripStatus = dbContext.TripStatus.FirstOrDefault(t => t.TripSessionId == trip.TripSessionID 
+                 && t.TripStatusCode == "I");
                 if (tripStatus != null)
                 {
                     tripStatus.TripStatusCode = "C";
@@ -78,6 +75,5 @@ namespace TrackMyKid.DataLayer
             }
             return tripStatusCode;
         }
-
     }
 }

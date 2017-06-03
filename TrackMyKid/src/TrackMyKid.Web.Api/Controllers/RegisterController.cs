@@ -1,19 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
-using TrackMyKid.DataLayer;
+using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.Web.Api.Controllers
 {
     public class RegisterController : ApiController
     {
+        private readonly IMemberService _memberService;
+        private readonly IRegisterDataService _registerDataService;
+        private readonly ILoginDataService _loginDataService;
 
-        // POST api/books
+        public RegisterController(
+            IRegisterDataService registerDataService, 
+            IMemberService memberService, 
+            ILoginDataService loginDataService)
+        {
+            if (registerDataService == null)
+                throw new ArgumentNullException(nameof(registerDataService));
+            if (memberService == null)
+                throw new ArgumentNullException(nameof(memberService));
+            if (loginDataService == null)
+                throw new ArgumentNullException(nameof(loginDataService));
+
+            _registerDataService = registerDataService;
+            _memberService = memberService;
+            _loginDataService = loginDataService;
+        }
+
         [Route("api/register")]
         public HttpResponseMessage Post(RegisterModel registerModel)
         {
@@ -21,14 +38,12 @@ namespace TrackMyKid.Web.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
 
             HttpResponseMessage response;
-            RegisterDataService registerService = new RegisterDataService();
             // Prepae the Hash Key  -- TODO
 
-            if (!registerService.IsRegistered(registerModel))
+            if (!_registerDataService.IsRegistered(registerModel))
             {
-                registerService.Register(registerModel);
-                LoginDataService loginService = new LoginDataService();
-                UserProfile userProfile = loginService.Login(new LoginModel
+                _registerDataService.Register(registerModel);
+                UserProfile userProfile = _loginDataService.Login(new LoginModel
                 {
                     userName = registerModel.userName,
                     passWord = registerModel.passWord,
@@ -53,8 +68,8 @@ namespace TrackMyKid.Web.Api.Controllers
         public HttpResponseMessage ValidateAndSendOTP(RegisterModel registerModel) // int orgId, int primaryContactNo)
         {
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
-            MemberService memberService = new MemberService();
-            if(memberService.IsMemberExists(registerModel.organizationId, registerModel.primaryContactNum))
+
+            if(_memberService.IsMemberExists(registerModel.organizationId, registerModel.primaryContactNum))
             {
                 int otp = SendOTPbySMS(registerModel.organizationId, registerModel.primaryContactNum);
                 response.Content = new ObjectContent(typeof(int), otp, new JsonMediaTypeFormatter());
@@ -65,6 +80,7 @@ namespace TrackMyKid.Web.Api.Controllers
                 response.StatusCode = HttpStatusCode.Forbidden;
                 response.Content = new StringContent("Sorry. Your primary contact number is not registered with provided organization.");
             }
+
             return response;
         }
 

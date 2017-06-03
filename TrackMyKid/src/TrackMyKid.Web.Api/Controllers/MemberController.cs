@@ -1,30 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TrackMyKid.Common.Models;
-using log4net;
-using TrackMyKid.DataLayer;
 using System.Net.Http.Formatting;
+using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.Web.Api.Controllers
 {
     public class MemberController : ApiController
     {
-        private static log4net.ILog log = //LogHelper.GetLogger();
+        private static log4net.ILog _log = //LogHelper.GetLogger();
                  log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        private readonly IMemberService _memberService;
+
+        public MemberController(IMemberService memberService)
+        {
+            if (memberService == null)
+                throw new ArgumentNullException(nameof(memberService));
+
+            _memberService = memberService;
+        }
+
         [Route("api/org/{orgId}/member/{id}")]
         [HttpGet]
         public HttpResponseMessage GET(int orgId, string id)
         {
-            log.Debug("Get: api/org/" + orgId.ToString() + "/member/" + id.ToString());
+            _log.Debug("Get: api/org/" + orgId.ToString() + "/member/" + id.ToString());
 
             HttpResponseMessage response;
-            Member member;
-            MemberService memberService = new MemberService();
-            member = memberService.GetMemberDetails(orgId, id);
+            var member = _memberService.GetMemberDetails(orgId, id);
 
             if(member == null)
             {
@@ -37,26 +42,5 @@ namespace TrackMyKid.Web.Api.Controllers
 
             return response;
         }
-
-
-        
-        //public Member GET()
-        //{
-        //    return new Member
-        //    {
-        //        FirstName = "Vinodh",
-        //        LastName = "Kumar"
-        //    };
-        //}
-
-        
-        //public Member GET(string id)
-        //{
-        //    return new Member
-        //    {
-        //        FirstName = "Danda",
-        //        LastName = "Kumar"
-        //    };
-        //}
     }
 }

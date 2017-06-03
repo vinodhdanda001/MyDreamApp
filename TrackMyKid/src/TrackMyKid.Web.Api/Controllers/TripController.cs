@@ -1,18 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
-using TrackMyKid.DataLayer;
+using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.Web.Api.Controllers
 {
     public class TripController : ApiController
     {
-       
+        private readonly ITripDataService _tripDataService;
+
+        public TripController(ITripDataService tripDataService)
+        {
+            if (tripDataService == null)
+                throw new ArgumentNullException(nameof(tripDataService));
+
+            _tripDataService = tripDataService;
+        }
+
         [Route("api/trip/starttrip")]
         [HttpPost]
         public HttpResponseMessage StartTrip(TripModel trip) // int orgId, int primaryContactNo)
@@ -22,8 +29,8 @@ namespace TrackMyKid.Web.Api.Controllers
 
             int tripStatusId = -1;
             HttpResponseMessage response;
-            TripDataService tripDataService = new TripDataService();
-            tripStatusId = tripDataService.StartTrip(trip);
+            tripStatusId = _tripDataService.StartTrip(trip);
+
             if(tripStatusId == -1)
             {
                 response = Request.CreateResponse(HttpStatusCode.BadRequest);

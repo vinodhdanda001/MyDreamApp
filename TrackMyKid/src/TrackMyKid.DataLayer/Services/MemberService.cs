@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using TrackMyKid.Common.Models;
+using TrackMyKid.DataLayer.Interfaces;
 
-namespace TrackMyKid.DataLayer
+namespace TrackMyKid.DataLayer.Services
 {
-    public class MemberService
+    public class MemberService : IMemberService
     {
-        public Member GetMemberDetails(int orgId, string memberID)
+        public Member GetMemberDetails(int orgId, string memberId)
         {
             using (var dbContext = new TranportCatalogEntities())
             {
                 var userProfile = from orgMemeber in dbContext.OrganizationMembers
                                                                .Where(t => t.Organization_ID == orgId
-                                                               && t.MemberID == memberID)
+                                                               && t.MemberID == memberId)
                                   join org in dbContext.Organizations
                                                                 .Where(t => t.Organization_ID == orgId)
                                   on orgMemeber.Organization_ID equals org.Organization_ID

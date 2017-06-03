@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TrackMyKid.Common.Models;
+using TrackMyKid.DataLayer.Interfaces;
 
-namespace TrackMyKid.DataLayer
+namespace TrackMyKid.DataLayer.Services
 {
-    public class GeoLocationService
+    public class GeoLocationService : IGeoLocationService
     {   
         public GeoLocation GetLocation(int tripSessionId)
         {

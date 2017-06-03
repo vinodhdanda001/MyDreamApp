@@ -59,3 +59,11 @@
 16:43:00,911 [TrackMyKid.Web.Api.Controllers.MemberController] DEBUG - Get: api/org/100/member/M001
 16:43:48,438 [TrackMyKid.Web.Api.Controllers.MemberController] DEBUG - Get: api/org/100/member/M001
 16:44:19,644 [TrackMyKid.Web.Api.Controllers.MemberController] DEBUG - Get: api/org/100/member/M001
+19:50:54,733 [TrackMyKid.Web.Api.Controllers.MemberController] DEBUG - Get: api/org/100/member/M001
+19:55:08,815 [TrackMyKid.Web.Api.Controllers.MemberController] DEBUG - Get: api/org/100/member/M001
+10:04:36,601 [TrackMyKid.Web.Api.Controllers.MemberController] DEBUG - Get: api/org/100/member/M001
+10:05:28,454 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/M001
+10:16:22,992 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/M001
+10:19:39,926 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/M001
+10:19:41,034 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/M001
+10:19:45,892 [TrackMyKid.Web.Api.Controllers.MemberController] DEBUG - Get: api/org/100/member/M001
