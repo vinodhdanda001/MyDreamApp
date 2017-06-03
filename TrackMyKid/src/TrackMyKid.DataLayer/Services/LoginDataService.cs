@@ -27,7 +27,7 @@ namespace TrackMyKid.DataLayer.Services
                                           LastName = orgMemeber.LastName,
                                           MiddleName = orgMemeber.MiddleName,
                                           OrganizationId = orgMemeber.Organization_ID,
-                                          RouteID = profile.Route_ID,
+                                          RouteId = profile.Route_ID,
                                           Address = orgMemeber.Address
                                       };
                     return userProfile.FirstOrDefault();

@@ -1,10 +1,14 @@
-﻿namespace TrackMyKid.Common.Models
+﻿using FluentValidation.Attributes;
+using TrackMyKid.Common.Validators;
+
+namespace TrackMyKid.Common.Models
 {
+    [Validator(typeof(MemberValidator))]
     public class Member
     {
-        public string MemberID { get; set; }
-        public int Organization_ID { get; set; }
-        public string Organization_Name { get; set; }
+        public string MemberId { get; set; }
+        public int OrganizationId { get; set; }
+        public string OrganizationName { get; set; }
         public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

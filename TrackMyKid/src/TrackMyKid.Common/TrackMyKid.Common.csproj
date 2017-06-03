@@ -63,6 +63,10 @@
     <Compile Include="SMSNotificationHandler.cs" />
     <Compile Include="Validators\GeoLocationModelValidator.cs" />
     <Compile Include="Validators\LoginModelValidator.cs" />
+    <Compile Include="Validators\MemberValidator.cs" />
+    <Compile Include="Validators\RegisterModelValidator.cs" />
+    <Compile Include="Validators\TripModelValidator.cs" />
+    <Compile Include="Validators\UserProfileValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

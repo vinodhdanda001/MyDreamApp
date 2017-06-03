@@ -1,5 +1,9 @@
-﻿namespace TrackMyKid.Common.Models
+﻿using FluentValidation.Attributes;
+using TrackMyKid.Common.Validators;
+
+namespace TrackMyKid.Common.Models
 {
+    [Validator(typeof(RegisterModelValidator))]
     public class RegisterModel
     {
         public string UserName { get; set; }

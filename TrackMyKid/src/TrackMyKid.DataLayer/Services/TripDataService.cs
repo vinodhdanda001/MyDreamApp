@@ -18,14 +18,14 @@ namespace TrackMyKid.DataLayer.Services
                 TripStartTime = DateTime.Now,
                 TripEndTime = null,
                 Driver_ID = trip.DriverId,
-                Organization_ID = trip.organizationId,
+                Organization_ID = trip.OrganizationId,
                 LastUpdatedBy = trip.DriverId,
-                Route_ID = trip.RouteID,
+                Route_ID = trip.RouteId,
                 TripId = trip.TripId,
                 TripStatusCode = "I",
                 cr_datetime = trip.TripStartTime,
                 updt_datetime = trip.TripStartTime,
-                Vehicle_ID = trip.VehicleID
+                Vehicle_ID = trip.VehicleId
             };
 
             using (var dbContext = new TranportCatalogEntities())
@@ -45,7 +45,7 @@ namespace TrackMyKid.DataLayer.Services
             bool isSuccess = false;
             using (var dbContext = new TranportCatalogEntities())
             {
-                var tripStatus = dbContext.TripStatus.FirstOrDefault(t => t.TripSessionId == trip.TripSessionID 
+                var tripStatus = dbContext.TripStatus.FirstOrDefault(t => t.TripSessionId == trip.TripSessionId 
                  && t.TripStatusCode == "I");
                 if (tripStatus != null)
                 {
