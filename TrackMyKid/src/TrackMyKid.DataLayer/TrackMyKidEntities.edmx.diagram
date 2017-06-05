@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="afd605ef295b44b986cf45e822735dcd" Name="Diagram1">
-        <EntityTypeShape EntityType="TranportCatalogModel.DriverDetail" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TranportCatalogModel.Login" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TranportCatalogModel.MemberRole" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TranportCatalogModel.Organization" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
@@ -16,11 +15,12 @@
         <EntityTypeShape EntityType="TranportCatalogModel.OrganizationRoute" Width="1.5" PointX="5.375" PointY="4.75" />
         <EntityTypeShape EntityType="TranportCatalogModel.RouteHalt" Width="1.5" PointX="7.375" PointY="4.75" />
         <EntityTypeShape EntityType="TranportCatalogModel.RouteMember" Width="1.5" PointX="5.375" PointY="9.75" />
-        <EntityTypeShape EntityType="TranportCatalogModel.RouteTrip" Width="1.5" PointX="9.375" PointY="7.75" />
-        <EntityTypeShape EntityType="TranportCatalogModel.TripHaltTiming" Width="1.5" PointX="11.375" PointY="7.75" />
-        <EntityTypeShape EntityType="TranportCatalogModel.TripVehicleDriverDetail" Width="1.5" PointX="9.375" PointY="11.75" />
-        <EntityTypeShape EntityType="TranportCatalogModel.TripStatu" Width="1.5" PointX="11.375" PointY="11.75" />
         <EntityTypeShape EntityType="TranportCatalogModel.APP_ERR_LOG" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="TranportCatalogModel.DriverDetail" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="TranportCatalogModel.RouteTrip" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="TranportCatalogModel.TripHaltTiming" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="TranportCatalogModel.TripStatu" Width="1.5" PointX="9.375" PointY="11.75" />
+        <EntityTypeShape EntityType="TranportCatalogModel.TripVehicleDriverDetail" Width="1.5" PointX="11.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

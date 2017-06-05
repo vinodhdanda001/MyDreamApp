@@ -9,7 +9,7 @@ namespace TrackMyKid.Common.Models
 {
     public class TripModel
     {
-        public string TripId  { get; set; }
+        public int TripId  { get; set; }
         //public string Route_ID { get; set; }
         public DateTime TripTime { get; set; }
         public int organizationId { get; set; }

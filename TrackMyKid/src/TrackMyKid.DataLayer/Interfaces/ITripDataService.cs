@@ -1,4 +1,5 @@
-﻿using TrackMyKid.Common.Models;
+﻿using System.Collections.Generic;
+using TrackMyKid.Common.Models;
 
 namespace TrackMyKid.DataLayer.Interfaces
 {
@@ -9,5 +10,7 @@ namespace TrackMyKid.DataLayer.Interfaces
         bool EndTrip(TripModel tripModel);
 
         TripStatusCode GetTripStatus(int tripSessionId);
+
+        List<TripModel> GetTripsForRoute(int routeID);
     }
 }

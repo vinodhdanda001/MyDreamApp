@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
@@ -19,6 +20,27 @@ namespace TrackMyKid.Web.Api.Controllers
 
             _tripDataService = tripDataService;
         }
+
+        [Route("api/routes/{routeID}/trips")]
+        [HttpGet]
+        public HttpResponseMessage TripsForRoute(int routeID) // int orgId, int primaryContactNo)
+        {
+            HttpResponseMessage response = new HttpResponseMessage { StatusCode = HttpStatusCode.NoContent };
+
+            List<TripModel> trips = _tripDataService.GetTripsForRoute(routeID);
+
+            if (trips != null && trips.Count > 0)
+            {
+                response = Request.CreateResponse(HttpStatusCode.OK, trips, new JsonMediaTypeFormatter());
+            }
+            else
+            {
+                response = Request.CreateResponse(HttpStatusCode.NoContent);
+            }
+
+            return response;
+        }
+
 
         [Route("api/trip/starttrip")]
         [HttpPost]

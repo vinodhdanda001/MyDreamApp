@@ -35,7 +35,7 @@ namespace TrackMyKid.Web.Api.Controllers
 
             if(route != null)
             {
-                response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
+                response.Content = new ObjectContent(typeof(RouteModel), route, new JsonMediaTypeFormatter());
                 response.StatusCode = HttpStatusCode.OK;
             }
             else
@@ -56,7 +56,7 @@ namespace TrackMyKid.Web.Api.Controllers
 
             if(routes.Any())
             {
-                response = Request.CreateResponse<IEnumerable<Route>>(HttpStatusCode.OK, routes);
+                response = Request.CreateResponse<IEnumerable<RouteModel>>(HttpStatusCode.OK, routes);
                 //response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
                 //response.StatusCode = HttpStatusCode.OK;
             }
@@ -91,5 +91,19 @@ namespace TrackMyKid.Web.Api.Controllers
 
             return response;
         }
+
+        [Route("api/route/add")]
+        [HttpPost]
+        public HttpResponseMessage AddRoute(RouteModel route)
+        {
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
+            route = _routeService.AddRoute(route);
+            if(route.Route_ID > 0)
+            {
+                response = Request.CreateResponse<RouteModel>(HttpStatusCode.OK, route);
+            }
+            return response;
+        }
+
     }
 }

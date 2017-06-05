@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TrackMyKid.Common.Models;
 using TrackMyKid.DataLayer.Interfaces;
@@ -75,5 +76,25 @@ namespace TrackMyKid.DataLayer.Services
             }
             return tripStatusCode;
         }
+
+        public List<TripModel> GetTripsForRoute(int routeID)
+        {
+            //List<TripModel> trips;
+            //using (var dbContext = new TranportCatalogEntities())
+            //{
+            //    trips = dbContext.RouteTrips.Where(t=>t.Route_ID == routeID && t.IsActive == "Y").
+            //                    Select(item => new TripModel
+            //                    {
+            //                        //DriverId = item.dr
+            //                        organizationId = item.Organization_ID,
+            //                        RouteID = item.Route_ID,
+            //                        TripId = item.TripId,
+                                    
+            //                    })
+
+            //}
+                return null;
+        }
+
     }
 }

@@ -6,9 +6,9 @@ using TrackMyKid.Common.Models;
 
 namespace TrackMyKid.Web.Management.ApiHelper
 {
-    public interface IRouteRestClient
+    public interface ITripRestClient
     {
-        List<RouteModel> GetRoutesForOrg(int orgId);
-        RouteModel AddRoute(RouteModel route);
+        List<TripModel> GetTripsForRoute(int orgId, int routeId);
+        //TripModel AddTrip(TripModel tripModel);
     }
 }

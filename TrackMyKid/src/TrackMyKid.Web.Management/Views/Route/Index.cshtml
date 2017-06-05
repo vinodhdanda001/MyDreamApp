@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TrackMyKid.Common.Models.Route>
+﻿@model IEnumerable<TrackMyKid.Common.Models.RouteModel>
 
 @{
     Layout = null;
@@ -13,7 +13,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New", "Add")
     </p>
     <table class="table">
         <tr>
@@ -49,7 +49,8 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Manage Trips", "Index" , "Trip", new { Organization_ID = item.Organization_ID }, new { })
             </td>
         </tr>
     }

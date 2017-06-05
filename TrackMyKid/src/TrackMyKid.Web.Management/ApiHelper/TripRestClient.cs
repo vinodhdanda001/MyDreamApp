@@ -8,19 +8,21 @@ using TrackMyKid.Common.Models;
 
 namespace TrackMyKid.Web.Management.ApiHelper
 {
-    public class RouteRestClient : IRouteRestClient
+    public class TripRestClient : ITripRestClient
     {
+       
+
         private readonly RestClient _client;
         private readonly string _url = ConfigurationManager.AppSettings["webapibaseurl"];
-        public RouteRestClient()
+        public TripRestClient()
         {
             _client = new RestClient(_url);
         }
 
-        public List<RouteModel> GetRoutesForOrg(int orgId)
+        public List<TripModel> GetTripsForRoute(int orgId, int routeId)
         {
-            var request = new RestRequest("api/org/"+ orgId.ToString() +"/route", Method.GET) { RequestFormat = DataFormat.Json };
-            var response = _client.Execute<List<RouteModel>>(request);
+            var request = new RestRequest("api/org/" + orgId.ToString() + "/route/"+ routeId.ToString() +"/trips", Method.GET) { RequestFormat = DataFormat.Json };
+            var response = _client.Execute<List<TripModel>>(request);
             if (response.Data == null)
                 throw new Exception(response.ErrorMessage);
             return response.Data;
@@ -28,7 +30,7 @@ namespace TrackMyKid.Web.Management.ApiHelper
 
         public RouteModel AddRoute(RouteModel route)
         {
-            var request = new RestRequest("api/route/add", Method.POST) { RequestFormat = DataFormat.Json,  };
+            var request = new RestRequest("api/route/add", Method.POST) { RequestFormat = DataFormat.Json, };
             request.AddBody(route);
             var response = _client.Execute<RouteModel>(request);
 

@@ -8,12 +8,12 @@ namespace TrackMyKid.DataLayer.Services
 {
     public class RouteService : IRouteService
     {
-        public IEnumerable<Route> GetRoutesByOrg(int orgId)
+        public IEnumerable<RouteModel> GetRoutesByOrg(int orgId)
         {
             using (var dbContext = new TranportCatalogEntities())
             {
                 var routes = dbContext.OrganizationRoutes.Where(t => t.Organization_ID == orgId)
-                             .Select(t => new Route
+                             .Select(t => new RouteModel
                              {
                                  Organization_ID = t.Organization_ID,
                                  Route_ID = t.Route_ID,
@@ -25,22 +25,22 @@ namespace TrackMyKid.DataLayer.Services
 
         }
 
-        public Route GetRouteForMember(int orgId, string memberId)
+        public RouteModel GetRouteForMember(int orgId, string memberId)
         {
             using (var dbContext = new TranportCatalogEntities())
-            {  
-                    var routes = from route in dbContext.OrganizationRoutes
-                                      join routeMember in dbContext.RouteMembers
-                                                                    .Where(t => t.MemberID == memberId && t.Organization_ID == orgId)
-                                      on route.Route_ID equals routeMember.Route_ID
-                                      select new Route
-                                      {
-                                          Organization_ID = route.Organization_ID,
-                                          Route_ID = route.Route_ID,
-                                          Route_Display_Name = route.Route_Display_Name,
-                                          End_Halt = route.End_Halt
-                                      };
-                    return routes.FirstOrDefault();
+            {
+                var routes = from route in dbContext.OrganizationRoutes
+                             join routeMember in dbContext.RouteMembers
+                                                           .Where(t => t.MemberID == memberId && t.Organization_ID == orgId)
+                             on route.Route_ID equals routeMember.Route_ID
+                             select new RouteModel
+                             {
+                                 Organization_ID = route.Organization_ID,
+                                 Route_ID = route.Route_ID,
+                                 Route_Display_Name = route.Route_Display_Name,
+                                 End_Halt = route.End_Halt
+                             };
+                return routes.FirstOrDefault();
             }
 
         }
@@ -50,30 +50,49 @@ namespace TrackMyKid.DataLayer.Services
 
             using (var dbContext = new TranportCatalogEntities())
             {
-                var trips = from route in dbContext.OrganizationRoutes.Where(t=> t.IsActive.ToUpper() == "Y" 
+                var trips = from route in dbContext.OrganizationRoutes.Where(t => t.IsActive.ToUpper() == "Y"
                                                                                 && t.Organization_ID == orgId
                                                                                 && t.Route_ID == routeId)
-                             join trip in dbContext.RouteTrips.Where(t => t.IsActive.ToUpper() == "Y" 
-                                                                            && t.Organization_ID == orgId
-                                                                            && t.Route_ID == routeId)
-                                on route.Route_ID equals trip.Route_ID 
-                             //join tripHalts in dbContext.RouteTrips.Where(t=> t.IsActive.ToUpper() == "Y"
-                             //                                               && t.Organization_ID == orgId
-                             //                                               && t.Route_ID.ToUpper() == routeID
-                             //                                           )
-                             //on route.Route_ID equals tripHalts.Route_ID
-                             select new TripModel
-                             {
-                                 TripId = trip.TripId,
-                                 RouteID = trip.Route_ID,
-                                 TripTime = DateTime.MinValue   // To Do the timings has to be adjusted well
-                             };
+                            join trip in dbContext.RouteTrips.Where(t => t.IsActive.ToUpper() == "Y"
+                                                                           && t.Organization_ID == orgId
+                                                                           && t.Route_ID == routeId)
+                               on route.Route_ID equals trip.Route_ID
+                            //join tripHalts in dbContext.RouteTrips.Where(t=> t.IsActive.ToUpper() == "Y"
+                            //                                               && t.Organization_ID == orgId
+                            //                                               && t.Route_ID.ToUpper() == routeID
+                            //                                           )
+                            //on route.Route_ID equals tripHalts.Route_ID
+                            select new TripModel
+                            {
+                                TripId = trip.TripId,
+                                RouteID = trip.Route_ID,
+                                TripTime = DateTime.MinValue   // To Do the timings has to be adjusted well
+                            };
                 return trips.ToList();
             }
         }
 
         public RouteModel AddRoute(RouteModel route)
         {
+            using (var dbContext = new TranportCatalogEntities())
+            {
+                var maxRouteId = dbContext.OrganizationRoutes.Select(t => t.Route_ID).Max();
+                route.Route_ID = maxRouteId + 1;
+
+                dbContext.OrganizationRoutes.Add(new OrganizationRoute
+                {
+                    Route_ID = route.Route_ID,
+                    LastUpdatedBy = "Vinodh", // TODO
+                    Organization_ID = route.Organization_ID,
+                    Route_Display_Name = route.Route_Display_Name,
+                    End_Halt = route.End_Halt,
+                    cr_datetime = DateTime.Now,
+                    IsActive = "Y",
+                    updt_datetime = DateTime.Now
+                });
+
+                dbContext.SaveChanges();
+            }
             return route;
         }
     }

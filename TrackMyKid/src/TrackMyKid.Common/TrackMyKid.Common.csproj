@@ -51,7 +51,6 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\RegisterModel.cs" />
-    <Compile Include="Models\Route.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\TripModel.cs" />
     <Compile Include="Models\UserProfile.cs" />

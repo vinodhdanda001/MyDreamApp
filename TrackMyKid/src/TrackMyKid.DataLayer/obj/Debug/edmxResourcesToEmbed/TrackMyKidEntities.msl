@@ -1,22 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TranportCatalogModelStoreContainer" CdmEntityContainer="TranportCatalogEntities">
-    <EntitySetMapping Name="DriverDetails">
-      <EntityTypeMapping TypeName="TranportCatalogModel.DriverDetail">
-        <MappingFragment StoreEntitySet="DriverDetails">
-          <ScalarProperty Name="row_id" ColumnName="row_id" />
-          <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
-          <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
-          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
-          <ScalarProperty Name="DriverAddress" ColumnName="DriverAddress" />
-          <ScalarProperty Name="DriverContactNum" ColumnName="DriverContactNum" />
-          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
-          <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Logins">
       <EntityTypeMapping TypeName="TranportCatalogModel.Login">
         <MappingFragment StoreEntitySet="Login">
@@ -183,6 +167,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="APP_ERR_LOG">
+      <EntityTypeMapping TypeName="TranportCatalogModel.APP_ERR_LOG">
+        <MappingFragment StoreEntitySet="APP_ERR_LOG">
+          <ScalarProperty Name="exception" ColumnName="exception" />
+          <ScalarProperty Name="log_message" ColumnName="log_message" />
+          <ScalarProperty Name="log_source" ColumnName="log_source" />
+          <ScalarProperty Name="log_level" ColumnName="log_level" />
+          <ScalarProperty Name="log_thread" ColumnName="log_thread" />
+          <ScalarProperty Name="log_date" ColumnName="log_date" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverDetails">
+      <EntityTypeMapping TypeName="TranportCatalogModel.DriverDetail">
+        <MappingFragment StoreEntitySet="DriverDetails">
+          <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+          <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="DriverContactNum" ColumnName="DriverContactNum" />
+          <ScalarProperty Name="DriverAddress" ColumnName="DriverAddress" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+          <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="RouteTrips">
       <EntityTypeMapping TypeName="TranportCatalogModel.RouteTrip">
         <MappingFragment StoreEntitySet="RouteTrips">
@@ -214,22 +227,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TripVehicleDriverDetails">
-      <EntityTypeMapping TypeName="TranportCatalogModel.TripVehicleDriverDetail">
-        <MappingFragment StoreEntitySet="TripVehicleDriverDetails">
-          <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
-          <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-          <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
-          <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
-          <ScalarProperty Name="TripId" ColumnName="TripId" />
-          <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
-          <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
-          <ScalarProperty Name="row_id" ColumnName="row_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TripStatus">
       <EntityTypeMapping TypeName="TranportCatalogModel.TripStatu">
         <MappingFragment StoreEntitySet="TripStatus">
@@ -248,15 +245,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="APP_ERR_LOG">
-      <EntityTypeMapping TypeName="TranportCatalogModel.APP_ERR_LOG">
-        <MappingFragment StoreEntitySet="APP_ERR_LOG">
-          <ScalarProperty Name="exception" ColumnName="exception" />
-          <ScalarProperty Name="log_message" ColumnName="log_message" />
-          <ScalarProperty Name="log_source" ColumnName="log_source" />
-          <ScalarProperty Name="log_level" ColumnName="log_level" />
-          <ScalarProperty Name="log_thread" ColumnName="log_thread" />
-          <ScalarProperty Name="log_date" ColumnName="log_date" />
+    <EntitySetMapping Name="TripVehicleDriverDetails">
+      <EntityTypeMapping TypeName="TranportCatalogModel.TripVehicleDriverDetail">
+        <MappingFragment StoreEntitySet="TripVehicleDriverDetails">
+          <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+          <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+          <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+          <ScalarProperty Name="TripId" ColumnName="TripId" />
+          <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+          <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
           <ScalarProperty Name="row_id" ColumnName="row_id" />
         </MappingFragment>
       </EntityTypeMapping>

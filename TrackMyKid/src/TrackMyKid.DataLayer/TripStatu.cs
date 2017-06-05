@@ -17,7 +17,7 @@ namespace TrackMyKid.DataLayer
         public int TripSessionId { get; set; }
         public int Organization_ID { get; set; }
         public int Route_ID { get; set; }
-        public string TripId { get; set; }
+        public int TripId { get; set; }
         public string TripStatusCode { get; set; }
         public Nullable<System.DateTime> TripStartTime { get; set; }
         public Nullable<System.DateTime> TripEndTime { get; set; }

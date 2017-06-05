@@ -15,7 +15,7 @@ namespace TrackMyKid.Common.Models
         public int OrganizationId { get; set; }
         public int RouteID { get; set; }
         public string RouteDisplayName { get; set; }
-        public string TripId { get; set; }
+        public int TripId { get; set; }
         public string Address { get; set; }
 
         public string FullName {
