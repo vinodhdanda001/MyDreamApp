@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{469F8336-09B3-45FA-9F0F-524B22A05109}"
 EndProject
@@ -18,8 +18,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackMyKid.Web.Common.Tests", "TrackMyKid.Web.Common.Tests\TrackMyKid.Web.Common.Tests.csproj", "{407F9B68-A492-4126-A7B0-F5C53DB7B2A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Web.Api", "TrackMyKid.Web.Api\TrackMyKid.Web.Api.csproj", "{F881E32F-6354-4372-AE04-168CDC52E2EE}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TrackMyKidDb", "TrackMyKidDb\TrackMyKidDb.sqlproj", "{87D494A7-1300-40B6-9574-A217258BA975}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyKid.Common", "TrackMyKid.Common\TrackMyKid.Common.csproj", "{D1721362-DB30-4AC3-A9EB-230A36A14690}"
 EndProject
@@ -71,12 +69,6 @@ Global
 		{F881E32F-6354-4372-AE04-168CDC52E2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F881E32F-6354-4372-AE04-168CDC52E2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F881E32F-6354-4372-AE04-168CDC52E2EE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87D494A7-1300-40B6-9574-A217258BA975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87D494A7-1300-40B6-9574-A217258BA975}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87D494A7-1300-40B6-9574-A217258BA975}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{87D494A7-1300-40B6-9574-A217258BA975}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87D494A7-1300-40B6-9574-A217258BA975}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87D494A7-1300-40B6-9574-A217258BA975}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{D1721362-DB30-4AC3-A9EB-230A36A14690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1721362-DB30-4AC3-A9EB-230A36A14690}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1721362-DB30-4AC3-A9EB-230A36A14690}.Release|Any CPU.ActiveCfg = Release|Any CPU
