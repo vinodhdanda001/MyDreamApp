@@ -12,6 +12,8 @@ namespace TrackMyKid.Web.Api.Controllers
     public class TripController : ApiController
     {
         private readonly ITripDataService _tripDataService;
+        private static log4net.ILog _log = //LogHelper.GetLogger();
+                 log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public TripController(ITripDataService tripDataService)
         {
@@ -21,26 +23,44 @@ namespace TrackMyKid.Web.Api.Controllers
             _tripDataService = tripDataService;
         }
 
-        [Route("api/routes/{routeID}/trips")]
-        [HttpGet]
-        public HttpResponseMessage TripsForRoute(int routeID) // int orgId, int primaryContactNo)
-        {
-            HttpResponseMessage response = new HttpResponseMessage { StatusCode = HttpStatusCode.NoContent };
+        //[Route("api/routes/{routeID}/trips")]
+        //[HttpGet]
+        //public HttpResponseMessage TripsForRoute(int routeID) // int orgId, int primaryContactNo)
+        //{
+        //    HttpResponseMessage response = new HttpResponseMessage { StatusCode = HttpStatusCode.NoContent };
 
-            List<TripModel> trips = _tripDataService.GetTripsForRoute(routeID);
+        //    List<TripModel> trips = _tripDataService.GetTripsForRoute(routeID);
+
+        //    if (trips != null && trips.Count > 0)
+        //    {
+        //        response = Request.CreateResponse(HttpStatusCode.OK, trips, new JsonMediaTypeFormatter());
+        //    }
+        //    else
+        //    {
+        //        response = Request.CreateResponse(HttpStatusCode.NoContent);
+        //    }
+        //    return response;
+        //}
+
+        [Route("api/org/{orgId}/route/{routeID}/trip")]
+        [HttpGet]
+        public HttpResponseMessage GetTripsForRoute(int orgId, int routeID)
+        {
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
+            _log.Debug("api/org/" + orgId.ToString() + "/route/" + routeID.ToString() + "trips");
+
+            var trips = _tripDataService.GetTripsForRoute(orgId, routeID);
 
             if (trips != null && trips.Count > 0)
             {
-                response = Request.CreateResponse(HttpStatusCode.OK, trips, new JsonMediaTypeFormatter());
+                response = Request.CreateResponse<IEnumerable<TripModel>>(HttpStatusCode.OK, trips);
             }
             else
             {
                 response = Request.CreateResponse(HttpStatusCode.NoContent);
             }
-
             return response;
         }
-
 
         [Route("api/trip/starttrip")]
         [HttpPost]

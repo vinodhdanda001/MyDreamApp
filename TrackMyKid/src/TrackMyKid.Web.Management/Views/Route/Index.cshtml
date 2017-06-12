@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<TrackMyKid.Common.Models.RouteModel>
 
-@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 
@@ -31,30 +29,44 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Organization_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Route_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Route_Display_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.End_Halt)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Manage Trips", "Index" , "Trip", new { Organization_ID = item.Organization_ID }, new { })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Organization_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Route_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Route_Display_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.End_Halt)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Manage Trips", "Index", "Trip"
+                                                         , new
+                                                         {
+                                                             orgId = 100 /*item.Organization_ID*/                       ,
+                                                             routeId = item.Route_ID
+                                                         }
+                                                         , new { })
+                    @Html.ActionLink("Manage Halts", "Index", "Halt"
+                                                         , new
+                                                         {
+                                                             orgId = 100 /*item.Organization_ID*/                       ,
+                                                             routeId = item.Route_ID
+                                                         }
+                                                         , new { })
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

@@ -7,7 +7,6 @@ namespace TrackMyKid.DataLayer.Interfaces
     {
         IEnumerable<RouteModel> GetRoutesByOrg(int orgId);
         RouteModel GetRouteForMember(int orgId, string memberId);
-        IEnumerable<TripModel> GetTripsForRoute(int orgId, int routeId);
         RouteModel AddRoute(RouteModel route);
     }
 }

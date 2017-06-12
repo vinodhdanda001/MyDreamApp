@@ -45,33 +45,7 @@ namespace TrackMyKid.DataLayer.Services
 
         }
 
-        public IEnumerable<TripModel> GetTripsForRoute(int orgId, int routeId)
-        {
-
-            using (var dbContext = new TranportCatalogEntities())
-            {
-                var trips = from route in dbContext.OrganizationRoutes.Where(t => t.IsActive.ToUpper() == "Y"
-                                                                                && t.Organization_ID == orgId
-                                                                                && t.Route_ID == routeId)
-                            join trip in dbContext.RouteTrips.Where(t => t.IsActive.ToUpper() == "Y"
-                                                                           && t.Organization_ID == orgId
-                                                                           && t.Route_ID == routeId)
-                               on route.Route_ID equals trip.Route_ID
-                            //join tripHalts in dbContext.RouteTrips.Where(t=> t.IsActive.ToUpper() == "Y"
-                            //                                               && t.Organization_ID == orgId
-                            //                                               && t.Route_ID.ToUpper() == routeID
-                            //                                           )
-                            //on route.Route_ID equals tripHalts.Route_ID
-                            select new TripModel
-                            {
-                                TripId = trip.TripId,
-                                RouteID = trip.Route_ID,
-                                TripTime = DateTime.MinValue   // To Do the timings has to be adjusted well
-                            };
-                return trips.ToList();
-            }
-        }
-
+       
         public RouteModel AddRoute(RouteModel route)
         {
             using (var dbContext = new TranportCatalogEntities())

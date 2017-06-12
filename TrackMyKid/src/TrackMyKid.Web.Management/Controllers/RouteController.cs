@@ -36,7 +36,12 @@ namespace TrackMyKid.Web.Management.Controllers
         public ActionResult Add(RouteModel route)
         {
             route = RestClient.AddRoute(route);
-            return View(route);
+            if (route.Route_ID > 0)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+                return View(route);
         }
     }
 }

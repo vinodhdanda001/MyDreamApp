@@ -69,28 +69,7 @@ namespace TrackMyKid.Web.Api.Controllers
         }
 
 
-        [Route("api/org/{orgId}/route/{routeID}/trips")]
-        [HttpGet]
-        public HttpResponseMessage GetTripsForRoute(int orgId, int routeID)
-        {
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
-            log.Debug("api/org/"+orgId.ToString()+"/route/"+routeID.ToString()+"trips");
-
-            var trips = _routeService.GetTripsForRoute(orgId, routeID).ToList();
-
-            if (trips.Any())
-            {
-                response = Request.CreateResponse<IEnumerable<TripModel>>(HttpStatusCode.OK, trips);
-                //response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
-                //response.StatusCode = HttpStatusCode.OK;
-            }
-            else
-            {
-                response = Request.CreateResponse(HttpStatusCode.NoContent);
-            }
-
-            return response;
-        }
+        
 
         [Route("api/route/add")]
         [HttpPost]
