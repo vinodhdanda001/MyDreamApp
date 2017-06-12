@@ -9,6 +9,8 @@ namespace TrackMyKid.DataLayer.Interfaces
 
         bool EndTrip(TripModel tripModel);
 
+        TripModel CreateTrip(TripModel tripModel);
+
         TripStatusCode GetTripStatus(int tripSessionId);
 
         List<TripModel> GetTripsForRoute(int orgId, int routeId);
