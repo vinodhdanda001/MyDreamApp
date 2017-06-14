@@ -24,22 +24,48 @@ namespace TrackMyKid.Web.Api.Controllers
 
         [Route("api/org/{orgId}/member/{id}")]
         [HttpGet]
+        [ExecptionHandler.MethodExceptionHandlingAttribute]
         public HttpResponseMessage GET(int orgId, string id)
         {
+
             _log.Debug("Get: api/org/" + orgId.ToString() + "/member/" + id.ToString());
-
             HttpResponseMessage response;
-            var member = _memberService.GetMemberDetails(orgId, id);
 
-            if(member == null)
+            try
             {
-                response = Request.CreateResponse(HttpStatusCode.NoContent);
-            }
-            else
-            {
-                response = Request.CreateResponse(HttpStatusCode.OK , member, new JsonMediaTypeFormatter());
-            }
+                var m = 0;
+                //var k = 1 / m;
+                var member = _memberService.GetMemberDetails(orgId, id);
 
+                if (member == null)
+                {
+                    response = Request.CreateResponse(HttpStatusCode.NoContent);
+                }
+                else
+                {
+                    response = Request.CreateResponse(HttpStatusCode.OK, member, new JsonMediaTypeFormatter());
+                }
+            }
+            catch (ExecptionHandler.DataLayerException ex)
+            {
+                throw ex;
+            }
+            catch (ExecptionHandler.BusinessLayerException ex)
+            {
+                throw ex;
+            }
+            catch (ExecptionHandler.ApiLayerException ex)
+            {
+                throw ex;
+            }            
+            catch (Exception ex)
+            {
+                throw new ExecptionHandler.ApiLayerException("100",ex.Message,ex);                
+            }
+            finally
+            {
+                // need to configure centralized logging.
+            }       
             return response;
         }
     }

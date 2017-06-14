@@ -27,3 +27,17 @@ E:\MyDream\Transport App\TrackMyKid\src\TestProject\bin\Debug\EntityFramework.xm
 E:\MyDream\Transport App\TrackMyKid\src\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
 E:\MyDream\Transport App\TrackMyKid\src\TestProject\obj\Debug\TestProject.exe
 E:\MyDream\Transport App\TrackMyKid\src\TestProject\obj\Debug\TestProject.pdb
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe.config
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\TestProject.exe
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\TestProject.pdb
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\log4net.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.Common.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.DataLayer.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\EntityFramework.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.Common.pdb
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\TrackMyKid.DataLayer.pdb
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\log4net.xml
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\bin\Debug\EntityFramework.xml
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\obj\Debug\TestProject.exe
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TestProject\obj\Debug\TestProject.pdb

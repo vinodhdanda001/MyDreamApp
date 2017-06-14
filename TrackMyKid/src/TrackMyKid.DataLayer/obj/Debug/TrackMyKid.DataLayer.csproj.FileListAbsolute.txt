@@ -30,3 +30,19 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log4net.x
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.pdb
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll.config
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.pdb
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\System.Data.Common.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\System.Data.SqlClient.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.Common.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log4net.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.Common.pdb
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.xml
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log4net.xml
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.dll
+G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.pdb
