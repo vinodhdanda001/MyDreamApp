@@ -46,7 +46,7 @@ namespace TrackMyKid.DataLayer.Services
             bool isSuccess = false;
             using (var dbContext = new TranportCatalogEntities())
             {
-                var tripStatus = dbContext.TripStatus.FirstOrDefault(t => t.TripSessionId == trip.TripSessionID 
+                var tripStatus = dbContext.TripStatus.FirstOrDefault(t => t.TripSessionId == trip.TripSessionID
                  && t.TripStatusCode == "I");
                 if (tripStatus != null)
                 {
@@ -66,7 +66,7 @@ namespace TrackMyKid.DataLayer.Services
             using (var dbContext = new TranportCatalogEntities())
             {
                 tripStatus = dbContext.TripStatus.Where(t => t.TripSessionId == tripSessionId).FirstOrDefault();
-                if(tripStatus != null)
+                if (tripStatus != null)
                 {
                     if (tripStatus.TripStatusCode == "I")
                         tripStatusCode = TripStatusCode.InProgress;
@@ -76,7 +76,7 @@ namespace TrackMyKid.DataLayer.Services
             }
             return tripStatusCode;
         }
-        
+
         public List<TripModel> GetTripsForRoute(int orgId, int routeId)
         {
 
@@ -104,6 +104,26 @@ namespace TrackMyKid.DataLayer.Services
             }
         }
 
+        public TripModel CreateTrip(TripModel tripModel)
+        {
+            using (var dbContext = new TranportCatalogEntities())
+            {
+                int newTripId = dbContext.RouteTrips.Max(t => t.TripId)+1;
+                tripModel.TripId = newTripId;
 
+                dbContext.RouteTrips.Add(new RouteTrip
+                {
+                    Organization_ID = tripModel.organizationId,
+                    Route_ID = tripModel.RouteID,
+                    TripId = tripModel.TripId,
+                    LastUpdatedBy = "Vinodh", // TODO
+                    IsActive = "Y",
+                    cr_datetime = DateTime.Now,
+                    updt_datetime = DateTime.Now
+                });
+
+                return tripModel;
+            }
+        }
     }
 }

@@ -9,10 +9,4 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Debug\log4net.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Debug\log4net.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.pdb
-G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.Common\bin\Debug\TrackMyKid.Common.dll
-G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.Common\bin\Debug\TrackMyKid.Common.pdb
-G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.Common\bin\Debug\log4net.dll
-G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.Common\bin\Debug\log4net.xml
-G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.csprojResolveAssemblyReference.cache
-G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.dll
-G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Debug\TrackMyKid.Common.csprojResolveAssemblyReference.cache

@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Add", new { orgId = 100, routeId = 1001 })
 </p>
 <table class="table">
     <tr>
@@ -17,16 +17,16 @@
         <th>
             @Html.DisplayNameFor(model => model.TripTime)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.organizationId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TripSessionID)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.RouteID)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.DriverId)
         </th>
         <th>
@@ -37,7 +37,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TripEndTime)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -49,16 +49,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.TripTime)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.organizationId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TripSessionID)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.RouteID)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.DriverId)
         </td>
         <td>
@@ -69,7 +69,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TripEndTime)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

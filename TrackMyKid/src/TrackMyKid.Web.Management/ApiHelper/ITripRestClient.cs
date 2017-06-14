@@ -10,5 +10,7 @@ namespace TrackMyKid.Web.Management.ApiHelper
     {
         List<TripModel> GetTripsForRoute(int orgId, int routeId);
         //TripModel AddTrip(TripModel tripModel);
+
+        TripModel AddTrip(TripModel trip);
     }
 }

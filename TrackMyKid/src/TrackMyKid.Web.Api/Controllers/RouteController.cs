@@ -68,9 +68,6 @@ namespace TrackMyKid.Web.Api.Controllers
             return response;
         }
 
-
-        
-
         [Route("api/route/add")]
         [HttpPost]
         public HttpResponseMessage AddRoute(RouteModel route)
