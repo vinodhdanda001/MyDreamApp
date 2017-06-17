@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonConstants.cs" />
+    <Compile Include="Enums\Enumerations.cs" />
     <Compile Include="FCMPushNotification.cs" />
+    <Compile Include="Helpers\CustomException.cs" />
     <Compile Include="Interfaces\INotificationHandler.cs" />
     <Compile Include="LogHelper.cs" />
     <Compile Include="Models\GeoLocation.cs" />
