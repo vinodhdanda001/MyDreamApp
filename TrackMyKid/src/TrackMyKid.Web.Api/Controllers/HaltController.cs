@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
+using TrackMyKid.Common.ViewModel;
 using TrackMyKid.DataLayer.Interfaces;
 using TrackMyKid.DataLayer.Services;
 
@@ -25,7 +26,7 @@ namespace TrackMyKid.Web.Api.Controllers
         }
 
 
-        [Route("api/org/{orgId}/route/{routeID}/halts")]
+        [Route("api/org/{orgId}/halt/{routeID}/")]
         [HttpGet]
         public HttpResponseMessage GetHaltsForRoute(int orgId, int routeID)
         {
@@ -45,6 +46,65 @@ namespace TrackMyKid.Web.Api.Controllers
             return response;
         }
 
+        [Route("api/org/{orgId}/halt")]
+        [HttpGet]
+        public HttpResponseMessage GetHaltsForOrganization(int orgId)
+        {
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
+            _log.Debug("api/org/" + orgId.ToString() + "/halts");
+
+            var halts = _haltService.GetHaltsForOrganization(orgId);
+
+            if (halts != null && halts.Count > 0)
+            {
+                response = Request.CreateResponse<IEnumerable<HaltModel>>(HttpStatusCode.OK, halts);
+            }
+            else
+            {
+                response = Request.CreateResponse(HttpStatusCode.NoContent);
+            }
+            return response;
+        }
+
+        [Route("api/halt/add")]
+        [HttpPost]
+        public HttpResponseMessage AddHalt(HaltModel halt)
+        {
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
+            //_log.Debug("api/org/" + orgId.ToString() + "/halts");
+
+            halt = _haltService.AddHaltToOrganization(halt);
+
+            if (halt != null && halt.HaltId > 0)
+            {
+                response = Request.CreateResponse<HaltModel>(HttpStatusCode.OK, halt);
+            }
+            else
+            {
+                response = Request.CreateResponse(HttpStatusCode.NoContent);
+            }
+            return response;
+        }
+
+        [Route("api/halt/addhalttoroute")]
+        [HttpPost]
+        public HttpResponseMessage AddRouteHalt(OrganizationRouteHaltViewModel halts)
+        {
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
+            //_log.Debug("api/org/" + orgId.ToString() + "/halts");
+
+            bool isSuccess = _haltService.AddHaltsToRoute(halts);
+
+            if (isSuccess)
+            {
+                response = Request.CreateResponse<bool>(HttpStatusCode.OK, true);
+            }
+            else
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            return response;
+        }
 
     }
 }

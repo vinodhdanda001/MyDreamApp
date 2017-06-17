@@ -78,6 +78,9 @@
     <Compile Include="Organization.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrganizationHalt.cs">
+      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="OrganizationMember.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>

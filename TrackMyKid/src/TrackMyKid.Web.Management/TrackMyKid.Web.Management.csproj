@@ -113,9 +113,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiHelper\IHaltRestClient.cs" />
-    <Compile Include="ApiHelper\IRouteRestClient.cs" />
-    <Compile Include="ApiHelper\ITripRestClient.cs" />
+    <Compile Include="ApiHelper\HaltRestClient.cs" />
+    <Compile Include="ApiHelper\Interfaces\IHaltRestClient.cs" />
+    <Compile Include="ApiHelper\Interfaces\IRouteRestClient.cs" />
+    <Compile Include="ApiHelper\Interfaces\ITripRestClient.cs" />
     <Compile Include="ApiHelper\RouteRestClient.cs" />
     <Compile Include="ApiHelper\TripRestClient.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -140,6 +141,8 @@
     <Content Include="Views\Trip\Index.cshtml" />
     <Content Include="Views\Help\Index.cshtml" />
     <Content Include="Views\Trip\Add.cshtml" />
+    <Content Include="Views\Halt\Index.cshtml" />
+    <Content Include="Views\Shared\_CreateHalt.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -149,7 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Halt\" />
+    <Folder Include="Views\Partial\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrackMyKid.Common\TrackMyKid.Common.csproj">

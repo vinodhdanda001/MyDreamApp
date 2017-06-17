@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using TrackMyKid.Common.Models;
 using TrackMyKid.Common.ViewModel;
 
-namespace TrackMyKid.DataLayer.Interfaces
+namespace TrackMyKid.Web.Management.ApiHelper
 {
-    public interface IHaltDataService
+    public interface IHaltRestClient
     {
         List<HaltModel> GetHaltsForRoute(int orgId, int routeId);
 
@@ -13,5 +16,6 @@ namespace TrackMyKid.DataLayer.Interfaces
         HaltModel AddHaltToOrganization(HaltModel halt);
 
         bool AddHaltsToRoute(OrganizationRouteHaltViewModel routehalts);
+
     }
 }

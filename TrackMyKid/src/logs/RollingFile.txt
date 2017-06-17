@@ -200,3 +200,26 @@
 01:25:25,170 [TrackMyKid.Web.Api.Controllers.TripController] DEBUG - api/org/100/route/1003trips
 01:36:11,805 [TrackMyKid.Web.Api.Controllers.TripController] DEBUG - api/org/100/route/1003trips
 01:41:25,226 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+10:32:38,466 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+10:32:49,219 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+10:33:20,573 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+10:33:52,550 [TrackMyKid.Web.Api.Controllers.TripController] DEBUG - api/org/100/route/1001trips
+10:34:23,889 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+10:35:07,511 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+10:35:13,513 [TrackMyKid.Web.Api.Controllers.TripController] DEBUG - api/org/100/route/1007trips
+10:35:35,842 [TrackMyKid.Web.Api.Controllers.TripController] DEBUG - api/org/100/route/1007trips
+10:35:52,968 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+12:18:37,671 [TrackMyKid.Web.Api.Controllers.HaltController] DEBUG - api/org/100/halts
+12:21:17,849 [TrackMyKid.Web.Api.Controllers.HaltController] DEBUG - api/org/100/halts
+12:22:09,273 [TrackMyKid.Web.Api.Controllers.HaltController] DEBUG - api/org/100/halts
+12:22:37,730 [TrackMyKid.Web.Api.Controllers.HaltController] DEBUG - api/org/100/halts
+12:22:54,256 [TrackMyKid.Web.Api.Controllers.HaltController] DEBUG - api/org/100/route/1001halts
+15:35:56,714 [TrackMyKid.Web.Api.Controllers.HaltController] DEBUG - api/org/100/halts
+15:36:09,362 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+15:40:48,588 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+15:45:51,183 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+15:50:03,406 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+17:18:43,014 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+17:20:25,556 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+17:33:56,530 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+18:04:33,081 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route

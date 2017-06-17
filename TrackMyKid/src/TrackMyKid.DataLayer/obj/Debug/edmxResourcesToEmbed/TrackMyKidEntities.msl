@@ -133,24 +133,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RouteHalts">
-      <EntityTypeMapping TypeName="TranportCatalogModel.RouteHalt">
-        <MappingFragment StoreEntitySet="RouteHalts">
-          <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
-          <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-          <ScalarProperty Name="Y_Coordinate" ColumnName="Y_Coordinate" />
-          <ScalarProperty Name="X_Coordinate" ColumnName="X_Coordinate" />
-          <ScalarProperty Name="Halt_Address" ColumnName="Halt_Address" />
-          <ScalarProperty Name="Seq_No" ColumnName="Seq_No" />
-          <ScalarProperty Name="HaltName" ColumnName="HaltName" />
-          <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
-          <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
-          <ScalarProperty Name="row_id" ColumnName="row_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RouteMembers">
       <EntityTypeMapping TypeName="TranportCatalogModel.RouteMember">
         <MappingFragment StoreEntitySet="RouteMembers">
@@ -255,6 +237,38 @@
           <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
           <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
           <ScalarProperty Name="TripId" ColumnName="TripId" />
+          <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+          <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizationHalts">
+      <EntityTypeMapping TypeName="TranportCatalogModel.OrganizationHalt">
+        <MappingFragment StoreEntitySet="OrganizationHalts">
+          <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+          <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="Y_Coordinate" ColumnName="Y_Coordinate" />
+          <ScalarProperty Name="X_Coordinate" ColumnName="X_Coordinate" />
+          <ScalarProperty Name="Halt_Address" ColumnName="Halt_Address" />
+          <ScalarProperty Name="HaltName" ColumnName="HaltName" />
+          <ScalarProperty Name="HaltID" ColumnName="HaltID" />
+          <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RouteHalts">
+      <EntityTypeMapping TypeName="TranportCatalogModel.RouteHalt">
+        <MappingFragment StoreEntitySet="RouteHalts">
+          <ScalarProperty Name="HaltID" ColumnName="HaltID" />
+          <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+          <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="Seq_No" ColumnName="Seq_No" />
           <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
           <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
           <ScalarProperty Name="row_id" ColumnName="row_id" />

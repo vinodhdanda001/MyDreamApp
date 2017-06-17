@@ -52,15 +52,15 @@
                     @Html.ActionLink("Manage Trips", "Index", "Trip"
                                                          , new
                                                          {
-                                                             orgId = 100 /*item.Organization_ID*/                       ,
+                                                             orgId = ViewBag.OrganizationID /*item.Organization_ID*/                       ,
                                                              routeId = item.Route_ID
                                                          }
                                                          , new { })  |
                     @Html.ActionLink("Manage Halts", "Index", "Halt"
                                                          , new
                                                          {
-                                                             orgId = 100 /*item.Organization_ID*/                       ,
-                                                             routeId = item.Route_ID
+                                                             orgId = 100// ViewBag.OrganizationID /*item.Organization_ID*/                       ,
+                                                             ,routeId = item.Route_ID
                                                          }
                                                          , new { })
                 </td>

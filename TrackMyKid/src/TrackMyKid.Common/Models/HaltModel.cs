@@ -13,5 +13,7 @@ namespace TrackMyKid.Common.Models
         public string Halt_Address { get; set; }
         public decimal X_Coordinate { get; set; }
         public decimal Y_Coordinate { get; set; }
+        public int OrganizationId { get; set; }
+        public int HaltId { get; set; }
     }
 }

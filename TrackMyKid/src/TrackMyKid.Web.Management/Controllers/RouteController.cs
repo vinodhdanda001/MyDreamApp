@@ -22,6 +22,7 @@ namespace TrackMyKid.Web.Management.Controllers
         // GET: Route
         public ActionResult Index()
         {
+            ViewBag.OrganizationID = 100;
             return View(RestClient.GetRoutesForOrg(100));
         }
 
