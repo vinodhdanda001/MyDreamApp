@@ -68,7 +68,9 @@
     }
     
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Back to List", "Index", new {
+       orgId = ViewBag.OrgId, routeId = ViewBag.RouteId
+   })
     </div>
 </body>
 </html>

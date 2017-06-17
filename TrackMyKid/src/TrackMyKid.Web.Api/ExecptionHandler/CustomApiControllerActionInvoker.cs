@@ -40,7 +40,8 @@ namespace TrackMyKid.Web.Api.ExecptionHandler
 
             }
 
-            return base.InvokeActionAsync(actionContext, cancellationToken);
+            //return base.InvokeActionAsync(actionContext, cancellationToken);
+            return result;
         }
     }
 }

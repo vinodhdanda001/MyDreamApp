@@ -18,12 +18,15 @@ namespace TrackMyKid.Web.Management.Controllers
         // GET: Trip
         public ActionResult Index(int orgId, int routeId)
         {
+            ViewBag.ROUTEID = routeId;
             return View(RestClient.GetTripsForRoute(orgId, routeId));
         }
 
         [HttpGet]
         public ActionResult Add(int orgId, int routeId)
         {
+            ViewBag.RouteId = routeId;
+            ViewBag.OrgId = orgId;
             TripModel trip = new TripModel
             {
                 RouteID = routeId,
@@ -38,7 +41,7 @@ namespace TrackMyKid.Web.Management.Controllers
             trip = RestClient.AddTrip(trip);
             if (trip.TripId > 0)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { orgId = trip.organizationId, routeId = trip.RouteID });
             }
             else
                 return View(trip);
