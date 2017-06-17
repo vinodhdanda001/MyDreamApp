@@ -8,6 +8,15 @@ namespace TrackMyKid.DataLayer.Services
     {
         public Member GetMemberDetails(int orgId, string memberId)
         {
+            try
+            {
+
+            }
+            catch (System.Exception)
+            {
+
+                
+            }
             using (var dbContext = new TranportCatalogEntities())
             {
                 var userProfile = from orgMemeber in dbContext.OrganizationMembers

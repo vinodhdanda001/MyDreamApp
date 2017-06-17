@@ -28,7 +28,7 @@ namespace TrackMyKid.Web.Api.Controllers
         [Route("api/org/{orgId}/route/{memberID}")]
         [HttpGet]
         public HttpResponseMessage Get(int orgId, string memberId)
-        {
+        {            
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
             log.Debug("Get: api/org/" + memberId);
             var route = _routeService.GetRouteForMember(orgId, memberId);
