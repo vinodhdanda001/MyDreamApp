@@ -85,9 +85,9 @@ namespace TrackMyKid.Web.Api.Controllers
             return response;
         }
 
-        [Route("api/org/{orgId}/trip/create")]
+        [Route("api/trip/add")]
         [HttpPost]
-        public HttpResponseMessage CreateTrip(TripModel trip)
+        public HttpResponseMessage AddTrip(TripModel trip)
         {
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
             trip = _tripDataService.CreateTrip(trip);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMyKid.Common
+namespace TrackMyKid.Common.Interfaces
 {
 
     public enum NotificationType
@@ -15,7 +15,7 @@ namespace TrackMyKid.Common
     }
     interface INotificationHandler
     {
-        void SendNotification();
-        void AddRecipients();
+        void SendNotification(string _title, string _message);
+        void AddRecipients(string _deviceID);
     }
 }

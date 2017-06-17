@@ -25,15 +25,13 @@ namespace TrackMyKid.Web.Management.ApiHelper
             ////http://localhost:58735/api/org/100/trip/1001
             var request = new RestRequest("api/org/" + orgId.ToString() + "/trip/" + routeId.ToString(), Method.GET) { RequestFormat = DataFormat.Json };
             var response = _client.Execute<List<TripModel>>(request);
-            if (response.Data == null)
-                throw new Exception(response.ErrorMessage);
             return response.Data;
         }
 
         public TripModel AddTrip(TripModel trip)
         {
             //api/org/{orgId}/trip/create
-            var request = new RestRequest("api/org/"+trip.organizationId.ToString()+"/trip/add", Method.POST) { RequestFormat = DataFormat.Json, };
+            var request = new RestRequest("api/trip/add", Method.POST) { RequestFormat = DataFormat.Json, };
             request.AddBody(trip);
             var response = _client.Execute<TripModel>(request);
 

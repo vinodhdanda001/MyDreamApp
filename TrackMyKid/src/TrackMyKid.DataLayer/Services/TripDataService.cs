@@ -122,6 +122,8 @@ namespace TrackMyKid.DataLayer.Services
                     updt_datetime = DateTime.Now
                 });
 
+                dbContext.SaveChanges();
+
                 return tripModel;
             }
         }
