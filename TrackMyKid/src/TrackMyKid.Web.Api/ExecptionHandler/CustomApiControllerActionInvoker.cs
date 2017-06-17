@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Controllers;
-
+using TrackMyKid.Common.Helpers;
 
 namespace TrackMyKid.Web.Api.ExecptionHandler
 {
@@ -22,13 +22,13 @@ namespace TrackMyKid.Web.Api.ExecptionHandler
                 if (baseException is BusinessLayerException)
                 {
                     var baseExcept = baseException as BusinessLayerException;
-                    var errorMessagError = new System.Web.Http.HttpError(baseExcept.ErrorDescription) { { "ErrorCode", baseExcept.ErrorCode } };
+                    var errorMessagError = new System.Web.Http.HttpError(baseExcept.ErrorDescription) { { "ErrorCode", baseExcept.ErrorStatusCode } };
                     return Task.Run<HttpResponseMessage>(() => actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, errorMessagError));
                 }
                 else if (baseException is DataLayerException)
                 {
                     var baseExcept = baseException as DataLayerException;
-                    var errorMessagError = new System.Web.Http.HttpError(baseExcept.ErrorDescription) { { "ErrorCode", baseExcept.ErrorCode } };
+                    var errorMessagError = new System.Web.Http.HttpError(baseExcept.ErrorDescription) { { "ErrorCode", baseExcept.ErrorStatusCode } };
                     return Task.Run<HttpResponseMessage>(() => actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, errorMessagError));
                 }
                 else
@@ -40,7 +40,7 @@ namespace TrackMyKid.Web.Api.ExecptionHandler
 
             }
 
-            return base.InvokeActionAsync(actionContext, cancellationToken);
+            return result; // base.InvokeActionAsync(actionContext, cancellationToken);
         }
     }
 }
