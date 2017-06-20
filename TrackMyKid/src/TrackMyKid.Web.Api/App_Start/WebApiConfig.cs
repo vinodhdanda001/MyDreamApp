@@ -19,6 +19,13 @@ namespace TrackMyKid.Web.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{orgId}/{routeId}/{tripId}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
             //
             // Adding the custom filter 
             config.Filters.Add(new ExecptionHandler.MethodExceptionHandlingAttribute());

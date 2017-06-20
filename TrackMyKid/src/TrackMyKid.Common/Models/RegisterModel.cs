@@ -14,5 +14,6 @@ namespace TrackMyKid.Common.Models
         public int primaryContactNum { get; set; }
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
+        public int otp { get; set; }
     }
 }

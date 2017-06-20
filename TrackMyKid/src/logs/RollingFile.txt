@@ -223,3 +223,10 @@
 17:20:25,556 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
 17:33:56,530 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
 18:04:33,081 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+18:21:26,004 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+11:05:38,203 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+11:06:07,453 [TrackMyKid.Web.Api.Controllers.TripController] DEBUG - api/org/100/route/1001trips
+11:21:04,921 [TrackMyKid.Web.Api.Controllers.TripController] DEBUG - api/org/100/route/1001trips
+11:37:27,005 [TrackMyKid.Web.Api.Controllers.TripController] DEBUG - api/org/100/route/1001trips
+09:36:55,859 [TrackMyKid.Web.Api.Controllers.RouteController] DEBUG - Get: api/org/100/route
+09:37:23,366 [TrackMyKid.Web.Api.Controllers.TripController] DEBUG - api/org/100/route/1001trips

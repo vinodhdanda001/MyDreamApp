@@ -14,22 +14,6 @@ E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log4n
 E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
 E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.dll
 E:\AcademicYr2018\TrackMyKid\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll.config
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\System.Data.Common.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\System.Data.SqlClient.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.Common.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log4net.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.Common.pdb
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.xml
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log4net.xml
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.dll
-E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.pdb
 G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll.config
 G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll
 G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.pdb
@@ -46,3 +30,19 @@ G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log
 G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
 G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.dll
 G:\All_Projects\Git_MyDreamApp\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll.config
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.DataLayer.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\System.Data.Common.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\System.Data.SqlClient.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.Common.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log4net.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\TrackMyKid.Common.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.xml
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Debug\log4net.xml
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Debug\TrackMyKid.DataLayer.pdb

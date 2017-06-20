@@ -13,6 +13,8 @@ namespace TrackMyKid.DataLayer.Interfaces
 
         TripStatusCode GetTripStatus(int tripSessionId);
 
+        TripModel GetTripStatus(int orgId, int routeId, int tripId);
+
         List<TripModel> GetTripsForRoute(int orgId, int routeId);
     }
 }

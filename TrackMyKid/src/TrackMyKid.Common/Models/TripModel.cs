@@ -17,6 +17,7 @@ namespace TrackMyKid.Common.Models
         public int RouteID { get; set; }
         public string DriverId { get; set; }
         public int VehicleID { get; set; }
+        public TripStatusCode TripStatusCd { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime TripStartTime { get; set; }

@@ -127,5 +127,41 @@ namespace TrackMyKid.DataLayer.Services
                 return tripModel;
             }
         }
+
+        public TripModel GetTripStatus(int orgId, int routeId, int tripId)
+        {
+            TripModel tripModel = null;
+            TripStatu tripStatus;
+            TripStatusCode tripStatusCode = TripStatusCode.Invalid;
+            using (var dbContext = new TranportCatalogEntities())
+            {
+                tripStatus = dbContext.TripStatus.Where(t => t.Organization_ID == orgId
+                    && t.Route_ID == routeId 
+                    && t.TripId == tripId)
+                    .OrderByDescending(t => t.TripStartTime)
+                    .FirstOrDefault();
+                if (tripStatus != null)
+                {
+                    if (tripStatus.TripStatusCode == "I")
+                        tripStatusCode = TripStatusCode.InProgress;
+                    else if (tripStatus.TripStatusCode == "C")
+                        tripStatusCode = TripStatusCode.Completed;
+
+                    tripModel = new TripModel
+                    {
+                        organizationId = orgId,
+                        RouteID = routeId,
+                        TripId = tripId,
+                        TripSessionID = tripStatus.TripSessionId,
+                        TripStatusCd = tripStatusCode
+                    };
+                }
+                else
+                {
+                    tripModel = null;
+                }   
+            }
+            return tripModel; ;
+        }
     }
 }
