@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,12 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="INotificationHandler.cs" />
+    <Compile Include="CommonConstants.cs" />
+    <Compile Include="Enums\Enumerations.cs" />
+    <Compile Include="FCMPushNotification.cs" />
+    <Compile Include="Helpers\CustomException.cs" />
+    <Compile Include="Interfaces\INotificationHandler.cs" />
     <Compile Include="LogHelper.cs" />
     <Compile Include="Models\GeoLocation.cs" />
+    <Compile Include="Models\HaltModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\RouteHaltModel.cs" />
+    <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\TripModel.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="NotificationHanlerFactory.cs" />
@@ -67,10 +75,12 @@
     <Compile Include="Validators\RegisterModelValidator.cs" />
     <Compile Include="Validators\TripModelValidator.cs" />
     <Compile Include="Validators\UserProfileValidator.cs" />
+    <Compile Include="ViewModel\OrganizationRouteHaltViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

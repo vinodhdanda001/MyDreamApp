@@ -7,22 +7,22 @@ namespace TrackMyKid.Common.Validators
     {
         public TripModelValidator()
         {
-            RuleFor(m => m.VehicleId)
+            RuleFor(m => m.VehicleID)
                 .GreaterThan(0)
                 .WithMessage("'Vehicle Id' should be a valid value");
-            RuleFor(m => m.OrganizationId)
+            RuleFor(m => m.organizationId)
                 .GreaterThan(0)
                 .WithMessage("'Organisation Id' should be a valid value");
             RuleFor(m => m.DriverId)
                 .NotEmpty()
                 .WithMessage("'Driver Id' cannot be empty");
-            RuleFor(m => m.RouteId)
+            RuleFor(m => m.RouteID)
                 .NotEmpty()
                 .WithMessage("'Route Id' cannot be empty");
             RuleFor(m => m.TripId)
                 .NotEmpty()
                 .WithMessage("'Trip Id' cannot be empty");
-            RuleFor(m => m.TripSessionId)
+            RuleFor(m => m.TripSessionID)
                 .GreaterThan(0)
                 .WithMessage("'Trip session Id' should be a valid value");
             //TODO: Data time validations for triptime, start and end time

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<TrackMyKid.Common.Models.HaltModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @Html.Partial("_CreateHalt", Model)
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Seq_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HaltName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Halt_Address)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.X_Coordinate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Y_Coordinate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrganizationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HaltId)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @if(Model != null && Model.Count() > 0)
+    { 
+    foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seq_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HaltName)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Halt_Address)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.X_Coordinate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Y_Coordinate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrganizationId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HaltId)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) 
+            @*|  @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) 
+            |  @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+        }
+    }
+    else
+    { 
+        <tr>
+            <td>No Halts available</td>
+        </tr>
+    }
+
+</table>

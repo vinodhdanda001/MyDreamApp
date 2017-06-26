@@ -11,13 +11,13 @@ namespace TrackMyKid.DataLayer.Services
         {
             using (var dbContext = new TranportCatalogEntities())
             {
-                if(dbContext.Logins.Where(t=>t.userName.Equals(loginModel.UserName)).Any())
+                if(dbContext.Logins.Where(t=>t.userName.Equals(loginModel.userName)).Any())
                 {
                     var userProfile = from orgMemeber in dbContext.OrganizationMembers
-                                                                   .Where(t => t.Organization_ID == loginModel.OrganizationId 
-                                                                            && t.userName == loginModel.UserName)
+                                                                   .Where(t => t.Organization_ID == loginModel.organizationId
+                                                                            && t.userName == loginModel.userName)
                                       join routeMember in dbContext.RouteMembers
-                                                                    .Where(t => t.Organization_ID == loginModel.OrganizationId)
+                                                                    .Where(t => t.Organization_ID == loginModel.organizationId)
                                       on orgMemeber.MemberID equals routeMember.MemberID into profileDetails
                                       from profile in profileDetails.DefaultIfEmpty()
                                       select new UserProfile
@@ -27,7 +27,7 @@ namespace TrackMyKid.DataLayer.Services
                                           LastName = orgMemeber.LastName,
                                           MiddleName = orgMemeber.MiddleName,
                                           OrganizationId = orgMemeber.Organization_ID,
-                                          RouteId = profile.Route_ID,
+                                          RouteID = profile.Route_ID,
                                           Address = orgMemeber.Address
                                       };
                     return userProfile.FirstOrDefault();

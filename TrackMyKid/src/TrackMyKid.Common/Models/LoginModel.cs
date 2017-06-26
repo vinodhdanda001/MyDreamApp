@@ -6,8 +6,9 @@ namespace TrackMyKid.Common.Models
     [Validator(typeof(LoginModelValidator))]
     public class LoginModel
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public int OrganizationId { get; set; }
+        public string userName { get; set; }
+        public string passWord { get; set; }
+        public int organizationId { get; set; }
+        public string FcmTokenId { get; set; }
     }
 }

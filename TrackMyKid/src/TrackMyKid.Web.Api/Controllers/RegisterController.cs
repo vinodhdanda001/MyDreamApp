@@ -45,9 +45,9 @@ namespace TrackMyKid.Web.Api.Controllers
                 _registerDataService.Register(registerModel);
                 UserProfile userProfile = _loginDataService.Login(new LoginModel
                 {
-                    UserName = registerModel.UserName,
-                    Password = registerModel.Password,
-                    OrganizationId = registerModel.OrganizationId
+                    userName = registerModel.UserName,
+                    passWord = registerModel.Password,
+                    organizationId = registerModel.OrganizationId
                 });
                 if (userProfile != null)
                 {

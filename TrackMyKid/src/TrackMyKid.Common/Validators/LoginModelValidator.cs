@@ -7,15 +7,15 @@ namespace TrackMyKid.Common.Validators
     {
         public LoginModelValidator()
         {
-            RuleFor(m => m.UserName)
+            RuleFor(m => m.userName)
                 .NotEmpty()
                 .WithMessage("'Username' should not be empty");
 
-            RuleFor(m => m.Password)
+            RuleFor(m => m.passWord)
                 .NotEmpty()
                 .WithMessage("'Password' should not be empty");
 
-            RuleFor(m => m.OrganizationId)
+            RuleFor(m => m.organizationId)
                 .NotEmpty()
                 .GreaterThan(0)
                 .WithMessage("'Organisation Id' should not be empty or zero");

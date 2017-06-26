@@ -11,9 +11,9 @@ namespace TrackMyKid.Common.Models
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public int OrganizationId { get; set; }
-        public string RouteId { get; set; }
+        public int RouteID { get; set; }
         public string RouteDisplayName { get; set; }
-        public string TripId { get; set; }
+        public int TripId { get; set; }
         public string Address { get; set; }
         public string FullName => FirstName + " " + LastName;
     }

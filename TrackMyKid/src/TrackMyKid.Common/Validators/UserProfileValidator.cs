@@ -22,7 +22,7 @@ namespace TrackMyKid.Common.Validators
             RuleFor(m => m.RouteDisplayName)
                 .NotEmpty()
                 .WithMessage("'Route display name' cannot be empty");
-            RuleFor(m => m.RouteId)
+            RuleFor(m => m.RouteID)
                 .NotEmpty()
                 .WithMessage("'Route Id' cannot be empty");
             RuleFor(m => m.TripId)

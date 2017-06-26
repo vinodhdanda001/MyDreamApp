@@ -38,6 +38,10 @@ namespace TrackMyKid.Web.Api.IoC
             builder.RegisterType<TripDataService>()
                 .As<ITripDataService>()
                 .InstancePerDependency();
+
+            builder.RegisterType<HaltDataService>()
+                .As<IHaltDataService>()
+                .InstancePerDependency();
         }
     }
 }

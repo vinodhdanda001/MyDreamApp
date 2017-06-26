@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Linq;
+using System.Web.Http;
+using System.Web.Http.Controllers;
 using TrackMyKid.Web.Api.Filters;
 
 namespace TrackMyKid.Web.Api
@@ -12,12 +14,27 @@ namespace TrackMyKid.Web.Api
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
+            //Route Configuration
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{orgId}/{routeId}/{tripId}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            //
+            // Adding the custom filter 
+            config.Filters.Add(new ExecptionHandler.MethodExceptionHandlingAttribute());
+            config.Services.Replace(typeof(IHttpActionInvoker), new ExecptionHandler.CustomApiControllerActionInvoker());
+            //Only JSON OUPUT
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+
         }
     }
 }
