@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TrackMyKid.Common.Interfaces;
-
-namespace TrackMyKid.Common
+﻿namespace TrackMyKid.Common
 {
     class NotificationHanlerFactory
     {

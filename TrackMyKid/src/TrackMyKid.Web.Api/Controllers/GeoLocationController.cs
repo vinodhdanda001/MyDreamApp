@@ -26,7 +26,7 @@ namespace TrackMyKid.Web.Api.Controllers
 
         [Route("api/geolocation/{tripSessionId}")]
         [HttpGet]
-        public HttpResponseMessage GeoLocationBySession(int tripSessionId)
+        public HttpResponseMessage GeoLocation(int tripSessionId)
         {
             //Need to modify based on starus
             GeoLocation location;
@@ -57,43 +57,6 @@ namespace TrackMyKid.Web.Api.Controllers
             }
             return response;
         }
-
-        [Route("api/geolocation/{orgId}/{routeId}/{tripId}")]
-        [HttpGet]
-        public HttpResponseMessage GeoLocationByTrip(int  orgId, int routeId, int tripId)
-        {
-            //Need to modify based on starus
-            GeoLocation location;
-            HttpResponseMessage response = new HttpResponseMessage { StatusCode = HttpStatusCode.BadRequest };
-            TripModel tripmodel;
-
-            tripmodel = _tripDataService.GetTripStatus(orgId, routeId, tripId);
-
-            if (tripmodel.TripStatusCd == TripStatusCode.Invalid)
-            {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid Trip. Can not provide location details");
-            }
-            else if (tripmodel.TripStatusCd == TripStatusCode.InProgress)
-            {
-                location = _geoLocationService.GetLocation(tripmodel.TripSessionID);
-                if (location != null)
-                {
-                    response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
-                }
-                else
-                {
-                    response = Request.CreateResponse(HttpStatusCode.NoContent);
-                }
-            }
-            else if (tripmodel.TripStatusCd == TripStatusCode.Completed)
-            {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid has been completed. Can not post location details");
-            }
-            return response;
-        }
-
-
-
 
         [Route("api/geolocation")]
         public HttpResponseMessage POST(GeoLocation location)

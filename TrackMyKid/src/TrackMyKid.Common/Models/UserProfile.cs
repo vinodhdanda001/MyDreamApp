@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation.Attributes;
+using TrackMyKid.Common.Validators;
 
 namespace TrackMyKid.Common.Models
 {
+    [Validator(typeof(UserProfileValidator))]
     public class UserProfile
     {
         public string UserName { get; set; }
@@ -17,16 +15,6 @@ namespace TrackMyKid.Common.Models
         public string RouteDisplayName { get; set; }
         public int TripId { get; set; }
         public string Address { get; set; }
-
-        public string FullName {
-                 get{
-                          return FirstName + " " + LastName;    // MiddleName + " " +
-            }
-        }
-
-        
-  
-                
-                               
+        public string FullName => FirstName + " " + LastName;
     }
 }

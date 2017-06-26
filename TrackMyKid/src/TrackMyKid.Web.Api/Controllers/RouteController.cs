@@ -28,14 +28,14 @@ namespace TrackMyKid.Web.Api.Controllers
         [Route("api/org/{orgId}/route/{memberID}")]
         [HttpGet]
         public HttpResponseMessage Get(int orgId, string memberId)
-        {            
+        {
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
             log.Debug("Get: api/org/" + memberId);
             var route = _routeService.GetRouteForMember(orgId, memberId);
 
             if(route != null)
             {
-                response.Content = new ObjectContent(typeof(RouteModel), route, new JsonMediaTypeFormatter());
+                response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
                 response.StatusCode = HttpStatusCode.OK;
             }
             else
@@ -56,7 +56,7 @@ namespace TrackMyKid.Web.Api.Controllers
 
             if(routes.Any())
             {
-                response = Request.CreateResponse<IEnumerable<RouteModel>>(HttpStatusCode.OK, routes);
+                response = Request.CreateResponse<IEnumerable<Route>>(HttpStatusCode.OK, routes);
                 //response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
                 //response.StatusCode = HttpStatusCode.OK;
             }
@@ -68,18 +68,28 @@ namespace TrackMyKid.Web.Api.Controllers
             return response;
         }
 
-        [Route("api/route/add")]
-        [HttpPost]
-        public HttpResponseMessage AddRoute(RouteModel route)
+
+        [Route("api/org/{orgId}/route/{routeID}/trips")]
+        [HttpGet]
+        public HttpResponseMessage GetTripsForRoute(int orgId, string routeID)
         {
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
-            route = _routeService.AddRoute(route);
-            if(route.Route_ID > 0)
+            log.Debug("api/org/"+orgId.ToString()+"/route/"+routeID.ToString()+"trips");
+
+            var trips = _routeService.GetTripsForRoute(orgId, routeID).ToList();
+
+            if (trips.Any())
             {
-                response = Request.CreateResponse<RouteModel>(HttpStatusCode.OK, route);
+                response = Request.CreateResponse<IEnumerable<TripModel>>(HttpStatusCode.OK, trips);
+                //response.Content = new ObjectContent(typeof(Route), route, new JsonMediaTypeFormatter());
+                //response.StatusCode = HttpStatusCode.OK;
             }
+            else
+            {
+                response = Request.CreateResponse(HttpStatusCode.NoContent);
+            }
+
             return response;
         }
-
     }
 }

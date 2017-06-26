@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TrackMyKid.Common.Interfaces;
+﻿using System.Collections.Generic;
 
 namespace TrackMyKid.Common
 {
     public class SMSNotificationHandler : INotificationHandler
     {
-        public List<string> toMobileNumers;
+        public List<int> toMobileNumers;
         public void SMSNotification()
         {
-            toMobileNumers = new List<string>();
+            toMobileNumers = new List<int>();
         }
 
-        public void SendNotification(string _title, string _message)
+        public void SendNotification()
         {
            
         }
 
-        public void AddRecipients(string _deviceID)
+        public void AddRecipients()
         {
-            toMobileNumers.Add(_deviceID);
+
         }
     }
 }

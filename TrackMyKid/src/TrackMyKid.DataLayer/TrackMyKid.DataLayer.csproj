@@ -62,23 +62,21 @@
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IGeoLocationService.cs" />
-    <Compile Include="Interfaces\IHaltDataService.cs" />
     <Compile Include="Interfaces\ILoginDataService.cs" />
     <Compile Include="Interfaces\IMemberService.cs" />
-    <Compile Include="Interfaces\IOrganizationService.cs" />
     <Compile Include="Interfaces\IRegisterDataService.cs" />
     <Compile Include="Interfaces\IRouteService.cs" />
     <Compile Include="Interfaces\ITripDataService.cs" />
+    <Compile Include="Services\GeoLocationService.cs" />
     <Compile Include="Login.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\LoginDataService.cs" />
     <Compile Include="MemberRole.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\MemberService.cs" />
     <Compile Include="Organization.cs">
-      <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OrganizationHalt.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="OrganizationMember.cs">
@@ -88,26 +86,21 @@
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\RegisterDataService.cs" />
     <Compile Include="RoleDetail.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Route.cs" />
     <Compile Include="RouteHalt.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="RouteMember.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\RouteService.cs" />
     <Compile Include="RouteTrip.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Services\GeoLocationService.cs" />
-    <Compile Include="Services\HaltDataService.cs" />
-    <Compile Include="Services\LoginDataService.cs" />
-    <Compile Include="Services\MemberService.cs" />
-    <Compile Include="Services\OrganizationService.cs" />
-    <Compile Include="Services\RegisterDataService.cs" />
-    <Compile Include="Services\RouteService.cs" />
-    <Compile Include="Services\TripDataService.cs" />
     <Compile Include="TrackMyKidEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,6 +116,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TrackMyKidEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Services\TripDataService.cs" />
     <Compile Include="TripGeoLocation.cs">
       <DependentUpon>TrackMyKidEntities.tt</DependentUpon>
     </Compile>

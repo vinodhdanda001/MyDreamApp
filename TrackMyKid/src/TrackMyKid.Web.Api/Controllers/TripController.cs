@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
@@ -12,8 +11,6 @@ namespace TrackMyKid.Web.Api.Controllers
     public class TripController : ApiController
     {
         private readonly ITripDataService _tripDataService;
-        private static log4net.ILog _log = 
-                 log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public TripController(ITripDataService tripDataService)
         {
@@ -22,30 +19,10 @@ namespace TrackMyKid.Web.Api.Controllers
 
             _tripDataService = tripDataService;
         }
-        
-        [Route("api/org/{orgId}/trip/{routeID}")]
-        [HttpGet]
-        public HttpResponseMessage GetTripsForRoute(int orgId, int routeID)
-        {
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
-            _log.Debug("api/org/" + orgId.ToString() + "/route/" + routeID.ToString() + "trips");
-
-            var trips = _tripDataService.GetTripsForRoute(orgId, routeID);
-
-            if (trips != null && trips.Count > 0)
-            {
-                response = Request.CreateResponse<IEnumerable<TripModel>>(HttpStatusCode.OK, trips);
-            }
-            else
-            {
-                response = Request.CreateResponse(HttpStatusCode.NoContent);
-            }
-            return response;
-        }
 
         [Route("api/trip/starttrip")]
         [HttpPost]
-        public HttpResponseMessage StartTrip(TripModel trip) 
+        public HttpResponseMessage StartTrip(TripModel trip) // int orgId, int primaryContactNo)
         {
             if (trip == null)
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
@@ -68,7 +45,7 @@ namespace TrackMyKid.Web.Api.Controllers
 
         [Route("api/trip/endtrip")]
         [HttpPost]
-        public HttpResponseMessage EndTrip(TripModel trip) 
+        public HttpResponseMessage EndTrip(TripModel trip) // int orgId, int primaryContactNo)
         {
             HttpResponseMessage response;
             bool isEnded = false;
@@ -81,19 +58,6 @@ namespace TrackMyKid.Web.Api.Controllers
             else
             {
                 response = Request.CreateResponse(HttpStatusCode.BadRequest);
-            }
-            return response;
-        }
-
-        [Route("api/trip/add")]
-        [HttpPost]
-        public HttpResponseMessage AddTrip(TripModel trip)
-        {
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
-            trip = _tripDataService.CreateTrip(trip);
-            if(trip.TripId > 0)
-            {
-                response = Request.CreateResponse(HttpStatusCode.OK, trip);
             }
             return response;
         }

@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation.Attributes;
+using TrackMyKid.Common.Validators;
 
 namespace TrackMyKid.Common.Models
 {
+    [Validator(typeof(RegisterModelValidator))]
     public class RegisterModel
     {
-        public string userName { get; set; }
-        public string passWord { get; set; }
-        public int organizationId { get; set; }
-        public int primaryContactNum { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public int OrganizationId { get; set; }
+        public int PrimaryContactNum { get; set; }
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
         public int otp { get; set; }

@@ -14,11 +14,11 @@ namespace TrackMyKid.DataLayer.Services
             {
                 dbContext.Logins.Add(new Login
                 {
-                    userName = registerModel.userName,
-                    Organization_ID = registerModel.organizationId,
-                    PasswordSalt = registerModel.passWord, //TODO
-                    PasswordHash = registerModel.passWord, //TODO
-                    LastUpdatedBy = registerModel.userName,
+                    userName = registerModel.UserName,
+                    Organization_ID = registerModel.OrganizationId,
+                    PasswordSalt = registerModel.Password, //TODO
+                    PasswordHash = registerModel.Password, //TODO
+                    LastUpdatedBy = registerModel.UserName,
                     IsActive = "Y",
                     cr_datetime = DateTime.Now,
                     updt_datetime = DateTime.Now
@@ -33,8 +33,8 @@ namespace TrackMyKid.DataLayer.Services
             bool isRegistered = false;
             using (var dbContext = new TranportCatalogEntities())
             {
-                isRegistered = dbContext.Logins.Where(t => t.Organization_ID == registerModel.organizationId
-                                     && t.userName == registerModel.userName
+                isRegistered = dbContext.Logins.Where(t => t.Organization_ID == registerModel.OrganizationId
+                                     && t.userName == registerModel.UserName
                                      //&& t.IsActive == "Y"
                                      ).Any();
             }

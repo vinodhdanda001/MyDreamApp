@@ -27,9 +27,9 @@ namespace TrackMyKid.DataLayer.Services
                                   on orgMemeber.Organization_ID equals org.Organization_ID
                                   select new Member
                                   {
-                                      MemberID = orgMemeber.MemberID,
-                                      Organization_ID = orgMemeber.Organization_ID,
-                                      Organization_Name = org.Organization_Name,
+                                      MemberId = orgMemeber.MemberID,
+                                      OrganizationId = orgMemeber.Organization_ID,
+                                      OrganizationName = org.Organization_Name,
                                       UserName = orgMemeber.userName,
                                       FirstName = orgMemeber.FirstName,
                                       LastName = orgMemeber.LastName,
@@ -60,9 +60,9 @@ namespace TrackMyKid.DataLayer.Services
                                   on orgMemeber.Organization_ID equals org.Organization_ID
                                   select new Member
                                   {
-                                      MemberID = orgMemeber.MemberID,
-                                      Organization_ID = orgMemeber.Organization_ID,
-                                      Organization_Name = org.Organization_Name,
+                                      MemberId = orgMemeber.MemberID,
+                                      OrganizationId = orgMemeber.Organization_ID,
+                                      OrganizationName = org.Organization_Name,
                                       UserName = orgMemeber.userName,
                                       FirstName = orgMemeber.FirstName,
                                       LastName = orgMemeber.LastName,

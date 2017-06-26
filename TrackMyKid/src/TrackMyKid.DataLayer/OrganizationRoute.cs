@@ -16,7 +16,7 @@ namespace TrackMyKid.DataLayer
     {
         public int row_id { get; set; }
         public int Organization_ID { get; set; }
-        public int Route_ID { get; set; }
+        public string Route_ID { get; set; }
         public string Route_Display_Name { get; set; }
         public string End_Halt { get; set; }
         public string LastUpdatedBy { get; set; }

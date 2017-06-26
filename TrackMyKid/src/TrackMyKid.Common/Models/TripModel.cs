@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FluentValidation.Attributes;
+using TrackMyKid.Common.Validators;
 
 namespace TrackMyKid.Common.Models
 {
+    [Validator(typeof(TripModelValidator))]
     public class TripModel
     {
         public int TripId  { get; set; }
@@ -21,7 +21,6 @@ namespace TrackMyKid.Common.Models
 
         [Column(TypeName = "datetime2")]
         public DateTime TripStartTime { get; set; }
-
         [Column(TypeName = "datetime2")]
         public DateTime TripEndTime { get; set; }
     }

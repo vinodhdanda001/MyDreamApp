@@ -25,22 +25,21 @@ namespace TrackMyKid.DataLayer
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<DriverDetail> DriverDetails { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<MemberRole> MemberRoles { get; set; }
         public virtual DbSet<Organization> Organizations { get; set; }
         public virtual DbSet<OrganizationMember> OrganizationMembers { get; set; }
-        public virtual DbSet<RoleDetail> RoleDetails { get; set; }
-        public virtual DbSet<VehicleDetail> VehicleDetails { get; set; }
-        public virtual DbSet<TripGeoLocation> TripGeoLocations { get; set; }
         public virtual DbSet<OrganizationRoute> OrganizationRoutes { get; set; }
+        public virtual DbSet<RoleDetail> RoleDetails { get; set; }
+        public virtual DbSet<RouteHalt> RouteHalts { get; set; }
         public virtual DbSet<RouteMember> RouteMembers { get; set; }
-        public virtual DbSet<APP_ERR_LOG> APP_ERR_LOG { get; set; }
-        public virtual DbSet<DriverDetail> DriverDetails { get; set; }
         public virtual DbSet<RouteTrip> RouteTrips { get; set; }
         public virtual DbSet<TripHaltTiming> TripHaltTimings { get; set; }
-        public virtual DbSet<TripStatu> TripStatus { get; set; }
         public virtual DbSet<TripVehicleDriverDetail> TripVehicleDriverDetails { get; set; }
-        public virtual DbSet<OrganizationHalt> OrganizationHalts { get; set; }
-        public virtual DbSet<RouteHalt> RouteHalts { get; set; }
+        public virtual DbSet<VehicleDetail> VehicleDetails { get; set; }
+        public virtual DbSet<APP_ERR_LOG> APP_ERR_LOG { get; set; }
+        public virtual DbSet<TripGeoLocation> TripGeoLocations { get; set; }
+        public virtual DbSet<TripStatu> TripStatus { get; set; }
     }
 }

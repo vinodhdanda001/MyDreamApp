@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation.Attributes;
+using TrackMyKid.Common.Validators;
 
 namespace TrackMyKid.Common.Models
 {
+    [Validator(typeof(LoginModelValidator))]
     public class LoginModel
     {
         public string userName { get; set; }

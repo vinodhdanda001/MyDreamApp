@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using TrackMyKid.Common.Models;
 using TrackMyKid.DataLayer.Interfaces;
@@ -19,14 +18,14 @@ namespace TrackMyKid.DataLayer.Services
                 TripStartTime = DateTime.Now,
                 TripEndTime = null,
                 Driver_ID = trip.DriverId,
-                Organization_ID = trip.organizationId,
+                Organization_ID = trip.OrganizationId,
                 LastUpdatedBy = trip.DriverId,
-                Route_ID = trip.RouteID,
+                Route_ID = trip.RouteId,
                 TripId = trip.TripId,
                 TripStatusCode = "I",
                 cr_datetime = trip.TripStartTime,
                 updt_datetime = trip.TripStartTime,
-                Vehicle_ID = trip.VehicleID
+                Vehicle_ID = trip.VehicleId
             };
 
             using (var dbContext = new TranportCatalogEntities())
@@ -46,7 +45,7 @@ namespace TrackMyKid.DataLayer.Services
             bool isSuccess = false;
             using (var dbContext = new TranportCatalogEntities())
             {
-                var tripStatus = dbContext.TripStatus.FirstOrDefault(t => t.TripSessionId == trip.TripSessionID
+                var tripStatus = dbContext.TripStatus.FirstOrDefault(t => t.TripSessionId == trip.TripSessionId 
                  && t.TripStatusCode == "I");
                 if (tripStatus != null)
                 {
@@ -66,7 +65,7 @@ namespace TrackMyKid.DataLayer.Services
             using (var dbContext = new TranportCatalogEntities())
             {
                 tripStatus = dbContext.TripStatus.Where(t => t.TripSessionId == tripSessionId).FirstOrDefault();
-                if (tripStatus != null)
+                if(tripStatus != null)
                 {
                     if (tripStatus.TripStatusCode == "I")
                         tripStatusCode = TripStatusCode.InProgress;
@@ -75,93 +74,6 @@ namespace TrackMyKid.DataLayer.Services
                 }
             }
             return tripStatusCode;
-        }
-
-        public List<TripModel> GetTripsForRoute(int orgId, int routeId)
-        {
-
-            using (var dbContext = new TranportCatalogEntities())
-            {
-                var trips = from route in dbContext.OrganizationRoutes.Where(t => t.IsActive.ToUpper() == "Y"
-                                                                                && t.Organization_ID == orgId
-                                                                                && t.Route_ID == routeId)
-                            join trip in dbContext.RouteTrips.Where(t => t.IsActive.ToUpper() == "Y"
-                                                                           && t.Organization_ID == orgId
-                                                                           && t.Route_ID == routeId)
-                               on route.Route_ID equals trip.Route_ID
-                            //join tripHalts in dbContext.RouteTrips.Where(t=> t.IsActive.ToUpper() == "Y"
-                            //                                               && t.Organization_ID == orgId
-                            //                                               && t.Route_ID.ToUpper() == routeID
-                            //                                           )
-                            //on route.Route_ID equals tripHalts.Route_ID
-                            select new TripModel
-                            {
-                                TripId = trip.TripId,
-                                RouteID = trip.Route_ID,
-                                TripTime = DateTime.MinValue   // To Do the timings has to be adjusted well
-                            };
-                return trips.ToList();
-            }
-        }
-
-        public TripModel CreateTrip(TripModel tripModel)
-        {
-            using (var dbContext = new TranportCatalogEntities())
-            {
-                int newTripId = dbContext.RouteTrips.Max(t => t.TripId)+1;
-                tripModel.TripId = newTripId;
-
-                dbContext.RouteTrips.Add(new RouteTrip
-                {
-                    Organization_ID = tripModel.organizationId,
-                    Route_ID = tripModel.RouteID,
-                    TripId = tripModel.TripId,
-                    LastUpdatedBy = "Vinodh", // TODO
-                    IsActive = "Y",
-                    cr_datetime = DateTime.Now,
-                    updt_datetime = DateTime.Now
-                });
-
-                dbContext.SaveChanges();
-
-                return tripModel;
-            }
-        }
-
-        public TripModel GetTripStatus(int orgId, int routeId, int tripId)
-        {
-            TripModel tripModel = null;
-            TripStatu tripStatus;
-            TripStatusCode tripStatusCode = TripStatusCode.Invalid;
-            using (var dbContext = new TranportCatalogEntities())
-            {
-                tripStatus = dbContext.TripStatus.Where(t => t.Organization_ID == orgId
-                    && t.Route_ID == routeId 
-                    && t.TripId == tripId)
-                    .OrderByDescending(t => t.TripStartTime)
-                    .FirstOrDefault();
-                if (tripStatus != null)
-                {
-                    if (tripStatus.TripStatusCode == "I")
-                        tripStatusCode = TripStatusCode.InProgress;
-                    else if (tripStatus.TripStatusCode == "C")
-                        tripStatusCode = TripStatusCode.Completed;
-
-                    tripModel = new TripModel
-                    {
-                        organizationId = orgId,
-                        RouteID = routeId,
-                        TripId = tripId,
-                        TripSessionID = tripStatus.TripSessionId,
-                        TripStatusCd = tripStatusCode
-                    };
-                }
-                else
-                {
-                    tripModel = null;
-                }   
-            }
-            return tripModel; ;
         }
     }
 }

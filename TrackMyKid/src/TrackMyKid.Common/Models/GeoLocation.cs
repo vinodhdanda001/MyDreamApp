@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation.Attributes;
+using TrackMyKid.Common.Validators;
 
 namespace TrackMyKid.Common.Models
 {
+    [Validator(typeof(GeoLocationModelValidator))]
     public class GeoLocation
     {
         public int TripSessionId { get; set; }
