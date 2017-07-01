@@ -69,26 +69,32 @@ namespace TrackMyKid.Web.Api.Controllers
 
             tripmodel = _tripDataService.GetTripStatus(orgId, routeId, tripId);
 
-            if (tripmodel.TripStatusCd == TripStatusCode.Invalid)
+            ////TODO    Not returning the proper returnset
+            if (tripmodel != null)
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid Trip. Can not provide location details");
-            }
-            else if (tripmodel.TripStatusCd == TripStatusCode.InProgress)
-            {
-                location = _geoLocationService.GetLocation(tripmodel.TripSessionID);
-                if (location != null)
+                if (tripmodel.TripStatusCd == TripStatusCode.InProgress)
                 {
-                    response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
+                    location = _geoLocationService.GetLocation(tripmodel.TripSessionID);
+                    if (location != null)
+                    {
+                        response = Request.CreateResponse<GeoLocation>(HttpStatusCode.OK, location);
+                    }
+                    else
+                    {
+                        response = Request.CreateResponse(HttpStatusCode.NoContent);
+                    }
                 }
-                else
+                else //if (tripmodel.TripStatusCd == TripStatusCode.Completed)
                 {
-                    response = Request.CreateResponse(HttpStatusCode.NoContent);
+                    response = Request.CreateResponse(HttpStatusCode.BadRequest, "Trip is not in progress. It may not be started or might be ended.");
                 }
             }
-            else if (tripmodel.TripStatusCd == TripStatusCode.Completed)
+            else
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid has been completed. Can not post location details");
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Can not provide the trip as it has not started");
             }
+
+            
             return response;
         }
 
