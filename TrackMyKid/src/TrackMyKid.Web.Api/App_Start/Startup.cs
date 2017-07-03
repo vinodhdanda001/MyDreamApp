@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Web.Http;
 using Autofac;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataHandler.Encoder;
 using Microsoft.Owin.Security.Jwt;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
@@ -19,7 +18,6 @@ namespace TrackMyKid.Web.Api
 {
     public class Startup
     {
-        public readonly List<string> Audience;
         protected readonly string Issuer;
 
         protected static IContainer Container { get; private set; }
@@ -27,7 +25,6 @@ namespace TrackMyKid.Web.Api
         public Startup()
         {
             Issuer = ConfigurationManager.AppSettings["Issuer"];
-            Audience = SplitSemicolonSeperatedValues(ConfigurationManager.AppSettings["Audience"]);
         }
 
         public void Configuration(IAppBuilder app)
@@ -53,7 +50,7 @@ namespace TrackMyKid.Web.Api
                 TokenEndpointPath = new PathString("/oauth2/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
                 Provider = new CustomOAuthProvider(),
-                AccessTokenFormat = new CustomJwtFormat("trackmykid_oauthserver")
+                AccessTokenFormat = new CustomJwtFormat(Issuer)
             };
 
             app.UseOAuthAuthorizationServer(oAuthServerOptions);
@@ -63,24 +60,14 @@ namespace TrackMyKid.Web.Api
                new JwtBearerAuthenticationOptions
                {
                    AuthenticationMode = AuthenticationMode.Active,
-                   AllowedAudiences = Audience,
+                   AllowedAudiences = new []{ "http://localhost:58735/api/" },
                    IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
                    {
                         new SymmetricKeyIssuerSecurityTokenProvider(
                             Issuer,
-                            ConfigurationManager.AppSettings["SymmetricKey"])
+                            TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["SymmetricKey"]))
                    }
                });
-        }
-
-        private static List<string> SplitSemicolonSeperatedValues(string commaSeperatedString)
-        {
-            var values = new List<string>();
-            if (!string.IsNullOrEmpty(commaSeperatedString))
-                values = commaSeperatedString.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(p => p.Trim())
-                    .Where(x => !string.IsNullOrEmpty(x)).ToList();
-            return values;
         }
     }
 }

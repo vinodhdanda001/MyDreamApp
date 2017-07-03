@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
-using TrackMyKid.DataLayer;
 using TrackMyKid.DataLayer.Interfaces;
 
 namespace TrackMyKid.Web.Api.Controllers
@@ -25,6 +24,7 @@ namespace TrackMyKid.Web.Api.Controllers
             _routeService = routeService;
         }
 
+        [Authorize]
         [Route("api/org/{orgId}/route/{memberID}")]
         [HttpGet]
         public HttpResponseMessage Get(int orgId, string memberId)
@@ -46,12 +46,13 @@ namespace TrackMyKid.Web.Api.Controllers
             return response;
         }
 
+        [Authorize]
         [Route("api/org/{orgId}/route")]
         [HttpGet]
         public HttpResponseMessage Get(int orgId)
         {
             HttpResponseMessage response;
-            log.Debug("Get: api/org/" +orgId.ToString() + "/route");
+            log.Debug("Get: api/org/" +orgId + "/route");
             var routes = _routeService.GetRoutesByOrg(orgId).ToList();
 
             if(routes.Any())

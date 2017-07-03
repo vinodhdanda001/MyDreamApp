@@ -1,5 +1,4 @@
 ﻿using Microsoft.Owin.Security.OAuth;
-using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.Owin.Security;
@@ -31,18 +30,10 @@ namespace TrackMyKid.Web.Api.Security
 
             identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
             identity.AddClaim(new Claim("sub", context.UserName));
-
             //TODO: Get role from DB and create a claim 
             identity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
 
-            var props = new AuthenticationProperties(new Dictionary<string, string>
-            {
-                {
-                    "audience", context.ClientId ?? string.Empty
-                }
-            });
-
-            var ticket = new AuthenticationTicket(identity, props);
+            var ticket = new AuthenticationTicket(identity, null);
             context.Validated(ticket);
             return Task.FromResult<object>(null);
         }

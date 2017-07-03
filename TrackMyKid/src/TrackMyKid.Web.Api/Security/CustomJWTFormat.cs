@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Configuration;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Protocols.WSTrust;
+using System.IdentityModel.Tokens;
+using System.Security.Claims;
+using System.Security.Principal;
 using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataHandler.Encoder;
 
 namespace TrackMyKid.Web.Api.Security
 {
@@ -20,35 +22,34 @@ namespace TrackMyKid.Web.Api.Security
 
         public string Protect(AuthenticationTicket authenticationTicket)
         {
+            const string signatureAlgorithm = "http://www.w3.org/2001/04/xmldsig-more#hmac-sha256";
+            const string digestAlgorithm = "http://www.w3.org/2001/04/xmlenc#sha256";
+
             if (authenticationTicket == null)
             {
                 throw new ArgumentNullException(nameof(authenticationTicket));
             }
 
-            string audienceId = "trackmykid_mobile";//authenticationTicket.Properties.Dictionary.ContainsKey(AudiencePropertyKey) ? 
-            //    authenticationTicket.Properties.Dictionary[AudiencePropertyKey] : null;
-
-            if (string.IsNullOrWhiteSpace(audienceId))
-                throw new InvalidOperationException("AuthenticationTicket.Properties does not include audience");
-
-            var securityKey = new SymmetricSecurityKey(Encoding.Default.GetBytes(_symmetricBase64EncodedKey));
-            var signingKey = new SigningCredentials(securityKey,SecurityAlgorithms.HmacSha256Signature);
+            const string audienceId = "http://localhost:58735/api/";
+            var securityKey = new InMemorySymmetricSecurityKey(TextEncodings.Base64Url.Decode(_symmetricBase64EncodedKey));
 
             var issued = authenticationTicket.Properties.IssuedUtc;
             var expires = authenticationTicket.Properties.ExpiresUtc;
 
-            var token = new JwtSecurityToken(
-                _issuer, 
-                audienceId, 
-                authenticationTicket.Identity.Claims, 
-                issued?.UtcDateTime, 
-                expires?.UtcDateTime, 
-                signingKey);
+            var identity = new GenericIdentity("user");
 
-            var handler = new JwtSecurityTokenHandler();
-            var jwt = handler.WriteToken(token);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(identity, authenticationTicket.Identity.Claims),
+                TokenIssuerName = _issuer,
+                AppliesToAddress = audienceId,
+                Lifetime = new Lifetime(issued?.UtcDateTime, expires?.UtcDateTime),
+                SigningCredentials = new SigningCredentials(securityKey, signatureAlgorithm, digestAlgorithm),
+            };
 
-            return jwt;
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            return tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
         }
 
         public AuthenticationTicket Unprotect(string protectedText)
