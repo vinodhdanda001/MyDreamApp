@@ -69,7 +69,13 @@
                         <li>
                             <a class="has_submenu" href="#">Notification</a>
                             <ul>
-                                <li><a href="#">To Organization</a></li>
+                                <li>
+                                @Html.ActionLink("Organization Level", "Index", "Notification", new
+                           {
+                               nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Organization
+                           }, new { })
+                                @*<a href="#">To Organization</a>*@
+                                </li>
                                 <li><a href="#">Route Specific</a></li>
                                 <li><a href="#">Trip Specific</a></li>
                                 <li><a href="#">Member Specific</a></li>

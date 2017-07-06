@@ -1,45 +1,52 @@
 ﻿@model TrackMyKid.Common.ViewModel.NotificationViewModel
 
 @{
-    Layout = null;
-    var routes;
-    var trips;
-}
-
-@if(Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Trip)
-{
-    //routes = 
-}
-else if(Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Route)
-{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UxLayout.cshtml";
 
 }
-else
-{
+<h2>Notification Management - @Model.notificationLevel.ToString()</h2>
 
-}
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
-    
+<div class="form-horizontal">
     @using (Html.BeginForm()) 
     {
         @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>NotificationViewModel</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <table>
+            @if (Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Route)
+            {
+                <tr>
+                    @Html.DropDownListFor(model => model.RouteId, new SelectList(Model.routes, "Route_ID", "Route_Display_Name"), "- Please Select -")
+                    @Html.ValidationMessageFor(model => model.RouteId)
+                </tr>
+            }
+            else if (Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Trip)
+            {
+                <tr>
+                    @Html.DropDownListFor(model => model.RouteId, new SelectList(Model.routes, "Route_ID", "Route_Display_Name"), "- Please Select -")
+                    @Html.ValidationMessageFor(model => model.RouteId)
+                </tr>
+                if (Model.trips != null)
+                {
+                    <tr>
+                        @Html.DropDownListFor(model => model.TripId, new SelectList(Model.trips, "TripId", "TripTime"), "- Please Select -")
+                        @Html.ValidationMessageFor(model => model.RouteId)
+                    </tr>
+                }
+            }
+            <tr>
+
+                @Html.DisplayFor(model => model.Message)
+                @Html.TextAreaFor(model => model.Message)
+                @Html.ValidationMessageFor(model => model.RouteId)
+            <tr>
+        </table>
+
+        <div>
+            
+            <br/><br /><br />
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -48,8 +55,5 @@ else
         </div>
     }
     
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-</body>
-</html>
+    
+</div>

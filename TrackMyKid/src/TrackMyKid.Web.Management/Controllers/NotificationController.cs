@@ -15,12 +15,12 @@ namespace TrackMyKid.Web.Management.Controllers
         static readonly ITripRestClient TripRestClient = new TripRestClient();
 
 
-        // GET: Notification
-        public ActionResult Index()
-        {
-            NotificationViewModel notification = new NotificationViewModel();
-            return View(notification);
-        }
+        //// GET: Notification
+        //public ActionResult Index()
+        //{
+        //    NotificationViewModel notification = new NotificationViewModel();
+        //    return View(notification);
+        //}
 
         // GET: Notification
         public ActionResult Index(NotificationLevel nLevel)
@@ -32,7 +32,12 @@ namespace TrackMyKid.Web.Management.Controllers
             {
                 notificationLevel = nLevel
             };
-            notification.routes = RouteRestClient.GetRoutesForOrg(orgId);
+
+            if(nLevel == NotificationLevel.Route || nLevel == NotificationLevel.Trip)
+            {
+                notification.routes = RouteRestClient.GetRoutesForOrg(orgId);
+            }
+            
             //TripRestClient.GetTripsForRoute(orgId, routeId);
             return View(notification);
         }

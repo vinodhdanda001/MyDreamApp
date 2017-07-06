@@ -17,6 +17,6 @@ namespace TrackMyKid.Common.ViewModel
 
         public List<RouteModel> routes;
         public List<TripModel> trips;
-        public string Comments;
+        public string Message;
     }
 }
