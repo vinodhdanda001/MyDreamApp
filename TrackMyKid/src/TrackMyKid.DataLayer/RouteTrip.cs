@@ -22,5 +22,7 @@ namespace TrackMyKid.DataLayer
         public string IsActive { get; set; }
         public System.DateTime cr_datetime { get; set; }
         public System.DateTime updt_datetime { get; set; }
+        public Nullable<System.TimeSpan> TripStartTime { get; set; }
+        public Nullable<bool> PickDropInd { get; set; }
     }
 }

@@ -208,6 +208,8 @@ warning 6002: The table/view 'TranportCatalog.dbo.APP_ERR_LOG' does not have a p
           <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="cr_datetime" Type="datetime" Nullable="false" />
           <Property Name="updt_datetime" Type="datetime" Nullable="false" />
+          <Property Name="TripStartTime" Type="time" Precision="7" />
+          <Property Name="PickDropInd" Type="bit" />
         </EntityType>
         <EntityType Name="TripGeoLocation">
           <Key>
@@ -439,12 +441,12 @@ warning 6002: The table/view 'TranportCatalog.dbo.APP_ERR_LOG' does not have a p
           <EntitySet Name="RouteMembers" EntityType="TranportCatalogModel.RouteMember" />
           <EntitySet Name="APP_ERR_LOG" EntityType="TranportCatalogModel.APP_ERR_LOG" />
           <EntitySet Name="DriverDetails" EntityType="TranportCatalogModel.DriverDetail" />
-          <EntitySet Name="RouteTrips" EntityType="TranportCatalogModel.RouteTrip" />
           <EntitySet Name="TripHaltTimings" EntityType="TranportCatalogModel.TripHaltTiming" />
           <EntitySet Name="TripStatus" EntityType="TranportCatalogModel.TripStatu" />
           <EntitySet Name="TripVehicleDriverDetails" EntityType="TranportCatalogModel.TripVehicleDriverDetail" />
           <EntitySet Name="OrganizationHalts" EntityType="TranportCatalogModel.OrganizationHalt" />
           <EntitySet Name="RouteHalts" EntityType="TranportCatalogModel.RouteHalt" />
+          <EntitySet Name="RouteTrips" EntityType="TranportCatalogModel.RouteTrip" />
         </EntityContainer>
         <EntityType Name="TripGeoLocation">
           <Key>
@@ -520,21 +522,6 @@ warning 6002: The table/view 'TranportCatalog.dbo.APP_ERR_LOG' does not have a p
           <Property Name="DriverName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="DriverAddress" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="DriverContactNum" Type="Int32" Nullable="false" />
-          <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="RouteTrip">
-          <Key>
-            <PropertyRef Name="Organization_ID" />
-            <PropertyRef Name="Route_ID" />
-            <PropertyRef Name="TripId" />
-          </Key>
-          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
-          <Property Name="Route_ID" Type="Int32" Nullable="false" />
-          <Property Name="TripId" Type="Int32" Nullable="false" />
           <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
@@ -628,6 +615,23 @@ warning 6002: The table/view 'TranportCatalog.dbo.APP_ERR_LOG' does not have a p
           <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="HaltID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RouteTrip">
+          <Key>
+            <PropertyRef Name="Organization_ID" />
+            <PropertyRef Name="Route_ID" />
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="row_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization_ID" Type="Int32" Nullable="false" />
+          <Property Name="Route_ID" Type="Int32" Nullable="false" />
+          <Property Name="TripId" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cr_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TripStartTime" Type="Time" Precision="7" />
+          <Property Name="PickDropInd" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -812,20 +816,6 @@ warning 6002: The table/view 'TranportCatalog.dbo.APP_ERR_LOG' does not have a p
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RouteTrips">
-            <EntityTypeMapping TypeName="TranportCatalogModel.RouteTrip">
-              <MappingFragment StoreEntitySet="RouteTrips">
-                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
-                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="TripId" ColumnName="TripId" />
-                <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
-                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
-                <ScalarProperty Name="row_id" ColumnName="row_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TripHaltTimings">
             <EntityTypeMapping TypeName="TranportCatalogModel.TripHaltTiming">
               <MappingFragment StoreEntitySet="TripHaltTimings">
@@ -903,6 +893,22 @@ warning 6002: The table/view 'TranportCatalog.dbo.APP_ERR_LOG' does not have a p
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
                 <ScalarProperty Name="Seq_No" ColumnName="Seq_No" />
+                <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
+                <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteTrips">
+            <EntityTypeMapping TypeName="TranportCatalogModel.RouteTrip">
+              <MappingFragment StoreEntitySet="RouteTrips">
+                <ScalarProperty Name="PickDropInd" ColumnName="PickDropInd" />
+                <ScalarProperty Name="TripStartTime" ColumnName="TripStartTime" />
+                <ScalarProperty Name="updt_datetime" ColumnName="updt_datetime" />
+                <ScalarProperty Name="cr_datetime" ColumnName="cr_datetime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="TripId" ColumnName="TripId" />
                 <ScalarProperty Name="Route_ID" ColumnName="Route_ID" />
                 <ScalarProperty Name="Organization_ID" ColumnName="Organization_ID" />
                 <ScalarProperty Name="row_id" ColumnName="row_id" />
