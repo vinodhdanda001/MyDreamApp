@@ -29,5 +29,12 @@ namespace TrackMyKid.Common.Enums
             ResourceNotFound
         }
 
+        public enum NotificationLevel
+        {
+            Organization,
+            Route,
+            Trip,
+            Member
+        }
     }
 }

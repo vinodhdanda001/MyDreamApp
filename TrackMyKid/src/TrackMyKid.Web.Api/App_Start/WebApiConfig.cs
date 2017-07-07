@@ -14,16 +14,18 @@ namespace TrackMyKid.Web.Api
             // Web API routes
             config.MapHttpAttributeRoutes();
             //Route Configuration
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
+            config.Routes.MapHttpRoute(
+                name: "DefaultA",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
+                name: "DefaultB",
                 routeTemplate: "api/{controller}/{orgId}/{routeId}/{tripId}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new { orgId = RouteParameter.Optional
+                                , routeId = RouteParameter.Optional
+                                , tripId = RouteParameter.Optional, }
             );
 
             //

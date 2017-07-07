@@ -150,8 +150,11 @@
     <Content Include="Views\Trip\Add.cshtml" />
     <Content Include="Views\Halt\Index.cshtml" />
     <Content Include="Views\Shared\_CreateHalt.cshtml" />
-    <Content Include="Views\Shared\_UxLayout.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Notification\Index.cshtml" />
+=======
+    <Content Include="Views\Shared\_UxLayout.cshtml" />
+>>>>>>> ebc5ea52db8428e08dbe32f428b6a59b2c6f8b2b
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

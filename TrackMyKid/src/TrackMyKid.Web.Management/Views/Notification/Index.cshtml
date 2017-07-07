@@ -1,0 +1,59 @@
+﻿@model TrackMyKid.Common.ViewModel.NotificationViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UxLayout.cshtml";
+
+}
+<h2>Notification Management - @Model.notificationLevel.ToString()</h2>
+
+
+<div class="form-horizontal">
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <table>
+            @if (Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Route)
+            {
+                <tr>
+                    @Html.DropDownListFor(model => model.RouteId, new SelectList(Model.routes, "Route_ID", "Route_Display_Name"), "- Please Select -")
+                    @Html.ValidationMessageFor(model => model.RouteId)
+                </tr>
+            }
+            else if (Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Trip)
+            {
+                <tr>
+                    @Html.DropDownListFor(model => model.RouteId, new SelectList(Model.routes, "Route_ID", "Route_Display_Name"), "- Please Select -")
+                    @Html.ValidationMessageFor(model => model.RouteId)
+                </tr>
+                if (Model.trips != null)
+                {
+                    <tr>
+                        @Html.DropDownListFor(model => model.TripId, new SelectList(Model.trips, "TripId", "TripTime"), "- Please Select -")
+                        @Html.ValidationMessageFor(model => model.RouteId)
+                    </tr>
+                }
+            }
+            <tr>
+
+                @Html.DisplayFor(model => model.Message)
+                @Html.TextAreaFor(model => model.Message)
+                @Html.ValidationMessageFor(model => model.RouteId)
+            <tr>
+        </table>
+
+        <div>
+            
+            <br/><br /><br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    
+</div>
