@@ -25,7 +25,7 @@ namespace TrackMyKid.Web.Api.Controllers
         {
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
 
-            if(_memberService.IsMemberExists(registerModel.organizationId, registerModel.primaryContactNum ))
+            if(_memberService.IsMemberExists(registerModel.OrganizationId, registerModel.PrimaryContactNum ))
             {
 
             }
