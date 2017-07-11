@@ -32,8 +32,8 @@ namespace TrackMyKid.Common.Helpers
             byte[] salt = Convert.FromBase64String(passwordSalt);
             byte[] hash = Convert.FromBase64String(passwordHash);
 
-            var testHash = GetPbkdf2Bytes(password, salt, Pbkdf2Iterations, hash.Length);
-            return SlowEquals(hash, testHash);
+            var pwdHash = GetPbkdf2Bytes(password, salt, Pbkdf2Iterations, hash.Length);
+            return SlowEquals(hash, pwdHash);
         }
 
         private static bool SlowEquals(byte[] a, byte[] b)
@@ -48,9 +48,12 @@ namespace TrackMyKid.Common.Helpers
 
         private static byte[] GetPbkdf2Bytes(string password, byte[] salt, int iterations, int outputBytes)
         {
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt) {IterationCount = iterations};
-
-            return pbkdf2.GetBytes(outputBytes);
+            byte[] hashValue;
+            using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations))
+            {
+                hashValue = pbkdf2.GetBytes(outputBytes);
+            }
+            return hashValue;
         }
     }
 
