@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TrackMyKid.Common.Models;
 using TrackMyKid.Common.ViewModel;
 using TrackMyKid.Web.Management.ApiHelper;
 using static TrackMyKid.Common.Enums.Enumerations;
@@ -30,12 +31,14 @@ namespace TrackMyKid.Web.Management.Controllers
 
             NotificationViewModel notification = new NotificationViewModel()
             {
-                notificationLevel = nLevel
+                notificationLevel = nLevel,
+                OrganizationId = orgId
             };
 
             if(nLevel == NotificationLevel.Route || nLevel == NotificationLevel.Trip)
             {
                 notification.routes = RouteRestClient.GetRoutesForOrg(orgId);
+                notification.trips = new List<TripModel>();
             }
             
             //TripRestClient.GetTripsForRoute(orgId, routeId);
@@ -45,7 +48,22 @@ namespace TrackMyKid.Web.Management.Controllers
         [HttpPost]
         public ActionResult Index(NotificationViewModel notification)
         {
-            return View();
+            return View(notification);
         }
+
+        [HttpPost]
+        public ActionResult GetTripsForRoute(int? rouetId , int? orgId)
+        {
+            if (rouetId != null && orgId != null)
+            {
+                List<TripModel> trips = TripRestClient.GetTripsForRoute((int)orgId, (int)rouetId);
+                
+                return Json(new { Success = "true", Data = trips });
+            }
+            return Json(new { Success = "false" });
+        }
+
+
+
     }
 }
