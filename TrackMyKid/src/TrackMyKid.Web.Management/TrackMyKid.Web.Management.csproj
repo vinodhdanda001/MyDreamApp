@@ -120,6 +120,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiHelper\HaltRestClient.cs" />
+    <Compile Include="ApiHelper\Interfaces\INotificationRestClient.cs" />
+    <Compile Include="ApiHelper\NotificationRestClient.cs" />
     <Compile Include="ApiHelper\Interfaces\IHaltRestClient.cs" />
     <Compile Include="ApiHelper\Interfaces\IRouteRestClient.cs" />
     <Compile Include="ApiHelper\Interfaces\ITripRestClient.cs" />

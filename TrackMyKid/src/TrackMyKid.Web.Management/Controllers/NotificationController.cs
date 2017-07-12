@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using TrackMyKid.Common.Models;
 using TrackMyKid.Common.ViewModel;
 using TrackMyKid.Web.Management.ApiHelper;
+using TrackMyKid.Web.Management.ApiHelper.Interfaces;
 using static TrackMyKid.Common.Enums.Enumerations;
 
 namespace TrackMyKid.Web.Management.Controllers
@@ -13,6 +14,7 @@ namespace TrackMyKid.Web.Management.Controllers
     public class NotificationController : Controller
     {
         static readonly IRouteRestClient RouteRestClient = new RouteRestClient();
+        static readonly INotificationRestClient NotificationRestClient = new NotificationRestClient();
         static readonly ITripRestClient TripRestClient = new TripRestClient();
 
 
@@ -48,6 +50,14 @@ namespace TrackMyKid.Web.Management.Controllers
         [HttpPost]
         public ActionResult Index(NotificationViewModel notification)
         {
+            if(notification.notificationLevel == NotificationLevel.Organization)
+            { }
+            else if (notification.notificationLevel == NotificationLevel.Route)
+            { }
+            else if (notification.notificationLevel == NotificationLevel.Trip)
+            { }
+            else if (notification.notificationLevel == NotificationLevel.Member)
+            { }
             return View(notification);
         }
 

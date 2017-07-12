@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using TrackMyKid.Common.Models;
+using TrackMyKid.Web.Management.ApiHelper.Interfaces;
 
 namespace TrackMyKid.Web.Management.ApiHelper
 {

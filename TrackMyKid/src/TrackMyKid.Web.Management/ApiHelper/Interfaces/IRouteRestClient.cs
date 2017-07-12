@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using TrackMyKid.Common.Models;
 
-namespace TrackMyKid.Web.Management.ApiHelper
+namespace TrackMyKid.Web.Management.ApiHelper.Interfaces
 {
     public interface IRouteRestClient
     {
