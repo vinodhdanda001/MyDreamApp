@@ -5,7 +5,7 @@ using System.Web;
 using TrackMyKid.Common.Models;
 using TrackMyKid.Common.ViewModel;
 
-namespace TrackMyKid.Web.Management.ApiHelper
+namespace TrackMyKid.Web.Management.ApiHelper.Interfaces
 {
     public interface IHaltRestClient
     {

@@ -8,7 +8,7 @@
     @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
     @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 </head>
 <body>
     <div id="container">
@@ -70,14 +70,27 @@
                             <a class="has_submenu" href="#">Notification</a>
                             <ul>
                                 <li>
-                                @Html.ActionLink("Organization Level", "Index", "Notification", new
-                           {
-                               nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Organization
-                           }, new { })
-                                @*<a href="#">To Organization</a>*@
+                                    @Html.ActionLink("Organization Level", "Index", "Notification", new
+                                       {
+                                           nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Organization
+                                       }, new { })
+                                    @*<a href="#">To Organization</a>*@
                                 </li>
-                                <li><a href="#">Route Specific</a></li>
-                                <li><a href="#">Trip Specific</a></li>
+                                <li>
+                                        @Html.ActionLink("Route Specific", "Index", "Notification", new
+                                    {
+                                        nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Route
+                                    }, new { })
+                                    
+                                  @*<a href="#">Route Specific</a>*@
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Trip Specific", "Index", "Notification", new
+                                    {
+                                        nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Trip
+                                    }, new { })
+                                @*<a href="#">Trip Specific</a>*@
+                                </li>
                                 <li><a href="#">Member Specific</a></li>
                             </ul>
                         </li>
@@ -102,9 +115,9 @@
                         <p>Eurekka!!! Today is a bright sunny day. All your upcoming trips are following their queue.</p>
 
                         <p style="text-align:center;"><a href="#" class="button button-slider">Check it!</a></p>
-                                                
+
                     </div>
-                    
+
                     <div>
                         <h2>Have fun with your rides!</h2>
                         <p>These rides can contain anything a webpage can! HTML, Javascript, images, flash or whatever! They're completely easy to edit and add to as well, no need to bother editing or even going anywhere near some confusing Javascript files, simply add a &lt;div&gt;&lt;/div&gt; tag with your slider content to the "slides" container and an extra slide control - it takes just seconds to do!</p>
@@ -125,15 +138,15 @@
         <div id="body" class="width">
             @*Vinodh we can have our body here too*@
             @*<div class="container body-content">
-                @RenderBody()                
-            </div>*@
+                    @RenderBody()
+                </div>*@
 
             <section id="content" class="one-half with-right-sidebar">
                 <article>
 
                     @*Vinodh we can have our body here too*@
-                        @RenderBody()
-                    <br />                 
+                    @RenderBody()
+                    <br />
                     <a href="#" class="button">Btn type1</a>
                     <a href="#" class="button button-reversed">Btn type2</a>
                 </article>
@@ -149,7 +162,7 @@
 
             <aside class="sidebar small-sidebar right-sidebar">
                 <ul>
-                    
+
                     <li>
                         <h4>News</h4>
                         <ul class="newslist">
@@ -162,7 +175,7 @@
                             <li>
                                 <p>
                                     <span class="newslist-date">Jul 03</span>
-                                   asdfghjkl asdfghjkl asdfghjk asdfghjk asdfghjk asdfghjk 
+                                    asdfghjkl asdfghjkl asdfghjk asdfghjk asdfghjk asdfghjk
                                 </p>
 
                             </li>

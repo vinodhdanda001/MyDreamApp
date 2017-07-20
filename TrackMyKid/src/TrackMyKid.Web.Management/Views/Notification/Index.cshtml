@@ -7,53 +7,107 @@
 }
 <h2>Notification Management - @Model.notificationLevel.ToString()</h2>
 
-
 <div class="form-horizontal">
-    @using (Html.BeginForm()) 
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <table>
-            @if (Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Route)
-            {
-                <tr>
-                    @Html.DropDownListFor(model => model.RouteId, new SelectList(Model.routes, "Route_ID", "Route_Display_Name"), "- Please Select -")
-                    @Html.ValidationMessageFor(model => model.RouteId)
-                </tr>
-            }
-            else if (Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Trip)
-            {
-                <tr>
-                    @Html.DropDownListFor(model => model.RouteId, new SelectList(Model.routes, "Route_ID", "Route_Display_Name"), "- Please Select -")
-                    @Html.ValidationMessageFor(model => model.RouteId)
-                </tr>
-                if (Model.trips != null)
+            <thead></thead>
+            <tbody>
+                @if (Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Route)
                 {
                     <tr>
-                        @Html.DropDownListFor(model => model.TripId, new SelectList(Model.trips, "TripId", "TripTime"), "- Please Select -")
-                        @Html.ValidationMessageFor(model => model.RouteId)
+                        <td>
+                            @Html.LabelFor(t => t.routes)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.RouteId, new SelectList(Model.routes, "Route_ID", "Route_Display_Name"), "- Please Select -")
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.RouteId)
+                        </td>
                     </tr>
                 }
-            }
-            <tr>
+                else if (Model.notificationLevel == TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Trip)
+                {
+                    <tr>
+                        <td>
+                            @Html.LabelFor(t => t.routes)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.RouteId, new SelectList(Model.routes, "Route_ID", "Route_Display_Name"), "- Please Select -")
+                        </td>
+                        <td>   @Html.ValidationMessageFor(model => model.RouteId) </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(t => t.trips)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.TripId, new SelectList(Model.trips, "TripId", "TripTime"), "- Please Select -")
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.TripId)
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        @Html.LabelFor(t => t.Message)
+                    </td>
+                    <td>@Html.TextAreaFor(model => model.Message) </td>
+                    <td>
+                        @Html.ValidationMessageFor(model => model.Message)
+                    </td>
+                </tr>
 
-                @Html.DisplayFor(model => model.Message)
-                @Html.TextAreaFor(model => model.Message)
-                @Html.ValidationMessageFor(model => model.RouteId)
-            <tr>
+            </tbody>
         </table>
 
         <div>
-            
-            <br/><br /><br />
+
+            <br />
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Send" class="btn btn-default" />
+                    @*<input type="submit" value="Send" class="button" />*@
+                    
                 </div>
             </div>
         </div>
     }
-    
-    
+
 </div>
+
+<script type="text/javascript">
+ $(function(){
+
+     $("#RouteId").change(function() {
+
+            var t = $(this).val();
+            if (t !== "") {
+                $.post("@Url.Action("GetTripsForRoute", "Notification")?rouetId=" + t +"&orgId=" + @Model.OrganizationId, function(res) {
+                    if (res.Success === "true") {
+                      //enable the text boxes and set the value
+                        var ddlCustomers = $("[id*=TripId]");
+                        ddlCustomers.empty().append('<option selected="selected" value="0">Please select</option>');
+                        if (res.Data != null && res.Data.length >= 0){
+                            for (var i = 0; i < res.Data.length; i++) {
+                                ddlCustomers.append('<option value="' + res.Data[i].TripId + '">vin</option>');
+                                //ddlCustomers.append('<option value="' + res.Data[i].TripId + '">' + res.Data[i][i].TripTime + '</option>');
+                            }
+                        }
+                    } else {
+                        alert("Error getting data!");
+                    }
+                });
+            } else {
+                //Let's clear the values and disable :)
+                $("input.editableItems").val('').prop('disabled', true);
+            }
+        });
+ });
+
+</script>
