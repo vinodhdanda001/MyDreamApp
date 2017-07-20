@@ -41,7 +41,5 @@ namespace TrackMyKid.DataLayer.Services
                 dbContext.SaveChanges();
             }
         }
-
-       
     }
 }

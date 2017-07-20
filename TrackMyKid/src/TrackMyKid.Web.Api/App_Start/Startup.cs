@@ -30,19 +30,20 @@ namespace TrackMyKid.Web.Api
         public void Configuration(IAppBuilder app)
         {
             var configuration = new HttpConfiguration();
-
             IContainer containerObject;
 
             DependencyInjectionConfig.RegisterContainer(app, configuration, out containerObject);
             Container = containerObject;
 
-            ConfigureOAuth(app);
+            SetupAuthorizationServer(app);
+            SetupAuthenticationTokenVerification(app);
             app.UseCors(CorsOptions.AllowAll);
+
             WebApiConfig.Register(configuration);
             app.UseWebApi(configuration);
         }
 
-        public void ConfigureOAuth(IAppBuilder app)
+        private void SetupAuthorizationServer(IAppBuilder app)
         {
             var oAuthServerOptions = new OAuthAuthorizationServerOptions
             {
@@ -55,19 +56,22 @@ namespace TrackMyKid.Web.Api
 
             app.UseOAuthAuthorizationServer(oAuthServerOptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+        }
 
+        private void SetupAuthenticationTokenVerification(IAppBuilder app)
+        {
             app.UseJwtBearerAuthentication(
-               new JwtBearerAuthenticationOptions
-               {
-                   AuthenticationMode = AuthenticationMode.Active,
-                   AllowedAudiences = new []{ "http://localhost:58735/api/" },
-                   IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
-                   {
+                new JwtBearerAuthenticationOptions
+                {
+                    AuthenticationMode = AuthenticationMode.Active,
+                    AllowedAudiences = new[] { "http://trackmykid.webapi.com/api/" },
+                    IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+                    {
                         new SymmetricKeyIssuerSecurityTokenProvider(
                             Issuer,
                             TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["SymmetricKey"]))
-                   }
-               });
+                    }
+                });
         }
     }
 }

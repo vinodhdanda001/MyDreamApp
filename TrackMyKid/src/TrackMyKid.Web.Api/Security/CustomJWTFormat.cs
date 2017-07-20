@@ -30,7 +30,7 @@ namespace TrackMyKid.Web.Api.Security
                 throw new ArgumentNullException(nameof(authenticationTicket));
             }
 
-            const string audienceId = "http://localhost:58735/api/";
+            const string audienceId = "http://trackmykid.webapi.com/api/";
             var securityKey = new InMemorySymmetricSecurityKey(TextEncodings.Base64Url.Decode(_symmetricBase64EncodedKey));
 
             var issued = authenticationTicket.Properties.IssuedUtc;
