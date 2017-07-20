@@ -38,6 +38,7 @@ namespace TrackMyKid.Web.Api.Security
 
             var ticket = new AuthenticationTicket(identity, null);
             context.Validated(ticket);
+
             return Task.FromResult<object>(null);
         }
     }
