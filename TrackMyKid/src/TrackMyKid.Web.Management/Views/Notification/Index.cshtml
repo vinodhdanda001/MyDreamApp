@@ -39,7 +39,7 @@
                         <td>
                             @Html.DropDownListFor(model => model.RouteId, new SelectList(Model.routes, "Route_ID", "Route_Display_Name"), "- Please Select -")
                         </td>
-                        <td>   @Html.ValidationMessageFor(model => model.RouteId) </td>
+                        <td> @Html.ValidationMessageFor(model => model.RouteId) </td>
                     </tr>
                     <tr>
                         <td>
@@ -69,9 +69,10 @@
         <div>
 
             <br />
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Send" class="btn btn-default" />
+            <div>
+                <div>
+                    <input class="button button-reversed" type="submit" value="Send"/>
+                   
                     @*<input type="submit" value="Send" class="button" />*@
                     
                 </div>
@@ -82,6 +83,7 @@
 </div>
 
 <script type="text/javascript">
+   
  $(function(){
 
      $("#RouteId").change(function() {

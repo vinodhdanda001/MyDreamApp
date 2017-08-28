@@ -8,14 +8,18 @@
 
 <html>
 <head>
+    
     <meta name="viewport" content="width=device-width" />
     <title>Add</title>
 </head>
 <body>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js">
+    </script>
+    <script src="~/Scripts/jquery.ptTimeSelect.js"></script>
+
+    <link href="~/Scripts/jquery.ptTimeSelect.css" rel="stylesheet" />
     
     @using (Html.BeginForm()) 
     {
@@ -74,3 +78,9 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[name="TripTime"]').ptTimeSelect();
+    });
+</script>

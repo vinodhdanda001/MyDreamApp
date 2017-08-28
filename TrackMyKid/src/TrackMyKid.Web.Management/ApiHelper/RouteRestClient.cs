@@ -12,16 +12,19 @@ namespace TrackMyKid.Web.Management.ApiHelper
     public class RouteRestClient : IRouteRestClient
     {
         private readonly RestClient _client;
+        private readonly GatewayRestClient _restClient;
         private readonly string _url = ConfigurationManager.AppSettings["webapibaseurl"];
         public RouteRestClient()
         {
             _client = new RestClient(_url);
+            _restClient = new GatewayRestClient();
         }
 
         public List<RouteModel> GetRoutesForOrg(int orgId)
         {
             var request = new RestRequest("api/org/"+ orgId.ToString() +"/route", Method.GET) { RequestFormat = DataFormat.Json };
             var response = _client.Execute<List<RouteModel>>(request);
+            var response1 = _restClient.ExecuteApiRequest< List<RouteModel>>(_client, request);
             if (response.Data == null)
                 throw new Exception(response.ErrorMessage);
             return response.Data;

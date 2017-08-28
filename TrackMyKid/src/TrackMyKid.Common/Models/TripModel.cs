@@ -11,7 +11,7 @@ namespace TrackMyKid.Common.Models
     {
         public int TripId  { get; set; }
         //public string Route_ID { get; set; }
-        public DateTime TripTime { get; set; }
+        public TimeSpan? TripTime { get; set; } //TODO
         public int organizationId { get; set; }
         public int TripSessionID { get; set; }
         public int RouteID { get; set; }
@@ -20,10 +20,10 @@ namespace TrackMyKid.Common.Models
         public TripStatusCode TripStatusCd { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime TripStartTime { get; set; }
+        public TimeSpan TripStartTime { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime TripEndTime { get; set; }
+        public TimeSpan TripEndTime { get; set; }
     }
 
     public enum TripStatusCode

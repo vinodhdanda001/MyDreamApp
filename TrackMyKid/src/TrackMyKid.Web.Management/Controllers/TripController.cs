@@ -14,7 +14,7 @@ namespace TrackMyKid.Web.Management.Controllers
 
         static readonly ITripRestClient RestClient = new TripRestClient();
 
-        private ITripRestClient _restClient;
+        //private ITripRestClient _restClient;
 
         // GET: Trip
         public ActionResult Index(int orgId, int routeId)

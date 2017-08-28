@@ -17,11 +17,11 @@
         <EntityTypeShape EntityType="TranportCatalogModel.APP_ERR_LOG" Width="1.5" PointX="0.75" PointY="10.75" />
         <EntityTypeShape EntityType="TranportCatalogModel.DriverDetail" Width="1.5" PointX="9.375" PointY="7.75" />
         <EntityTypeShape EntityType="TranportCatalogModel.TripHaltTiming" Width="1.5" PointX="7.375" PointY="11.75" />
-        <EntityTypeShape EntityType="TranportCatalogModel.TripStatu" Width="1.5" PointX="9.375" PointY="11.75" />
         <EntityTypeShape EntityType="TranportCatalogModel.TripVehicleDriverDetail" Width="1.5" PointX="11.375" PointY="11.75" />
         <EntityTypeShape EntityType="TranportCatalogModel.OrganizationHalt" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="TranportCatalogModel.RouteHalt" Width="1.5" PointX="3.375" PointY="13.75" />
-        <EntityTypeShape EntityType="TranportCatalogModel.RouteTrip" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="TranportCatalogModel.TripStatu" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="TranportCatalogModel.RouteTrip" Width="1.5" PointX="13.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

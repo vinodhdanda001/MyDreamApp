@@ -22,10 +22,10 @@ namespace TrackMyKid.Web.Api
 
         protected static IContainer Container { get; private set; }
 
-        public Startup()
-        {
-            Issuer = ConfigurationManager.AppSettings["Issuer"];
-        }
+        //public Startup()
+        //{
+        //    Issuer = ConfigurationManager.AppSettings["Issuer"];
+        //}
 
         public void Configuration(IAppBuilder app)
         {
@@ -35,9 +35,9 @@ namespace TrackMyKid.Web.Api
             DependencyInjectionConfig.RegisterContainer(app, configuration, out containerObject);
             Container = containerObject;
 
-            SetupAuthorizationServer(app);
-            SetupAuthenticationTokenVerification(app);
-            app.UseCors(CorsOptions.AllowAll);
+            //SetupAuthorizationServer(app);
+            //SetupAuthenticationTokenVerification(app);
+            //app.UseCors(CorsOptions.AllowAll);
 
             WebApiConfig.Register(configuration);
             app.UseWebApi(configuration);

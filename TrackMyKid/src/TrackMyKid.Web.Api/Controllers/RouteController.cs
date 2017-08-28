@@ -24,7 +24,7 @@ namespace TrackMyKid.Web.Api.Controllers
             _routeService = routeService;
         }
 
-        [Authorize]
+        //[Authorize]
         [Route("api/org/{orgId}/route/{memberID}")]
         [HttpGet]
         public HttpResponseMessage Get(int orgId, string memberId)
@@ -46,7 +46,7 @@ namespace TrackMyKid.Web.Api.Controllers
             return response;
         }
 
-        [Authorize]
+        //[Authorize]
         [Route("api/org/{orgId}/route")]
         [HttpGet]
         public HttpResponseMessage Get(int orgId)

@@ -12,7 +12,7 @@ namespace TrackMyKid.DataLayer.Services
         public int StartTrip(TripModel trip)
         {
             int tripSessionId = -1;
-            trip.TripStartTime = DateTime.Now;
+            trip.TripStartTime = DateTime.Now.TimeOfDay;
 
             TripStatu tripStatus = new TripStatu
             {
@@ -24,8 +24,8 @@ namespace TrackMyKid.DataLayer.Services
                 Route_ID = trip.RouteID,
                 TripId = trip.TripId,
                 TripStatusCode = "I",
-                cr_datetime = trip.TripStartTime,
-                updt_datetime = trip.TripStartTime,
+                cr_datetime = DateTime.Now, // trip.TripStartTime,
+                updt_datetime = DateTime.Now,  //trip.TripStartTime,
                 Vehicle_ID = trip.VehicleID
             };
 
@@ -98,7 +98,7 @@ namespace TrackMyKid.DataLayer.Services
                             {
                                 TripId = trip.TripId,
                                 RouteID = trip.Route_ID,
-                                TripTime = DateTime.MinValue   // To Do the timings has to be adjusted well
+                                TripTime = (TimeSpan)trip.TripStartTime   // To Do the timings has to be adjusted well
                             };
                 return trips.ToList();
             }
@@ -119,7 +119,8 @@ namespace TrackMyKid.DataLayer.Services
                     LastUpdatedBy = "Vinodh", // TODO
                     IsActive = "Y",
                     cr_datetime = DateTime.Now,
-                    updt_datetime = DateTime.Now
+                    updt_datetime = DateTime.Now,
+                    TripStartTime = tripModel.TripTime
                 });
 
                 dbContext.SaveChanges();

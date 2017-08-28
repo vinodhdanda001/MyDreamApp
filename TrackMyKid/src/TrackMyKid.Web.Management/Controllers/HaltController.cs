@@ -13,7 +13,7 @@ namespace TrackMyKid.Web.Management.Controllers
     {
 
         static readonly IHaltRestClient RestClient = new HaltRestClient();
-        private IHaltRestClient _restClient;
+        //private IHaltRestClient _restClient;
         // GET: Halt
         public ActionResult Index(int orgId, int routeId)
         {

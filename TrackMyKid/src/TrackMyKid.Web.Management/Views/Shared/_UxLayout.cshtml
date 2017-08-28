@@ -20,7 +20,8 @@
                     <ul class="sf-menu dropdown">
                         <li class="selected"><a href="index.html">Home</a></li>
                         <li>
-                            <a class="has_submenu" href="examples.html">Routes</a>
+                          @*  <a class="has_submenu" href="examples.html">Routes</a>*@
+                            @Html.ActionLink("Routes", "Index", "Route")
                             <ul>
                                 <li>
                                     <a href="#">Route 1</a>
@@ -100,6 +101,7 @@
                                 <li><a href="#">Driver Management</a></li>
                                 <li><a href="#">Device Management</a></li>
                                 <li><a href="#">Vehicle Management</a></li>
+                                <li>@Html.ActionLink("Route Management", "Index", "Route") </li>
                             </ul>
                         </li>
                     </ul>
