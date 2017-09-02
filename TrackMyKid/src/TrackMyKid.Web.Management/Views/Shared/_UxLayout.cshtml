@@ -7,8 +7,26 @@
     <link href="~/Content/styles.css" rel="stylesheet" type="text/css" />
     @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
     @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="https://maps/documentation/javascript/examples/default.css" rel="stylesheet">
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    @*<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=abcdefg" type="text/javascript"></script>
+    <script type='text/javascript'>
+        $(function () {
+            $("S_location").live('click', function initialize() {
+                debugger;
+                if (GBrowserIsCompatible()) {
+                    var map = new Map2(document.getElementById('map_canvas'));
+                    map.setCenter(new GLatLng(51.5, -0.1167), 2);
+                    map.addOverlay(new Marker(new GLatLng(43.6667, -79.4168)));
+                    map.setUIToDefault();
+                }
+            });
+
+            
+        });
+         </script>*@
 </head>
 <body>
     <div id="container">
@@ -20,7 +38,7 @@
                     <ul class="sf-menu dropdown">
                         <li class="selected"><a href="index.html">Home</a></li>
                         <li>
-                          @*  <a class="has_submenu" href="examples.html">Routes</a>*@
+                            @*  <a class="has_submenu" href="examples.html">Routes</a>*@
                             @Html.ActionLink("Routes", "Index", "Route")
                             <ul>
                                 <li>
@@ -65,32 +83,33 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="has_submenu" href="#">Tracking</a>
+                            @*<a class="has_submenu" href="#">Tracking</a>*@
+                            @Html.ActionLink("Tracking", "Index", "Tracking", new { }, new { CssClassPropertyAttribute = "has_submenu" });
                         </li>
                         <li>
                             <a class="has_submenu" href="#">Notification</a>
                             <ul>
                                 <li>
                                     @Html.ActionLink("Organization Level", "Index", "Notification", new
-                                       {
-                                           nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Organization
-                                       }, new { })
+                               {
+                                   nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Organization
+                               }, new { })
                                     @*<a href="#">To Organization</a>*@
                                 </li>
                                 <li>
-                                        @Html.ActionLink("Route Specific", "Index", "Notification", new
-                                    {
-                                        nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Route
-                                    }, new { })
-                                    
-                                  @*<a href="#">Route Specific</a>*@
+                                    @Html.ActionLink("Route Specific", "Index", "Notification", new
+                                   {
+                                       nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Route
+                                   }, new { })
+
+                                    @*<a href="#">Route Specific</a>*@
                                 </li>
                                 <li>
                                     @Html.ActionLink("Trip Specific", "Index", "Notification", new
-                                    {
-                                        nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Trip
-                                    }, new { })
-                                @*<a href="#">Trip Specific</a>*@
+                               {
+                                   nLevel = TrackMyKid.Common.Enums.Enumerations.NotificationLevel.Trip
+                               }, new { })
+                                    @*<a href="#">Trip Specific</a>*@
                                 </li>
                                 <li><a href="#">Member Specific</a></li>
                             </ul>

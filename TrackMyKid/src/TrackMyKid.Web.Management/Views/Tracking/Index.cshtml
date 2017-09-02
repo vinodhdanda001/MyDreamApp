@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UxLayout.cshtml";
+}
+
+<!-- Maps Api, Ajax Search Api and Stylesheet
+// Note: If you are already using the Maps API then do not include it again
+//       If you are already using the AJAX Search API, then do not include it
+//       or its stylesheet again
+//
+// The Key Embedded in the following script tags is designed to work with
+// the following site:
+// http://www.abhilashaengineering.com
+    // /*
+        https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670,151.1957&radius=500&types=food&name=cruise&key=AIzaSyCo-K4x7tF-EJ_fR1UnZMNewpYx0eSGbfE
+        */
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 17.41630, lng: 78.37391};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: uluru
+        });
+        infoWindow = new google.maps.InfoWindow;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('You are here!');
+                infoWindow.open(map);
+                map.setCenter(pos);
+                var marker = new google.maps.Marker({
+                  position: pos,
+                  map: map
+                });
+            }, function () {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+        //var marker = new google.maps.Marker({
+        //  position: uluru,
+        //  map: map
+        //});
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(browserHasGeolocation ?
+                                'Error: The Geolocation service failed.' :
+                                'Error: Your browser doesn\'t support geolocation.');
+          infoWindow.open(map);
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo-K4x7tF-EJ_fR1UnZMNewpYx0eSGbfE&callback=initMap">
+    </script>
+</body>
+</html>
