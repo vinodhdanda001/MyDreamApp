@@ -6,6 +6,8 @@ using System.Net.Http.Formatting;
 using System.Web.Http;
 using TrackMyKid.Common.Models;
 using TrackMyKid.DataLayer.Interfaces;
+using Newtonsoft.Json;
+
 
 namespace TrackMyKid.Web.Api.Controllers
 {
@@ -85,13 +87,17 @@ namespace TrackMyKid.Web.Api.Controllers
             return response;
         }
 
+        
+
         [Route("api/trip/add")]
         [HttpPost]
-        public HttpResponseMessage AddTrip(TripModel trip)
+        public HttpResponseMessage AddTrip(dynamic jsonStr)
         {
+            TripModel trip = JsonConvert.DeserializeObject<TripModel>(jsonStr.ToString());
+            
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
             trip = _tripDataService.CreateTrip(trip);
-            if(trip.TripId > 0)
+            if (trip.TripId > 0)
             {
                 response = Request.CreateResponse(HttpStatusCode.OK, trip);
             }

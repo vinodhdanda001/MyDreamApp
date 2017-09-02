@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using TrackMyKid.Common.Models;
 using TrackMyKid.Web.Management.ApiHelper.Interfaces;
-
+using Newtonsoft.Json;
 namespace TrackMyKid.Web.Management.ApiHelper
 {
     public class TripRestClient : ITripRestClient
@@ -32,8 +32,11 @@ namespace TrackMyKid.Web.Management.ApiHelper
         public TripModel AddTrip(TripModel trip)
         {
             //api/org/{orgId}/trip/create
-            var request = new RestRequest("api/trip/add", Method.POST) { RequestFormat = DataFormat.Json, };
-            request.AddBody(trip);
+            var request = new RestRequest("api/trip/add", Method.POST) { RequestFormat = DataFormat.Json
+
+            };
+            var jsonStr = JsonConvert.SerializeObject(trip);
+            request.AddBody(jsonStr);
             var response = _client.Execute<TripModel>(request);
 
             if (response.Data == null)

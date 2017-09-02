@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace TrackMyKid.Common.Models
 {
+    [Serializable]
     public class TripModel
-    {
+    {        
         public int TripId  { get; set; }
         //public string Route_ID { get; set; }
         public TimeSpan? TripTime { get; set; } //TODO
