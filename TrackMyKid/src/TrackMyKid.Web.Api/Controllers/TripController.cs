@@ -36,11 +36,26 @@ namespace TrackMyKid.Web.Api.Controllers
 
             if (trips != null && trips.Count > 0)
             {
-                response = Request.CreateResponse<IEnumerable<TripModel>>(HttpStatusCode.OK, trips);
+                var tripsSerialized = JsonConvert.SerializeObject(trips);
+                response = Request.CreateResponse(HttpStatusCode.OK, tripsSerialized);
             }
             else
             {
                 response = Request.CreateResponse(HttpStatusCode.NoContent);
+            }
+            return response;
+        }
+
+        [Route("api/trip/add")]
+        [HttpPost]
+        public HttpResponseMessage AddTrip(dynamic jsonStr)
+        {
+            TripModel trip = JsonConvert.DeserializeObject<TripModel>(jsonStr.ToString());
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
+            trip = _tripDataService.CreateTrip(trip);
+            if (trip.TripId > 0)
+            {
+                response = Request.CreateResponse(HttpStatusCode.OK, trip);
             }
             return response;
         }
@@ -89,20 +104,7 @@ namespace TrackMyKid.Web.Api.Controllers
 
         
 
-        [Route("api/trip/add")]
-        [HttpPost]
-        public HttpResponseMessage AddTrip(dynamic jsonStr)
-        {
-            TripModel trip = JsonConvert.DeserializeObject<TripModel>(jsonStr.ToString());
-            
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NoContent);
-            trip = _tripDataService.CreateTrip(trip);
-            if (trip.TripId > 0)
-            {
-                response = Request.CreateResponse(HttpStatusCode.OK, trip);
-            }
-            return response;
-        }
+       
 
     }
 }

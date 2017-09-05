@@ -20,13 +20,19 @@ namespace TrackMyKid.Web.Management.ApiHelper
             _client = new RestClient(_url);
         }
 
+        //public string GetTripsForRoute(int orgId, int routeId)
         public List<TripModel> GetTripsForRoute(int orgId, int routeId)
         {
 
             ////http://localhost:58735/api/org/100/trip/1001
             var request = new RestRequest("api/org/" + orgId.ToString() + "/trip/" + routeId.ToString(), Method.GET) { RequestFormat = DataFormat.Json };
-            var response = _client.Execute<List<TripModel>>(request);
-            return response.Data;
+            //var response = _client.Execute<List<TripModel>>(request);
+            var response = _client.Execute(request);
+            string str = response.Content;
+            List<TripModel> trips = JsonConvert.DeserializeObject<List<TripModel>>(str);
+
+            //return response.Data
+                return trips;
         }
 
         public TripModel AddTrip(TripModel trip)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,7 +21,10 @@ namespace TrackMyKid.Web.Management.Controllers
         public ActionResult Index(int orgId, int routeId)
         {
             ViewBag.ROUTEID = routeId;
-            return View(RestClient.GetTripsForRoute(orgId, routeId));
+            List<TripModel> trips = RestClient.GetTripsForRoute(orgId, routeId);
+
+           
+            return View(trips);
         }
 
         [HttpGet]
