@@ -4,3 +4,6 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Release\log4net.dl
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Release\log4net.xml
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Release\TrackMyKid.Common.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Release\TrackMyKid.Common.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Release\Newtonsoft.Json.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\bin\Release\Newtonsoft.Json.xml
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.Common\obj\Release\TrackMyKid.Common.csprojResolveAssemblyReference.cache

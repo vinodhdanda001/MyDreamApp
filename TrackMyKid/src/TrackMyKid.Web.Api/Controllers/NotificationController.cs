@@ -27,7 +27,9 @@ namespace TrackMyKid.Web.Api.Controllers
 
             if(_memberService.IsMemberExists(registerModel.OrganizationId, registerModel.PrimaryContactNum ))
             {
-
+                /// TODO
+                /// 1. Get string Message with Format based on type of Message for SMS Notification
+                /// 2. Send SMS Notification. 
             }
             else
             {

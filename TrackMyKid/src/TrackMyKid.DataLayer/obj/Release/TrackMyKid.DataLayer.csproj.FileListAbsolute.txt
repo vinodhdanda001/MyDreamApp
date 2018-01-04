@@ -14,3 +14,5 @@ E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\log4net
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Release\TrackMyKid.DataLayer.csprojResolveAssemblyReference.cache
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Release\TrackMyKid.DataLayer.dll
 E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\obj\Release\TrackMyKid.DataLayer.pdb
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\Newtonsoft.Json.dll
+E:\MyDream\Transport App\TrackMyKid\src\TrackMyKid.DataLayer\bin\Release\Newtonsoft.Json.xml

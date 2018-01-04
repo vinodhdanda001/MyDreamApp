@@ -22,10 +22,10 @@ namespace TrackMyKid.Web.Api.Controllers
         }
 
         [Route("")]
-        public IHttpActionResult Post(LoginModel loginModel)
+        public HttpResponseMessage Post(LoginModel loginModel)
         {
             if (loginModel == null)
-                return BadRequest();
+                return new HttpResponseMessage(HttpStatusCode.BadRequest);
 
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
 
@@ -38,7 +38,7 @@ namespace TrackMyKid.Web.Api.Controllers
             else
                 response.StatusCode = HttpStatusCode.Forbidden;
 
-            return Ok();
+            return response;
         }
     }
 }
